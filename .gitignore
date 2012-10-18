@@ -1,0 +1,21 @@
+#         OS
+
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Thumbs.db
+Icon?
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+#         GIT
+
+*.orig
+
+#         IDE
+
+#        VIDEO
+
+www_public/assets/assets/video/*
