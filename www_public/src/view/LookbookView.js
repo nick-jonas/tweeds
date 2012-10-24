@@ -1,20 +1,44 @@
-var LookbookView = Backbone.View.extend({
+define([
+	'jquery',
+	'underscore',
+	'backbone',
+	'collection/lookbooks',
+	'plugins/text!templates/lookbook.html'
+], function($, jquery, backbone, lookbooks, lookbookTemplate){
 
-	tagName: "li",
+	var LookbookView = Backbone.View.extend({
 
-	className: "lookbook-item",
+		tagName: "li",
 
-	template: _.template($('lookbook-template').html()),
+		className: "lookbook-item",
 
-	events: {
-		// "click .destroy"				: "onDestroyClick",
-	},
+		template: $(lookbookTemplate),
 
-	initialize: function(){
-		_.bindAll(this, 'render', 'remove');
-	},
+		events: {
+			// "click .destroy"				: "onDestroyClick",
+		},
 
-	render: function(){
-		$(this.el).html(this.template(this.model.toJSON()));
-	}
+		initialize: function(){
+			_.bindAll(this, 'render', 'remove');
+
+			var that = this;
+			this.collection = new lookbooks();
+			this.collection.fetch({
+				'success':function(coll, res){
+					that.render();
+				},
+				'error':function(coll, res){
+					console.log('error fetching lookbook!');
+					console.dir(res);
+				}
+			});
+		},
+
+		render: function(){
+			$(this.el).html('hey');
+		}
+	});
+
+	return LookbookView;
 });
+

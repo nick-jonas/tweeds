@@ -1,0 +1,112 @@
+$box-width:88px;
+$box-height:80px;
+$boxes:2;
+
+.main-nav{
+	position:fixed;
+	top:25%;
+	margin:0px;
+	padding:0px;
+	height:$box-height * $boxes;
+	width:100%;
+	vertical-align:top;
+	font-size:0px;
+
+	.nav-content{
+		@include rgba-background($nav-content);
+		display:inline-block;
+		width:80%;
+		height:405px;
+		position:relative;
+		.logo-text{
+			display:block;
+			margin:65px auto;
+			@include sprite(logo-typed);
+		}
+		.nav-buttons{
+			margin:0 auto;
+			width:585px;
+			display:block;
+			> ul {
+				list-display-type:none;
+				margin:0;
+
+				padding:0;
+				li {
+					display:inline;
+					a {
+						float:left;
+						&.lookbook{
+							@include sprite(nav_lookbook_off);
+						}
+						&.collection{
+							@include sprite(nav_collection_off);
+						}
+						&.about{
+							@include sprite(nav_about_off);
+						}
+						&.buy{
+							@include sprite(nav_buy_off);
+						}
+						&.instagram{
+							@include sprite(nav_instagram_off);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.boxes{
+		display:inline-block;
+		vertical-align:top;
+		margin:0px;
+		padding:0px;
+		.box{
+			width:$box-width;
+			height:$box-height;
+			display:block;
+		}
+		#logo-icon{
+			background:$nav-box;
+			.icon{
+				@include sprite(logo-icon);
+				display:block;
+				margin:15px 0 0 18px;
+			}
+		}
+		#nav-arrow{
+			.arrow{
+				display:block;
+				margin: 19px 0 0 23px;
+			}
+		}
+	}
+}
+
+.closed{
+	left:-80%;
+	.boxes{
+		#nav-arrow{
+			background:black;
+			.arrow{
+				@include sprite(arrow-white-right);
+			}
+		}
+	}
+}
+
+.open{
+	.nav-content{
+
+	}
+	.boxes{
+		#nav-arrow{
+			background:white;
+			@include rotate(180deg);
+			.arrow{
+				@include sprite(arrow-black-right);
+			}
+		}
+	}
+}

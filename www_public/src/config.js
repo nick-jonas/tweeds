@@ -13,7 +13,10 @@ require.config({
     jquery: "../assets/js/libs/jquery",
     lodash: "../assets/js/libs/lodash",
     backbone: "../assets/js/libs/backbone",
-    underscore: "../assets/js/libs/underscore-min"
+    underscore: "../assets/js/libs/underscore-min",
+    // Just a short cut so we can put our html outside the js dir
+    // When you have HTML/CSS designers this aids in keeping them out of the js directory
+    templates: '../templates'
   },
 
   shim: {
@@ -22,6 +25,8 @@ require.config({
       deps: ["lodash", "jquery"],
       exports: "Backbone"
     },
+
+    "plugins/text": ["require"],
 
     // Backbone.LayoutManager depends on Backbone.
     "plugins/backbone.layoutmanager": ["backbone"]

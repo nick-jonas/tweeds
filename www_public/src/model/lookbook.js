@@ -1,7 +1,8 @@
 define([
+	'jquery',
 	'underscore',
 	'backbone'
-], function(_, Backbone){
+], function($, _, Backbone){
 
 	var lookbook = Backbone.Model.extend({
 
