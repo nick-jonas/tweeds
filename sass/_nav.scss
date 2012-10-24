@@ -36,22 +36,30 @@ $boxes:2;
 					display:inline;
 					a {
 						float:left;
-						&.lookbook{
-							@include sprite(nav_lookbook_off);
-						}
-						&.collection{
-							@include sprite(nav_collection_off);
-						}
-						&.about{
-							@include sprite(nav_about_off);
-						}
-						&.buy{
-							@include sprite(nav_buy_off);
-						}
-						&.instagram{
-							@include sprite(nav_instagram_off);
-						}
+						&.lookbook{ @include sprite(nav_lookbook_off);}
+						&.lookbook:hover{ @include sprite(nav_lookbook_on);}
+						&.collection{ @include sprite(nav_collection_off);}
+						&.collection:hover{ @include sprite(nav_collection_on);}
+						&.about{ @include sprite(nav_about_off);}
+						&.about:hover{ @include sprite(nav_about_on);}
+						&.buy{ @include sprite(nav_buy_off);}
+						&.buy:hover{ @include sprite(nav_buy_on);}
+						&.instagram{ @include sprite(nav_instagram_off);}
+						&.instagram:hover{ @include sprite(nav_instagram_on);}
 					}
+				}
+			}
+			.social-buttons{
+				font-size:0px;
+
+				.social{
+					margin:25px 0 0 -27px;
+					padding: 0 13px 0 18px;
+					display:inline-block;
+					&.facebook{ @include sprite(social-icons-fb-off);}
+					&.facebook:hover{ @include sprite(social-icons-fb-on);}
+					&.twitter{ @include sprite(social-icons-twitter-off);}
+					&.twitter:hover{ @include sprite(social-icons-twitter-on);}
 				}
 			}
 		}
