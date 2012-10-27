@@ -19,8 +19,4 @@ Icon?
 #        VIDEO
 
 www_public/assets/assets/video/*
-
-/sass/.sass-cache/5a43696eae846dab5bfb7b2f1fca89c5c2fbb123/_mixins.scssc
-/sass/.sass-cache/5a43696eae846dab5bfb7b2f1fca89c5c2fbb123/_nav.scssc
-/sass/.sass-cache/5a43696eae846dab5bfb7b2f1fca89c5c2fbb123/_variables.scssc
-/sass/.sass-cache/5a43696eae846dab5bfb7b2f1fca89c5c2fbb123/main.scssc
+/sass/.sass-cache/*

@@ -4,18 +4,18 @@ define([
 	'backbone',
 	'collection/lookbooks',
 	'plugins/text!templates/lookbook.html'
-], function($, jquery, backbone, lookbooks, lookbookTemplate){
+], function($, _, Backbone, lookbooks, lookbookTemplate){
 
 	var LookbookView = Backbone.View.extend({
 
-		tagName: "li",
+		// tagName: "li",
 
-		className: "lookbook-item",
+		// className: "lookbook-item",
 
-		template: $(lookbookTemplate),
+		// template: $(lookbookTemplate),
 
 		events: {
-			// "click .destroy"				: "onDestroyClick",
+			"click .arrow"		: "onArrowClick"
 		},
 
 		initialize: function(){
@@ -34,8 +34,12 @@ define([
 			});
 		},
 
+		onArrowClick: function(){
+			console.log('clicked arrow!');
+		},
+
 		render: function(){
-			$(this.el).html('hey');
+			console.log('render!');
 		}
 	});
 

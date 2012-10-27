@@ -4,6 +4,7 @@
 		<title>Tweeds</title>
 		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 		<link rel="stylesheet" href="/assets/css/main.css">
+		<link rel="stylesheet" href="/assets/css/supersized.css" type="text/css" media="screen" />
 	</head>
 
 	<body>
@@ -12,7 +13,7 @@
 
 			<div class="main-nav closed">
 				<div class="nav-content">
-					<span class="logo-text hide-text">Tweeds</span>
+					<div class="logo-text hide-text"><img src="/assets/img/src/logo-typed.png"/></div>
 					<div class="nav-buttons">
 						<ul>
 							<li><a href="#" class="lookbook hide-text">LOOKBOOK</a></li>
@@ -33,15 +34,23 @@
 					</a>
 					<a id="nav-arrow" class="box hide-text" href="#/nav">Navigation
 						<span class="arrow"></span>
-					</div>
+					</a>
 				</div>
 			</div>
 
+			<section id="lookbook">
+				<a href="#" id="prevslide" class="load-item arrow left"></a>
+				<a href="#" id="nextslide" class="load-item arrow right"></a>
+			</section>
 
 		</div>
 
-		<!-- Application source. -->
-  		<script data-main="/src/config" src="/assets/js/libs/require.js"></script>
+		<!-- Application source.
+  		<script data-main="/src/config" src="/assets/js/libs/require.js"></script> -->
+  		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  		<script type="text/javascript" src="/assets/js/plugins/jquery.easing.min.js"></script>
+  		<script type="text/javascript" src="/assets/js/plugins/supersized.3.2.7.min.js"></script>
+  		<script src="/assets/js/main.js"></script>
 
   		<!-- Live Reload -->
   		<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

@@ -1,4 +1,6 @@
 @import "rgbapng";
+@import "animation";
+@import "compass/css3/transition";
 
 // bootstrap
 @import "bootstrap/mixins";
@@ -19,7 +21,7 @@
 @import "variables";
 @import "mixins";
 @import "nav";
-
+@import "sections/lookbook";
 
 html, body{
 	margin:0;

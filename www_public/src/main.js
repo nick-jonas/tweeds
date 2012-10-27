@@ -5,10 +5,12 @@ require([
   // Main Router.
   "router",
 
-  "view/LookbookView"
+  "view/LookbookView",
+
+  "view/AppView"
 ],
 
-function(app, Router, LookbookView) {
+function(app, Router, LookbookView, AppView) {
 
   // Define your master router on the application namespace and trigger all
   // navigation from this instance.
@@ -18,7 +20,8 @@ function(app, Router, LookbookView) {
   // root folder to '/' by default.  Change in app.js.
   Backbone.history.start({ pushState: true, root: app.root });
 
-  app.lookbookView = new LookbookView();
+  //app.lookbookView = new LookbookView();
+  app.mainView = new AppView();
 
   // All navigation that is relative should be passed through the navigate
   // method, to be processed by the router. If the link has a `data-bypass`

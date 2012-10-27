@@ -1,0 +1,26 @@
+$minwidth:800px;
+
+#lookbook{
+
+	// ARROWS
+	.arrow{
+		@include sprite(arrow-white-right);
+		position:absolute;
+		top:50%;
+		z-index:10;
+		&.left{
+			@include rotate(180deg);
+			left:25px;
+		}
+		&.right{
+			right:25px
+		}
+	}
+
+	@media screen and (max-width: $bp-small-nav) {
+		#prevslide, #nextslide{
+			display:none !important;
+		}
+	}
+
+}

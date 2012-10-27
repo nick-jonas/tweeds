@@ -11,6 +11,7 @@ $boxes:2;
 	width:100%;
 	vertical-align:top;
 	font-size:0px;
+	z-index:100;
 
 	.nav-content{
 		@include rgba-background($nav-content);
@@ -19,9 +20,9 @@ $boxes:2;
 		height:405px;
 		position:relative;
 		.logo-text{
-			display:block;
 			margin:65px auto;
-			@include sprite(logo-typed);
+			padding:0 25px 0 25px;
+			width:50%;
 		}
 		.nav-buttons{
 			margin:0 auto;
@@ -30,7 +31,6 @@ $boxes:2;
 			> ul {
 				list-display-type:none;
 				margin:0;
-
 				padding:0;
 				li {
 					display:inline;
@@ -49,6 +49,7 @@ $boxes:2;
 					}
 				}
 			}
+
 			.social-buttons{
 				font-size:0px;
 
@@ -60,6 +61,33 @@ $boxes:2;
 					&.facebook:hover{ @include sprite(social-icons-fb-on);}
 					&.twitter{ @include sprite(social-icons-twitter-off);}
 					&.twitter:hover{ @include sprite(social-icons-twitter-on);}
+				}
+			}
+
+			@media screen and (max-width: $bp-medium-nav) {
+				> ul{
+					width: 100%;
+					position: absolute;
+					left: 50%;
+					margin-left: -110px;
+					li{
+						a{
+							display:block;
+							float:none;
+							margin-top:5px;
+							&.lookbook{ margin-left: 67px; }
+							&.collection{ margin-left: 32px;}
+							&.about{ margin-left: 63px;}
+							&.buy{ margin-left: 72px;}
+							&.instagram{ margin-left: 44px;}
+						}
+					}
+				}
+				.social-buttons{
+					position: absolute;
+					left: 50%;
+					margin-left: -18px;
+					bottom: 40px;
 				}
 			}
 		}
@@ -90,9 +118,32 @@ $boxes:2;
 			}
 		}
 	}
+
+	@media screen and (max-width: $bp-small-nav) {
+		.boxes{
+			display:none;
+		}
+
+		&.open{
+			.nav-content{
+
+			}
+		}
+		&.closed{
+			.nav-content{
+				left:80%;
+			}
+		}
+		.nav-content{
+			width:100%;
+
+		}
+	}
 }
 
 .closed{
+	@include animation(my-animation 1s);
+
 	left:-80%;
 	.boxes{
 		#nav-arrow{
@@ -105,6 +156,9 @@ $boxes:2;
 }
 
 .open{
+
+	@include single-transition(left, 0.7s ease-in-out);
+
 	.nav-content{
 
 	}
@@ -117,4 +171,9 @@ $boxes:2;
 			}
 		}
 	}
+}
+
+@include keyframes(my-animation){
+	0%{ left:0px;}
+	100%{ left:-80%;}
 }
