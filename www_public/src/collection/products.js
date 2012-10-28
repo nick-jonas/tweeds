@@ -1,8 +1,9 @@
 define([
     'jquery',
     'backbone',
-    'model/product'
-    ], function($, Backbone, product){
+    'model/product',
+    'app'
+    ], function($, Backbone, product, app){
 
         var products = Backbone.Collection.extend({
 
@@ -16,6 +17,9 @@ define([
 
             parse: function(res){
                 this.backgrounds = res.productPages.backgrounds;
+                for(var i = 0; i < this.backgrounds.length; i++){
+                    this.backgrounds[i] = app.imgSrc + this.backgrounds[i];
+                }
                 return res.productPages.products;
             }
 

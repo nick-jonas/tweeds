@@ -9,42 +9,42 @@
         "products": [
             {
                 "id"            : "product-name-1",
-                "title"         : "The Product Name 1",
+                "title"         : "Product Name 1",
                 "imgSmall"      : "/products/small/product-id.png",
                 "imgLarge"      : "/products/large/product-id.png",
                 "circleColor"   : "#4dc8e9"
             },
             {
                 "id"            : "product-name-2",
-                "title"         : "The Product Name 2",
+                "title"         : "Product Name Longer",
                 "imgSmall"      : "/products/small/product-id.png",
                 "imgLarge"      : "/products/large/product-id.png",
                 "circleColor"   : "#00853e"
             },
             {
                 "id"            : "product-name-3",
-                "title"         : "The Product Name 3",
+                "title"         : "Product Name 3",
                 "imgSmall"      : "/products/small/product-id.png",
                 "imgLarge"      : "/products/large/product-id.png",
                 "circleColor"   : "#e0327b"
             },
             {
                 "id"            : "product-name-4",
-                "title"         : "The Product Name 4",
+                "title"         : "Product Name 4",
                 "imgSmall"      : "/products/small/product-id.png",
                 "imgLarge"      : "/products/large/product-id.png",
                 "circleColor"   : "#efeb00"
             },
             {
                 "id"            : "product-name-5",
-                "title"         : "The Product Name 5",
+                "title"         : "Product Name 5",
                 "imgSmall"      : "/products/small/product-id.png",
                 "imgLarge"      : "/products/large/product-id.png",
                 "circleColor"   : "#ef2a3c"
             },
             {
                 "id"            : "product-name-6",
-                "title"         : "The Product Name 6",
+                "title"         : "Product Name 6",
                 "imgSmall"      : "/products/small/product-id.png",
                 "imgLarge"      : "/products/large/product-id.png",
                 "circleColor"   : "#4dc8e9"

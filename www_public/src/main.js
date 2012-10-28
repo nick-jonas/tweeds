@@ -4,14 +4,25 @@ require([
 
   // Main Router.
   "router",
-
+  "handlebars",
   "view/NavView",
   "view/LookbookView",
   "view/AppView",
   "view/ProductsView"
 ],
 
-function(app, Router, NavView, LookbookView, AppView, ProductsView) {
+function(app, Router, Handlebars, NavView, LookbookView, AppView, ProductsView) {
+
+  Handlebars.registerHelper("debug", function(optionalValue) {
+    console.log("Current Context");
+    console.log("====================");
+    console.log(this);
+    if (optionalValue) {
+        console.log("Value");
+        console.log("====================");
+        console.log(optionalValue);
+    }
+  });
 
   // Define your master router on the application namespace and trigger all
   // navigation from this instance.

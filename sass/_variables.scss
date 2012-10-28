@@ -11,3 +11,14 @@ $nav-content: rgba(0,208,253,0.70);
 // breakpoints
 $bp-medium-nav: 800px;
 $bp-small-nav:460px;
+
+
+
+// font stacks
+$garamond: "garamond-premier-pro-display","adobe-garamond-pro", Garamond, ‘Hoefler Text’, ‘Times New Roman’, Times, serif;
+
+@mixin body-text( $fontsize:1em, $color:#000000 ){
+    font-family: $garamond;
+    font-weight:300;
+    font-size:$fontsize;
+}

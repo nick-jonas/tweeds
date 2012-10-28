@@ -1,10 +1,24 @@
+<div class="backgrounds">
+    {{#each backgrounds}}
+        <div class="products-bg" style="background-image:url('/{{this}}');"></div>
+    {{/each}}
+</div>
 <div class="products">
-    {{#each products}}
-        <li id="{{this.id}}" class="product-circle" style="background-color:{{this.circleColor}};">
-            <div class="product-shot">
-                <img src="{{this.imgSmall}}"/>
+
+    {{#each this.productRows.rows}}
+    <div class="product-row">
+        {{#each this.row}}
+           <div id="{{this.id}}" class="product-circle" style="background-color:{{this.circleColor}};">
+                <div class="product-shot">
+                    <img src="{{this.imgSmall}}"/>
+                </div>
+                <div class="product-name">
+                    <h1 class="the">THE</h1>
+                    <div class="product-name-container"><h1>{{capitalize this.title}}</h1></div>
+                    <div class="see-details hide-text"></div>
+                </div>
             </div>
-            <h1>{{this.title}}</h1>
-        </li>
+        {{/each}}
+    </div>
     {{/each}}
 </div>
