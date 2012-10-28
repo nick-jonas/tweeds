@@ -1,32 +1,32 @@
 {
 	"sections": [
 		{
-			"id" : "happy-boy",
+			"title" : "happy-boy",
 			"video" : null,
-			"imgPath" : "lookbook/1.jpg"
+			"image" : "/lookbook/1.jpg"
 		},
 		{
-			"id" : "sky-ocean",
+			"title" : "sky-ocean",
 			"video" : null,
-			"imgPath" : "lookbook/2.jpg"
+			"image" : "/lookbook/2.jpg"
 		},
 		{
-			"id" : "pull-down-pants",
+			"title" : "pull-down-pants",
 			"video" : {
 				"id": "surf demo",
 				"path" : "assets/video/surfdemo.mp4"
 				},
-			"imgPath" : "lookbook/3.jpg"
+			"image" : "/lookbook/3.jpg"
 		},
 		{
-			"id" : "surfing",
+			"title" : "surfing",
 			"video" : null,
-			"imgPath" : "lookbook/4.jpg"
+			"image" : "/lookbook/4.jpg"
 		},
 		{
-			"id" : "grab-butt",
+			"title" : "grab-butt",
 			"video" : null,
-			"imgPath" : "lookbook/5.jpg"
+			"image" : "/lookbook/5.jpg"
 		}
 	]
 }

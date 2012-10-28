@@ -1,0 +1,10 @@
+<div class="products">
+    {{#each products}}
+        <li id="{{this.id}}" class="product-circle" style="background-color:{{this.circleColor}};">
+            <div class="product-shot">
+                <img src="{{this.imgSmall}}"/>
+            </div>
+            <h1>{{this.title}}</h1>
+        </li>
+    {{/each}}
+</div>

@@ -1,14 +1,20 @@
 define([
+    'app',
 	'jquery',
 	'underscore',
 	'backbone'
-], function($, _, Backbone){
+], function(app, $, _, Backbone){
 
 	var lookbook = Backbone.Model.extend({
 
 		initialize: function(){
-			console.log('created lookbook: ' + this.id);
-		}
+
+		},
+
+        parse: function(res){
+            res.image = app.imgSrc + res.image;
+            return res;
+        }
 
 	});
 
