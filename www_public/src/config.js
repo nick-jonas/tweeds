@@ -20,14 +20,14 @@ require.config({
     plugins: "../assets/js/plugins",
 
     // Libraries.
-    jquery: "../assets/js/libs/jquery",
-    lodash: "../assets/js/libs/lodash",
-    backbone: "../assets/js/libs/backbone",
-    hbs: "../assets/js/libs/hbs",
-    handlebars: "../assets/js/libs/Handlebars",
-    underscore: "../assets/js/libs/hbs/underscore",
+    jquery:         "../assets/js/libs/jquery",
+    lodash:         "../assets/js/libs/lodash",
+    backbone:       "../assets/js/libs/backbone",
+    hbs:            "../assets/js/libs/hbs",
+    handlebars:     "../assets/js/libs/Handlebars",
+    underscore:     "../assets/js/libs/hbs/underscore",
     i18nprecompile: "../assets/js/libs/hbs/i18nprecompile",
-    json2: "../assets/js/libs/hbs/json2",
+    json2:          "../assets/js/libs/hbs/json2",
     // Just a short cut so we can put our html outside the js dir
     // When you have HTML/CSS designers this aids in keeping them out of the js directory
     templates: './template'
@@ -56,9 +56,8 @@ require.config({
     // Backbone.LayoutManager depends on Backbone.
     "plugins/backbone.layoutmanager": ["backbone"],
 
-    "plugins/jquery.easing.min": ["jquery"],
-
-    "plugins/supersized.3.2.7.min": ["jquery"]
+    "plugins/jquery.easing.min":    ["jquery"],
+    "plugins/supersized":           ["jquery"]
   }
 
 });

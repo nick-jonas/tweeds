@@ -8,7 +8,7 @@
     {{#each this.productRows.rows}}
     <div class="product-row">
         {{#each this.row}}
-           <div id="{{this.id}}" class="product-circle" style="background-color:{{this.circleColor}};">
+           <div id="{{this.id}}" class="circle-{{@index}} product-circle" style="background-color:{{this.circleColor}};">
                 <div class="product-shot">
                     <img src="{{this.imgSmall}}"/>
                 </div>

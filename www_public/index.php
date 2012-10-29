@@ -49,10 +49,8 @@
 				<a href="#" id="nextslide" class="load-item arrow right"></a>
 			</section>
 
-			<section id="products">
-
-			</section>
-
+			<section id="products"></section>
+			<section id="instagram"></section>
 
 
 

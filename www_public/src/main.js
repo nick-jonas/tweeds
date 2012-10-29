@@ -8,11 +8,13 @@ require([
   "view/NavView",
   "view/LookbookView",
   "view/AppView",
-  "view/ProductsView"
+  "view/ProductsView",
+  "view/InstagramView"
 ],
 
-function(app, Router, Handlebars, NavView, LookbookView, AppView, ProductsView) {
+function(app, Router, Handlebars, NavView, LookbookView, AppView, ProductsView, InstagramView) {
 
+  // Handlebars debugger
   Handlebars.registerHelper("debug", function(optionalValue) {
     console.log("Current Context");
     console.log("====================");
@@ -36,7 +38,8 @@ function(app, Router, Handlebars, NavView, LookbookView, AppView, ProductsView) 
   app.imgSrc = (app.isRetina) ? 'assets/img/src2x' : 'assets/img/src';
 
   app.navView   = new NavView();
-  app.productsView = new ProductsView();
+  app.instaView = new InstagramView();
+  //app.productsView = new ProductsView();
   //app.lookView  = new LookbookView();
 
   // All navigation that is relative should be passed through the navigate

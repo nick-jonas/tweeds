@@ -1,6 +1,7 @@
 @import "rgbapng";
 @import "animation";
 @import "compass/css3/transition";
+@import "compass/css3/box-shadow";
 
 // bootstrap
 @import "bootstrap/mixins";
@@ -21,8 +22,10 @@
 @import "variables";
 @import "mixins";
 @import "nav";
+
 @import "sections/lookbook";
 @import "sections/products";
+@import "sections/instagram";
 
 html, body{
 	margin:0;

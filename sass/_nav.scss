@@ -118,28 +118,28 @@ $boxes:2;
 			}
 		}
 	}
+}
 
-	@media screen and (max-width: $bp-small-nav) {
+@media screen and (max-width: $bp-small-nav) {
+
+	.main-nav{
+		position:absolute;
+		top:0px;
+		left:0px;
+		width:100%;
+		.nav-content{
+			width:100%;
+		}
+		&.closed{
+			.nav-content{ left:80%; }
+		}
+
 		.boxes{
 			display:none;
 		}
-
-		&.open{
-			.nav-content{
-
-			}
-		}
-		&.closed{
-			.nav-content{
-				left:80%;
-			}
-		}
-		.nav-content{
-			width:100%;
-
-		}
 	}
 }
+
 
 .closed{
 	@include animation(my-animation 1s);

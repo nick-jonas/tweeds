@@ -2,20 +2,23 @@
 
 $yellow: #fff200;
 $babyblue: #00d0fd;
+$beige: #ebe3da;
 
 $nav-box: $yellow;
 $nav-content: rgba(0,208,253,0.70);
-
+$instagram-bg: $beige;
 
 
 // breakpoints
 $bp-medium-nav: 800px;
-$bp-small-nav:460px;
-
+$bp-small-nav: 460px;
+$bp-medium-product-circles: 900px;
+$bp-small-product-circles: $bp-small-nav;
 
 
 // font stacks
 $garamond: "garamond-premier-pro-display","adobe-garamond-pro", Garamond, ‘Hoefler Text’, ‘Times New Roman’, Times, serif;
+$futura: Futura, "Trebuchet MS", Arial, sans-serif;
 
 @mixin body-text( $fontsize:1em, $color:#000000 ){
     font-family: $garamond;

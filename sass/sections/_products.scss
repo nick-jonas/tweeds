@@ -1,4 +1,5 @@
 $circleDiameter: 312px;
+$circleRadius: $circleDiameter / 2;
 $smallProductWidth: 206px;
 $smallProductHeight: 189px;
 $productPerRow: 3;
@@ -26,81 +27,115 @@ $productPerRow: 3;
         position:absolute;
         top:0px;
         width:100%;
-        left: 50%;
-        margin-left: ($circleDiameter * $productPerRow) / -2;
 
-        .product-circle{
-            float:left;
-            margin:50px auto;
-            border-radius: 50%;
-            width: $circleDiameter;
-            height: $circleDiameter;
+        .product-row{
             position:relative;
-            z-index:10;
-            top:0px;
-            cursor:pointer;
+            display:block;
+            margin:0 0 (66px + ($circleRadius)) 100px;
+            width:86%;
+            height: ($circleRadius * $productPerRow);
 
-            &.clear{
-                clear:both;
-            }
+            .circle-0{top:0 * $circleRadius; left: 0% * (100 / $productPerRow);};
+            .circle-1{top:1 * $circleRadius; left: 1% * (100 / $productPerRow);};
+            .circle-2{top:2 * $circleRadius; left: 2% * (100 / $productPerRow);};
+            .circle-3{top:3 * $circleRadius; left: 3% * (100 / $productPerRow);};
+            .circle-4{top:4 * $circleRadius; left: 4% * (100 / $productPerRow);};
+            .circle-5{top:5 * $circleRadius; left: 5% * (100 / $productPerRow);};
 
-            .product-shot{
-                //display:none;
+            .product-circle{
+                margin:50px auto;
+                border-radius: 50%;
+                width: $circleDiameter;
+                height: $circleDiameter;
                 position:absolute;
-                left:50%;
-                top:50%;
-                margin: ($smallProductHeight / -2) 0 0 ($smallProductWidth / -2);
-            }
+                z-index:10;
+                cursor:pointer;
 
-            .product-name{
-                display:none;
-                width:100%;
-                height:100%;
-
-                .the{
-                    @include body-text(1.0em, #000000);
-                    width:100%;
-                    text-align:center;
+                .product-shot{
+                    //display:none;
                     position:absolute;
-                    top:65px;
-                    letter-spacing:2;
+                    opacity:1;
+                    @include single-transition(opacity, .3s ease-out);
+                    left:50%;
+                    top:50%;
+                    margin: ($smallProductHeight / -2) 0 0 ($smallProductWidth / -2);
                 }
 
-                .product-name-container{
-                    display: table-cell;
-                    #position: absolute;
-                    #top: 50%;
-                    vertical-align: middle;
-                    height: (0.9 * $circleDiameter);
-                    width:$circleDiameter;
-                    h1{
-                        margin:0 auto;
-                        width:(0.8 * $circleDiameter);
-                        #position: relative;
-                        #top: -50%;
+                .product-name{
+                    display:none;
+                    width:100%;
+                    height:100%;
+                    .the{
+                        @include body-text(1.0em, #000000);
+                        width:100%;
                         text-align:center;
-                        @include body-text(2.1em, #000000);
+                        position:absolute;
+                        top:65px;
                         letter-spacing:2;
                     }
+                    .product-name-container{
+                        display: table-cell;
+                        #position: absolute;
+                        #top: 50%;
+                        vertical-align: middle;
+                        height: (0.9 * $circleDiameter);
+                        width:$circleDiameter;
+                        h1{
+                            margin:0 auto;
+                            padding:20px 0 0 0;
+                            width:(0.8 * $circleDiameter);
+                            #position: relative;
+                            #top: -50%;
+                            text-align:center;
+                            @include body-text(2.1em, #000000);
+                            letter-spacing:2;
+                        }
+                    }
+                    .see-details{
+                        position:absolute;
+                        left:50%;
+                        margin-left:-50px;
+                        bottom:50px;
+                        @include sprite(see-details);
+                    }
                 }
-                .see-details{
-                    position:absolute;
-                    left:50%;
-                    margin-left:-50px;
-                    bottom:50px;
-                    @include sprite(see-details);
+            }
+            .product-circle:hover{
+                background:#FFFFFF !important;
+                @include single-transition(background, 0.3s ease-out);
+                .product-shot{
+                    //display:none;
+                    opacity:0;
+                    @include single-transition(opacity, .15s ease-out);
+                }
+                .product-name{
+                    display:block;
                 }
             }
         }
-        .product-circle:hover{
-            background:#FFFFFF !important;
-            .product-shot{
-                display:none;
-            }
-            .product-name{
-                display:block;
+
+        @media screen and (max-width: $bp-medium-product-circles) {
+            .product-row{
+                height:auto;
+                width:50%;
+                margin:0 auto;
+                .product-circle{
+                    position:relative;
+                    float:left;
+                    display:block;
+                    top:0px;
+                    left:0px;
+                    margin:20px;
+                }
             }
         }
+
+        @media screen and (max-width: $bp-small-product-circles) {
+            .product-row{
+                width:inherit;
+            }
+        }
+
     }
 
 }
