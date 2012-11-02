@@ -49,8 +49,9 @@
 				<a href="#" id="nextslide" class="load-item arrow right"></a>
 			</section>
 
-			<section id="products"></section>
-			<section id="instagram"></section>
+			<section id="products" style="margin-top:800px;"></section>
+
+			<section id="instagram" style=""></section>
 
 
 
@@ -65,7 +66,13 @@
   		<script src="/assets/js/main.js"></script> -->
 
   		<!-- Live Reload -->
-  		<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+  		<script>
+  		if(window.location.hostname == 'localhost' ||
+				'127.0.0.1' ||
+				'local.tweeds.com'){
+  			document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+  		}
+  		</script>
 
   		<script type="text/javascript" id="products-template">
 

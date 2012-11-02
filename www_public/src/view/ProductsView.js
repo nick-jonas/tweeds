@@ -4,8 +4,9 @@ define([
     'backbone',
     'handlebars',
     'collection/products',
-    'hbs!template/products'
-], function($, _, Backbone, Handlebars, products, tmpl){
+    'hbs!template/products',
+    'app'
+], function($, _, Backbone, Handlebars, products, tmpl, app){
 
     var ProductsView = Backbone.View.extend({
 
@@ -21,11 +22,6 @@ define([
         },
 
         onData: function(){
-
-            Handlebars.registerHelper('capitalize', function(productTitle){
-                return productTitle.toUpperCase();
-            });
-
             var productRows = [],
                 thisRow = [],
                 thisProd;
@@ -41,6 +37,8 @@ define([
                 'productRows'      : { 'rows' : productRows },
                 'backgrounds'      : coll.backgrounds
             }));
+
+            app.trigger('loaded:success');
         }
 
     });

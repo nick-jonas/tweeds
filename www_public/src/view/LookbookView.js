@@ -3,8 +3,9 @@ define([
 	'lodash',
 	'backbone',
 	'plugins/supersized',
-	'collection/lookbooks'
-], function($, _, Backbone, supersized, lookbooks){
+	'collection/lookbooks',
+	'app'
+], function($, _, Backbone, supersized, lookbooks, app){
 
 	var LookbookView = Backbone.View.extend({
 
@@ -19,6 +20,8 @@ define([
 
 		onData: function(){
 			var imageData = coll.toJSON();
+
+			console.dir(coll.toJSON());
 
 			var $leftLookArrow = $('#lookbook .arrow.left'),
 				$rightLookArrow = $('#lookbook .arrow.right');
@@ -50,11 +53,11 @@ define([
 
 				// Size & Position
 				min_width		        :   700,			// Min width allowed (in pixels)
-				min_height		        :   509,			// Min height allowed (in pixels)
+				min_height		        :   800,			// Min height allowed (in pixels)
 				vertical_center         :   1,			// Vertically center background
 				horizontal_center       :   1,			// Horizontally center background
 				fit_always				:	0,			// Image will never exceed browser width or height (Ignores min. dimensions)
-				fit_portrait         	:   1,			// Portrait images will not exceed browser height
+				fit_portrait         	:   0,			// Portrait images will not exceed browser height
 				fit_landscape			:   0,			// Landscape images will not exceed browser width
 
 				// Components
@@ -64,6 +67,8 @@ define([
 				slides 					:  	imageData
 
 			});
+
+			app.trigger('loaded:success');
 		}
 	});
 

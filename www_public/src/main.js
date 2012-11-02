@@ -6,13 +6,10 @@ require([
   "router",
   "handlebars",
   "view/NavView",
-  "view/LookbookView",
-  "view/AppView",
-  "view/ProductsView",
-  "view/InstagramView"
+  "view/AppView"
 ],
 
-function(app, Router, Handlebars, NavView, LookbookView, AppView, ProductsView, InstagramView) {
+function(app, Router, Handlebars, NavView, AppView) {
 
   // Handlebars debugger
   Handlebars.registerHelper("debug", function(optionalValue) {
@@ -24,6 +21,10 @@ function(app, Router, Handlebars, NavView, LookbookView, AppView, ProductsView, 
         console.log("====================");
         console.log(optionalValue);
     }
+  });
+
+  Handlebars.registerHelper('capitalize', function(productTitle){
+      return productTitle.toUpperCase();
   });
 
   // Define your master router on the application namespace and trigger all
@@ -38,9 +39,13 @@ function(app, Router, Handlebars, NavView, LookbookView, AppView, ProductsView, 
   app.imgSrc = (app.isRetina) ? 'assets/img/src2x' : 'assets/img/src';
 
   app.navView   = new NavView();
-  app.instaView = new InstagramView();
-  //app.productsView = new ProductsView();
+
   //app.lookView  = new LookbookView();
+  //app.productsView = new ProductsView();
+  //app.instaView = new InstagramView();
+
+  app.myApp = new AppView();
+
 
   // All navigation that is relative should be passed through the navigate
   // method, to be processed by the router. If the link has a `data-bypass`

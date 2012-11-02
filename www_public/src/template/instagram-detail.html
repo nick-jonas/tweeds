@@ -1,0 +1,23 @@
+<div class="photo-detail-container">
+    <div class="photo-detail-img">
+        <img src="{{this.photo.images.standard_resolution.url}}"/>
+    </div>
+    <div class="info-column">
+        <div class="user-info">
+            <div class="user-icon"><img src="{{this.photo.user.profile_picture}}"/></div>
+            <div class="user-names">
+                <h1 class="full-name">{{capitalize this.photo.user.full_name}}</h1>
+                <h2 class="user-name">@{{capitalize this.photo.user.username}}</h2>
+            </div>
+            <div class="close"></div>
+        </div>
+        <hr>
+        <div class="social-icons">
+            <a href="" class="fb hide-text">Facebook</a>
+            <a href="" class="twitter hide-text">Twitter</a>
+        </div>
+        <p class="caption">
+            {{capitalize this.photo.caption.text}}
+        </p>
+    </div>
+</div>

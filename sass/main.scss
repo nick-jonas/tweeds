@@ -46,3 +46,15 @@ a{
 li{
     list-style-type:none;
 }
+
+section{
+    float:left;
+    clear:both;
+}
+section:after {
+   content: ".";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
