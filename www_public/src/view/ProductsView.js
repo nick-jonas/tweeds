@@ -38,7 +38,10 @@ define([
                 'backgrounds'      : coll.backgrounds
             }));
 
-            app.trigger('loaded:success');
+            setTimeout(function(){
+                app.trigger('loaded:success');
+            }, 500);
+
         }
 
     });

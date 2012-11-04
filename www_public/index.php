@@ -43,18 +43,30 @@
 				</div>
 			</div>
 
+            <section id="lookbook-container" class="section-container">
+                <div id="lookbook">
+                    <a href="#" id="prevslide" class="load-item arrow left"></a>
+                    <a href="#" id="nextslide" class="load-item arrow right"></a>
+                </div>
+            </section>
 
-			<section id="lookbook">
-				<a href="#" id="prevslide" class="load-item arrow left"></a>
-				<a href="#" id="nextslide" class="load-item arrow right"></a>
-			</section>
+            <div class="scrollblock">
+                <section id="young-buffalo-wear-tweeds" class="section-container">
+                    <h1>YOUNG</h1>
+                    <h1>BUFFALOS</h1>
+                    <h1>WEAR</h1>
+                    <h1>TWEEDS</h1>
+                </section>
 
-			<section id="products" style="margin-top:800px;"></section>
+    			<section id="products-container" class="section-container">
+                    <div id="products"></div>
+                </section>
 
-			<section id="instagram" style=""></section>
+    			<section id="instagram-container" class="section-container">
+                    <div id="instagram"></div>
+                </section>
 
-
-
+            </div>
 		</div>
 
 		<!-- app source -->

@@ -21,8 +21,6 @@ define([
 		onData: function(){
 			var imageData = coll.toJSON();
 
-			console.dir(coll.toJSON());
-
 			var $leftLookArrow = $('#lookbook .arrow.left'),
 				$rightLookArrow = $('#lookbook .arrow.right');
 

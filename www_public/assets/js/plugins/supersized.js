@@ -18,7 +18,7 @@
     $.supersized = function(options){
 
         $(document).ready(function() {
-            $('body').append('<div id="supersized-loader"></div><ul id="supersized"></ul>');
+            $('#lookbook').append('<div id="supersized-loader"></div><ul id="supersized"></ul>');
         //});
 
     	/* Variables

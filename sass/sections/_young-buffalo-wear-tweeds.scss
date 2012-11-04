@@ -1,0 +1,14 @@
+#young-buffalo-wear-tweeds{
+    background-color:$young-buffalo-bg;
+    width:100%;
+    height:800px;
+    padding:150px 0 0 0;
+
+    h1{
+        @include body-text(4.5em);
+        text-align:center;
+        margin:0 auto;
+        font-weight:400;
+        letter-spacing:3;
+    }
+}

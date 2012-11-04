@@ -57,7 +57,8 @@ require.config({
     "plugins/backbone.layoutmanager": ["backbone"],
 
     "plugins/jquery.easing.min":    ["jquery"],
-    "plugins/supersized":           ["jquery"]
+    "plugins/supersized":           ["jquery"],
+    "plugins/scrollorama":          ["jquery"]
   }
 
 });

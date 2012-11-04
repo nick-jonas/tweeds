@@ -26,6 +26,7 @@
 @import "sections/lookbook";
 @import "sections/products";
 @import "sections/instagram";
+@import "sections/young-buffalo-wear-tweeds";
 
 html, body{
 	margin:0;
@@ -47,14 +48,23 @@ li{
     list-style-type:none;
 }
 
-section{
-    float:left;
-    clear:both;
+.scrollblock{
+    width:100%;
+    >.section-container{
+        width:100%;
+    }
 }
-section:after {
-   content: ".";
-   visibility: hidden;
-   display: block;
-   height: 0;
-   clear: both;
-}
+
+
+
+// section{
+//     float:left;
+//     clear:both;
+// }
+// section:after {
+//    content: ".";
+//    visibility: hidden;
+//    display: block;
+//    height: 0;
+//    clear: both;
+// }
