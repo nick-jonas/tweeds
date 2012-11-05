@@ -57,16 +57,66 @@
                     <h1>WEAR</h1>
                     <h1>TWEEDS</h1>
                 </section>
+            </div>
 
+            <div class="scrollblock">
     			<section id="products-container" class="section-container">
                     <div id="products"></div>
                 </section>
-
-    			<section id="instagram-container" class="section-container">
-                    <div id="instagram"></div>
-                </section>
-
             </div>
+
+            <div class="scrollblock">
+                <section id="mask-transition" class="section-container">
+                    <div class="forest">
+                        <img src="/assets/img/src/transition/forest.jpg"/>
+                    </div>
+                </section>
+            </div>
+
+            <div class="scrollblock">
+                <section id="story" class="section-container">
+
+                    <div class="story-text story-text-block">
+                        <h1>THE STORY OF TWEEDS</h1>
+                        <p>PLEASE DON'T CHOKE ON YOUR POPCORN, BUT HONESTLY, TWEEDS MIGHT BE A ROM-COM. OR, PERHAPS A HORROR MOVIE? READ THIS AND DECIDE:
+IN THE CANARY ISLANDS THERE IS A WAVEPOOL. IN THE HEART OF THE CONCRETE JUNGLE, WOULD YOU BELIEVE, A BONA FIDE BODY OF CHLORINATED WATER THAT MAKES WAVES! AND IT WAS HERE, IN THIS STRANGE PLACE, THAT KOLOHE ANDINO AND SAM MCINTOSH FIRST MET IN 2010 (THERE WERE OTHERS THERE, BUT THEY'RE JUST EXTRAS IN THIS PARTICULAR FILM). THERE WAS A STUDIO SHOOT, SURFING'S FIRST, AND KOLOHE SHINED FOR THE CAMERA FLASHES. HE EARNED THE COVER OF SAM'S MAGAZINE. HE WAS JUST SO GOOD.<br/><br/>
+SIX MONTHS LATER AND THE PAIR FIND THEMSELVES ON THE SAME BOAT IN THE INDIAN OCEAN. KOLOHE'S THERE AS A HIRED GUN, SAM'S PULLING TOGETHER A BIG SHOOT IDEA. IT'S 2011 NOW, A VERY LIBERAL AGE TO BE ALIVE, AND IT'S ON THIS BOAT AT THIS TIME THAT THE DUO DECIDE THEY WANT TO CREATE SOMETHING THAT CELEBRATES ATTENTION TO DETAIL. YOU NOW FIND YOURSELF AT THE PORTAL OF THAT CREATION. SWIM AROUND, IT'S KINDA DYNAMIC IN HERE.</p>
+                    </div>
+
+                    <div id="kolohe" class="slice">
+                        <div class="kolohe-text story-text-block slice-text">
+                            <h1>KOLOHE ANDINO</h1>
+                            <p>OH, BROTHER, HOW DOES IT FEEL TO LEAD THE SLOB N' STALE GEN? TO SPRINKLE TECHNICAL PERFECTION WITH RAW PUNK? TO SHAVE YOUR BEAUTIFUL HAIR JUST 'CAUSE YOU WANNA, TO TAKE BETTER PHOTOS THAN THOSE WHO DOCUMENT YOU, TO EMBODY THE BRILLIANCE OF YOUTH AND TO KEEP PARENTS UP AT NIGHT, SWEATING ABOUT HOME MUCH TIME THEIR DAUGHTERS SPEND SCROLLING THROUGH YOUR SOCIAL MEDIA? DON'T BOTHER ASKING. KID DOESN'T BRAG AND WON'T GLOAT. WHO SAID YOUTH'S WASTED ON THE YOUNG? WHOEVER YOU ARE, KOLOHE ANDINO HAS A BONE TO PICK WITH YOU. HE'S THE ONLY ATHLETE IN THE WORLD WHO DOESN'T HAVE A RED AND YELLOW RED BULL STICKER (IT'S BLACK). A PERFECT WEEKEND FOR THE KID IS GETTING LOST IN THE FOREST, FALLING ASLEEP NEXT TO A CAMPFIRE AND WAKING UP TO 10 HOURS OF SECLUDED WAVES (WITH NO CAMERAS, THANKS). BROTHER'S MENTALITY DEMANDS KNOWLEDGE, ENLIGHTENMENT AND CONTROL OF ALL THINGS IN HIS LIFE, LIKE, RIGHT NOW. HIS PLAYLISTS ARE CONSIDERED. HIS TRUCK IS CLEAN. KOLOHE LIKES THE LITTLE THINGS. KOLOHE IS TWEEDS.</p>
+                        </div>
+                        <img class="top" src="/assets/img/src/story/kolohe_top.png"/>
+                        <img class="bottom" src="/assets/img/src/story/kolohe_bottom.png"/>
+                    </div>
+
+                    <div id="about" class="slice">
+                        <div class="about-text story-text-block slice-text">
+                            <h1>ABOUT TWEEDS</h1>
+                            <p>TWEEDS IS SIMPLE. IT'S ABOUT TRYING HARD, TRYING TO IMPROVE YOURSELF, TRYING TO LEAVE A GOOD IMPRESSION ON EVERYONE YOU MEET. IT'S ABOUT TRAVEL. IT'S ABOUT A LIFE IN THE WATER. SO, WHY UNDERWEAR? WELL, THAT'S THE THING, AIN'T IT. TWEEDS BELIEVES IN A GOOD FOUNDATION. IN ATTENTION TO DETAIL. AND WHEN YOU REALLY THINK ABOUT IT, ALL THINGS IN MODERN LIFE START WITH UNDERWEAR. YOU MIGHT CALL TWEEDS A LIFESTYLE BRAND, BUT WE'D PREFER YOU JUST SAID IT'S A LIFESTYLE. KOLOHE ANDINO, A SURFER WHO IS EXCEPTIONAL, IS THE FACE OF TWEEDS AND DO YOU KNOW WHY? BECAUSE TWEEDS CELEBRATES EFFORT, AND KOLOHE DOESN'T DO HALVES. TWEEDS IS ABOUT THE ONE-PERCENTERS, AND KOLOHE IS A ONE-PERCENTER. ABOVE ALL, TWEEDS IS ABOUT THE FINER THINGS IN LIFE. TWEEDS MIGHT'VE CRASHED YOUR PARTY, BUT IT AT LEAST BROUGHT ROS&Eacute; AND DUTCH CHOCOLATE.</p>
+                        </div>
+                        <img class="top" src="/assets/img/src/story/about_top.png"/>
+                        <img class="bottom" src="/assets/img/src/story/about_bottom.png"/>
+                    </div>
+
+                </section>
+            </div>
+
+            <div class="scrollblock">
+                <section id="buy" class="section-container">
+                    <div class="buy-content">
+                        <h1>TWEEDS IS AVAILABLE<br/>AT THESE FINE RETAILERS...</h1>
+                    </div>
+                </section>
+            </div>
+
+			<section id="instagram-container" class="section-container">
+                <div id="instagram"></div>
+            </section>
+
+
 		</div>
 
 		<!-- app source -->

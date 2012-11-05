@@ -16,7 +16,7 @@ $boxes:2;
 	.nav-content{
 		@include rgba-background($nav-content);
 		display:inline-block;
-		width:80%;
+		width:91%;
 		height:405px;
 		position:relative;
 		.logo-text{
@@ -131,7 +131,7 @@ $boxes:2;
 			width:100%;
 		}
 		&.closed{
-			.nav-content{ left:80%; }
+			.nav-content{ left:91%; }
 		}
 
 		.boxes{
@@ -144,7 +144,7 @@ $boxes:2;
 .closed{
 	@include animation(my-animation 1s);
 
-	left:-80%;
+	left:-91%;
 	.boxes{
 		#nav-arrow{
 			background:black;
@@ -175,5 +175,5 @@ $boxes:2;
 
 @include keyframes(my-animation){
 	0%{ left:0px;}
-	100%{ left:-80%;}
+	100%{ left:-91%;}
 }

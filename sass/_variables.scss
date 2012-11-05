@@ -20,10 +20,11 @@ $bp-ig-detail: 640px;
 
 // font stacks
 $garamond: "garamond-premier-pro-display","adobe-garamond-pro", Garamond, ‘Hoefler Text’, ‘Times New Roman’, Times, serif;
-$futura: Futura, "Trebuchet MS", Arial, sans-serif;
+$futura: "futura-pt", Futura, "Trebuchet MS", Arial, sans-serif;
 
 @mixin body-text( $fontsize:1em, $color:#000000 ){
     font-family: $garamond;
     font-weight:300;
     font-size:$fontsize;
+    color:$color;
 }

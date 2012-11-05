@@ -392,6 +392,7 @@
 	//
 	//		Easing functions from jQuery UI
 	//
+	/*
 	$.extend($.easing, {
 		def: 'easeOutQuad',
 		swing: function (x, t, b, c, d) {
@@ -529,5 +530,5 @@
 			return $.easing.easeOutBounce (x, t*2-d, 0, c, d) * 0.5 + c*0.5 + b;
 		}
 	});
-
+	*/
 })(jQuery);

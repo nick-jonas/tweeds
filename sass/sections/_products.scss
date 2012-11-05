@@ -28,11 +28,11 @@ $productPerRow: 3;
     .products{
 
         position:absolute;
-        top:0px;
+        top:-450px;
         width:100%;
 
         .product-row{
-            position:relative;
+            position:absolute;
             display:block;
             margin:0 0 (66px + ($circleRadius)) 100px;
             width:86%;
@@ -53,6 +53,7 @@ $productPerRow: 3;
                 position:absolute;
                 z-index:10;
                 cursor:pointer;
+                background:#FFFFFF;
 
                 .product-shot{
                     //display:none;
@@ -104,7 +105,7 @@ $productPerRow: 3;
                 }
             }
             .product-circle:hover{
-                background:#FFFFFF !important;
+                background:$yellow !important;
                 @include single-transition(background, 0.3s ease-out);
                 .product-shot{
                     //display:none;
