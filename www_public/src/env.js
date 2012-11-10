@@ -26,6 +26,7 @@ define([], function(){
                     env = 'Local';
                     break;
                 case "tweeds.workofjonas.com":
+                case "tweeds.italic-studio.com":
                     env = 'Dev';
                     break;
                 case "tweeds.com":

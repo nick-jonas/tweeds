@@ -43,20 +43,37 @@
 				</div>
 			</div>
 
-            <section id="lookbook-container" class="section-container">
-                <div id="lookbook">
-                    <a href="#" id="prevslide" class="load-item arrow left"></a>
-                    <a href="#" id="nextslide" class="load-item arrow right"></a>
-                </div>
-            </section>
-
             <div class="scrollblock">
-                <section id="young-buffalo-wear-tweeds" class="section-container">
-                    <h1>YOUNG</h1>
-                    <h1>BUFFALOS</h1>
-                    <h1>WEAR</h1>
-                    <h1>TWEEDS</h1>
+                <section id="lookbook-container" class="section-container">
+                    <div id="lookbook">
+                        <a href="#" id="prevslide" class="load-item arrow left"></a>
+                        <a href="#" id="nextslide" class="load-item arrow right"></a>
+                    </div>
+
+                    <div id="young-buffalo-wear-tweeds" class="section-container">
+
+                        <div class="left">
+                            <img src="/assets/img/src/youngbufftrans/blue.png"/>
+                        </div>
+
+                        <div class="right">
+                            <img src="/assets/img/src/youngbufftrans/yellow.png"/>
+                        </div>
+
+                        <div class="text-block">
+                            <h1>YOUNG</h1>
+                            <h1>BUFFALOS</h1>
+                            <h1>WEAR</h1>
+                            <h1>TWEEDS</h1>
+                            <div class="triangle-container"><div class="triangle"></div></div>
+                        </div>
+
+                    </div>
+
+
+
                 </section>
+
             </div>
 
             <div class="scrollblock">

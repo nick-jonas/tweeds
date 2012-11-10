@@ -1,14 +1,81 @@
+$triangleWidth: 900px;
+
 #young-buffalo-wear-tweeds{
-    background-color:$young-buffalo-bg;
+
     width:100%;
     height:1000px;
-    padding:150px 0 0 0;
+    overflow:hidden;
+    position:absolute;
 
-    h1{
-        @include body-text(4.5em);
-        text-align:center;
-        margin:0 auto;
-        font-weight:400;
-        letter-spacing:3;
+
+
+
+    .left{
+        position:absolute !important;
+        top:0px;
+        left:0px; // -> 50%
+        //z-index:1;
+        img{
+            position:absolute;
+            right:0px;
+        }
+    }
+
+
+    .right{
+        position:absolute !important;
+        top:0px;
+        left:100%; // -> 50%
+        //z-index:1;
+        img{
+            position:absolute;
+            left:0px;
+        }
+    }
+
+
+
+
+}
+
+#lookbook-container{
+
+.text-block{
+        padding:150px 0 0 0;
+        background-color:$young-buffalo-bg;
+        position:relative;
+        h1{
+            @include body-text(4.5em);
+            text-align:center;
+            margin:0 auto;
+            font-weight:400;
+            letter-spacing:3;
+        }
+
+        .triangle-container{
+            margin:0 auto;
+            position:relative;
+            width:100%;
+            .triangle{
+                width: 0;
+                height: 0;
+                // border-left: $triangleWidth solid transparent;
+                // border-right: $triangleWidth solid transparent;
+                // border-top: $triangleWidth solid $young-buffalo-bg;
+                // position:absolute;
+                // left:50%;
+                // margin-left:-$triangleWidth;
+
+
+                border-left: 621px solid transparent;
+                border-right: 587px solid transparent;
+                border-top: 982px solid #398C00;
+                position: absolute;
+                left: 50%;
+                margin-left: -620px
+            }
+        }
+
+
     }
 }

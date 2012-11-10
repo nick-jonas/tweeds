@@ -52,14 +52,17 @@ define([
 
 
             // young buffalos wear tweeds
-            scroll.animate('#young-buffalo-wear-tweeds', {delay:0, duration:600, property:'top', start:800, end: -300});
+            scroll.animate('#lookbook-container', {delay:0, duration:900, property:'top', start:0, end:0, pin:true});
+            scroll.animate('#young-buffalo-wear-tweeds .text-block', {delay:300, duration:600, property:'top', start:-1505, end:0});
+            scroll.animate('#young-buffalo-wear-tweeds .left', {delay:0, duration:300, property:'left', start:0, end:56, usePercentage: true});
+            scroll.animate('#young-buffalo-wear-tweeds .right', {delay:0, duration:300, property:'left', start:100, end:44, usePercentage: true});
 
             // product backgrounds
             //scroll.animate('.products-bg', {delay:0, duration:2000, property:'top', start:900, end: -3000});
-            scroll.animate('#products .backgrounds', {delay:0, duration:2000, property:'top', start:-352, end:-1000});
+            scroll.animate('#products .backgrounds', {delay:0, duration:1500, property:'top', start:100, end:-1500});
 
             // product circles
-            var totalStartY = 0;
+            var totalStartY = 800;
             $('.product-circle').each(function(i){
                 var top = parseInt($(this).css('top'), 10),
                     id = '#' + $(this).attr('id'),
@@ -74,8 +77,8 @@ define([
             });
 
             // mask transition
-            scroll.animate('#mask-transition', {delay:500, duration: 300, property:'margin-top', start:175, end: 0});
-            scroll.animate('.forest img', {delay:500, duration: 600, property:'-webkit-mask-position', start:0, end:300});
+            scroll.animate('#mask-transition', {delay:3500, duration: 300, property:'margin-top', start:1500, end: 0});
+            scroll.animate('.forest img', {delay:2500, duration: 600, property:'-webkit-mask-position', start:0, end:300});
 
 
             // STORY

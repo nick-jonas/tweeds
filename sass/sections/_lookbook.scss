@@ -6,8 +6,7 @@ $minwidth:800px;
 	.arrow{
 		@include sprite(arrow-white-right);
 		position:absolute;
-		top:50%;
-		z-index:10;
+		margin-top:370px;
 		&.left{
 			@include rotate(180deg);
 			left:25px;

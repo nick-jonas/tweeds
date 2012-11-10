@@ -109,7 +109,7 @@
 						// if above current block, settings should be at start value
 						if (i > currBlockIndex) {
 							if (currBlockIndex !== i-1 && anim.baseline !== 'bottom') {
-								setProperty(anim.element, anim.property, anim.startVal);
+								setProperty(anim.element, anim.property, anim.startVal, anim.usePercentage);
 							}
 							if (blocks[i].pin) {
 								blocks[i].block
@@ -121,7 +121,7 @@
 						// if below current block, settings should be at end value
 						// unless on an element that gets animated when it hits the bottom of the viewport
 						else if (i < currBlockIndex) {
-							setProperty(anim.element, anim.property, anim.endVal);
+							setProperty(anim.element, anim.property, anim.endVal, anim.usePercentage);
 							if (blocks[i].pin) {
 								blocks[i].block
                                     .css('position', 'absolute')
@@ -145,12 +145,12 @@
 
 							// if scroll is before start of animation, set to start value
 							if (scrollTop < startAnimPos) {
-								setProperty(anim.element, anim.property, anim.startVal);
+								setProperty(anim.element, anim.property, anim.startVal, anim.usePercentage);
 							}
 
 							// if scroll is after end of animation, set to end value
 							else if (scrollTop > endAnimPos) {
-								setProperty(anim.element, anim.property, anim.endVal);
+								setProperty(anim.element, anim.property, anim.endVal, anim.usePercentage);
 								if (blocks[i].pin) {
 									blocks[i].block
                                         .css('position', 'absolute')
@@ -168,7 +168,7 @@
 								}
 								// then multiply the percent by the value range and calculate the new value
 								animVal = anim.startVal + (animPercent * (anim.endVal - anim.startVal));
-								setProperty(anim.element, anim.property, animVal);
+								setProperty(anim.element, anim.property, animVal, anim.usePercentage);
 							}
 						}
 					}
@@ -191,7 +191,7 @@
 			return currBlockIndex;
 		}
 
-		function setProperty(target, prop, val) {
+		function setProperty(target, prop, val, usePercentage) {
 			var scaleCSS, currentPosition;
 			if (prop === 'rotate' || prop === 'zoom' || prop === 'scale') {
 				if (prop === 'rotate') {
@@ -217,6 +217,7 @@
 			else if(prop === 'text-shadow' ) {
 				target.css(prop,'0px 0px '+val+'px #ffffff');
 			} else {
+				if(usePercentage === true) val = val + '%';
 				target.css(prop, val);
 			}
 		}
@@ -314,7 +315,8 @@
 					startVal: anim.start !== undefined ? anim.start : parseInt(target.css(anim.property),10),	// if undefined, use current css value
 					endVal: anim.end !== undefined ? anim.end : parseInt(target.css(anim.property),10),			// if undefined, use current css value
 					baseline: anim.baseline !== undefined ? anim.baseline : 'bottom',
-					easing: anim.easing
+					easing: anim.easing,
+					usePercentage: anim.usePercentage !== undefined ? anim.usePercentage : false
 				});
 
 				if (anim.pin) {
