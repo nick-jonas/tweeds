@@ -1,25 +1,33 @@
 $minwidth:800px;
 
-#lookbook{
+#lookbook-scroll{ // .scrollblock
 
-	// ARROWS
-	.arrow{
-		@include sprite(arrow-white-right);
-		position:absolute;
-		margin-top:370px;
-		&.left{
-			@include rotate(180deg);
-			left:25px;
-		}
-		&.right{
-			right:25px
+	height:800px;
+
+	#lookbook-container{
+		#lookbook{
+			// ARROWS
+			.arrow{
+				@include sprite(arrow-white-right);
+				position:absolute;
+				margin-top:370px;
+				z-index:$lookbook-arrow-z;
+				&.left{
+					@include rotate(180deg);
+					left:25px;
+				}
+				&.right{
+					right:25px
+				}
+			}
+
+			@media screen and (max-width: $bp-small-nav) {
+				#prevslide, #nextslide{
+					display:none !important;
+				}
+			}
+
 		}
 	}
-
-	@media screen and (max-width: $bp-small-nav) {
-		#prevslide, #nextslide{
-			display:none !important;
-		}
-	}
-
 }
+

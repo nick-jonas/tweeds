@@ -12,19 +12,22 @@ define([
 		'coll': {},
 
 		initialize: function(){
-			_.bindAll('reset', 'render');
+			_.bindAll(this, 'reset', 'render', 'onData', 'onWindowResize');
 			coll = new lookbooks();
 			coll.bind('reset', this.onData);
 			coll.fetch();
+
+			$(window).on('resize', this.onWindowResize);
 		},
 
 		onData: function(){
 			var imageData = coll.toJSON();
 
-			var $leftLookArrow = $('#lookbook .arrow.left'),
-				$rightLookArrow = $('#lookbook .arrow.right');
+			var $leftLookArrow = $('#lookbook #prevSlide'),
+				$rightLookArrow = $('#lookbook #nextSlide');
 
 			$leftLookArrow.click(function(e){
+				console.log('clicked left!');
 				e.preventDefault();
 				api.prevSlide();
 			});
@@ -66,7 +69,21 @@ define([
 
 			});
 
+			this.sizeTriangles();
 			app.trigger('loaded:success');
+		},
+
+		onWindowResize: function(){
+			this.sizeTriangles();
+		},
+
+		sizeTriangles: function(){
+			var w = $(window).width(),
+				h = $(window).height(),
+				left = $('#lookbook-container .text-block .triangle-container .triangle .left-tri'),
+				right = $('#lookbook-container .text-block .triangle-container .triangle .right-tri');
+			left.css('border-left-width', w / 2);
+			right.css('border-right-width', w / 2);
 		}
 	});
 

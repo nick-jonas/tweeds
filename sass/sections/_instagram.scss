@@ -1,5 +1,4 @@
 #instagram{
-    display:none;
 
     .ig-header{
         text-align:center;
@@ -54,7 +53,7 @@
         width:100%;
         height:100%;
         background-color:#7DCBC7;
-        z-index:10;
+        z-index:$ig-detail-z;
         top:0px;
         left:0px;
         display:none;

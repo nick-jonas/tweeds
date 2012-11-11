@@ -21,10 +21,12 @@
 // site-specific
 @import "variables";
 @import "mixins";
+@import "components";
 @import "nav";
 
 @import "sections/lookbook";
 @import "sections/products";
+@import "sections/product-detail";
 @import "sections/instagram";
 @import "sections/young-buffalo-wear-tweeds";
 @import "sections/mask-transition";
@@ -53,11 +55,12 @@ li{
 
 .scrollblock{
     width:100%;
+    position:relative;
+    height:800px;
     >.section-container{
         width:100%;
     }
 }
-
 
 
 // section{

@@ -43,54 +43,50 @@
 				</div>
 			</div>
 
-            <div class="scrollblock">
+            <div class="scrollblock" id="lookbook-scroll">
                 <section id="lookbook-container" class="section-container">
+                    <!-- slideshow -->
                     <div id="lookbook">
                         <a href="#" id="prevslide" class="load-item arrow left"></a>
                         <a href="#" id="nextslide" class="load-item arrow right"></a>
                     </div>
-
+                    <!-- young buffalo green triangle -->
                     <div id="young-buffalo-wear-tweeds" class="section-container">
-
                         <div class="left">
                             <img src="/assets/img/src/youngbufftrans/blue.png"/>
                         </div>
-
                         <div class="right">
                             <img src="/assets/img/src/youngbufftrans/yellow.png"/>
                         </div>
-
                         <div class="text-block">
                             <h1>YOUNG</h1>
                             <h1>BUFFALOS</h1>
                             <h1>WEAR</h1>
                             <h1>TWEEDS</h1>
-                            <div class="triangle-container"><div class="triangle"></div></div>
+                            <div class="triangle-container"><div class="triangle"><span class="left-tri"></span><span class="right-tri"></span></div></div>
                         </div>
-
                     </div>
 
-
-
                 </section>
-
             </div>
 
-            <div class="scrollblock">
+            <div class="scrollblock" id="products-scroll">
     			<section id="products-container" class="section-container">
-                    <div id="products"></div>
+                    <div id="products">
+                        <!-- template/template.html -->
+                    </div>
                 </section>
             </div>
 
-            <div class="scrollblock">
+            <!-- <div class="scrollblock" id="forest-scroll">
                 <section id="mask-transition" class="section-container">
                     <div class="forest">
                         <img src="/assets/img/src/transition/forest.jpg"/>
                     </div>
                 </section>
-            </div>
+            </div> -->
 
-            <div class="scrollblock">
+            <div class="scrollblock" id="about-scroll">
                 <section id="story" class="section-container">
 
                     <div class="story-text story-text-block">
@@ -121,18 +117,23 @@ SIX MONTHS LATER AND THE PAIR FIND THEMSELVES ON THE SAME BOAT IN THE INDIAN OCE
                 </section>
             </div>
 
-            <div class="scrollblock">
+            <div class="scrollblock" id="buy-scroll">
                 <section id="buy" class="section-container">
                     <div class="buy-content">
                         <h1>TWEEDS IS AVAILABLE<br/>AT THESE FINE RETAILERS...</h1>
+                        <div class="store-container">
+                            <a class="white-circle store-btn surf-stitch" href="http://www.surfstitch.com/brand/tweeds" target="_blank"><span class="label">SURF STICH</span></a>
+                            <a class="white-circle store-btn swell" href="http://www.swell.com/Search?q=tweeds" target="_blank"><span class="label">SWELL .COM</span></a>
+                        </div>
                     </div>
                 </section>
             </div>
 
-			<section id="instagram-container" class="section-container">
-                <div id="instagram"></div>
-            </section>
-
+            <div class="scrollblock" id="instagram-scroll">
+    			<section id="instagram-container" class="section-container">
+                    <div id="instagram"></div>
+                </section>
+            </div>
 
 		</div>
 

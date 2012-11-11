@@ -11,7 +11,7 @@ $boxes:2;
 	width:100%;
 	vertical-align:top;
 	font-size:0px;
-	z-index:100;
+	z-index:$nav-z;
 
 	.nav-content{
 		@include rgba-background($nav-content);

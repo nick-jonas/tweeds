@@ -1,4 +1,4 @@
-$triangleWidth: 900px;
+$triangleHeight: 500px;
 
 #young-buffalo-wear-tweeds{
 
@@ -7,43 +7,37 @@ $triangleWidth: 900px;
     overflow:hidden;
     position:absolute;
 
-
-
-
     .left{
         position:absolute !important;
         top:0px;
         left:0px; // -> 50%
-        //z-index:1;
+        z-index:$young-buffalo-triangle-z;
         img{
             position:absolute;
             right:0px;
         }
     }
 
-
     .right{
         position:absolute !important;
         top:0px;
         left:100%; // -> 50%
-        //z-index:1;
+        z-index:$young-buffalo-triangle-z;
         img{
             position:absolute;
             left:0px;
         }
     }
-
-
-
-
 }
 
 #lookbook-container{
 
-.text-block{
+    .text-block{
         padding:150px 0 0 0;
         background-color:$young-buffalo-bg;
         position:relative;
+        height:800px;
+        z-index:$young-buffalo-triangle-z;
         h1{
             @include body-text(4.5em);
             text-align:center;
@@ -53,29 +47,25 @@ $triangleWidth: 900px;
         }
 
         .triangle-container{
-            margin:0 auto;
-            position:relative;
+            position:absolute;
+            bottom:-$triangleHeight;
             width:100%;
+            left:0px;
+            z-index:$young-buffalo-triangle-z;
             .triangle{
-                width: 0;
-                height: 0;
-                // border-left: $triangleWidth solid transparent;
-                // border-right: $triangleWidth solid transparent;
-                // border-top: $triangleWidth solid $young-buffalo-bg;
-                // position:absolute;
-                // left:50%;
-                // margin-left:-$triangleWidth;
-
-
-                border-left: 621px solid transparent;
-                border-right: 587px solid transparent;
-                border-top: 982px solid #398C00;
-                position: absolute;
-                left: 50%;
-                margin-left: -620px
+                .left-tri{
+                    width: 0;
+                    height: 0;
+                    border-top: $triangleHeight solid $young-buffalo-bg;
+                    border-left: 100px solid transparent;
+                }
+                .right-tri{
+                    width: 0;
+                    height: 0;
+                    border-top: $triangleHeight solid $young-buffalo-bg;
+                    border-right: 100px solid transparent;
+                }
             }
         }
-
-
     }
 }

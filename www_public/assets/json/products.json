@@ -10,44 +10,56 @@
             {
                 "id"            : "product-name-1",
                 "title"         : "Product Name 1",
-                "imgSmall"      : "/products/small/product-id.png",
-                "imgLarge"      : "/products/large/product-id.png",
-                "circleColor"   : "#4dc8e9"
+                "imgSmall"      : "/products/small/Tweeds01.png",
+                "imgLarge"      : "/products/large/Tweeds01.png",
+                "circleColor"   : "#4dc8e9",
+                "buyLink"       : "http://www.google.com",
+                "desc"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate nulla eget dolor porttitor at aliquam augue sollicitudin. Mauris semper mauris nec ante."
             },
             {
                 "id"            : "product-name-2",
                 "title"         : "Product Name Longer",
-                "imgSmall"      : "/products/small/product-id.png",
-                "imgLarge"      : "/products/large/product-id.png",
-                "circleColor"   : "#00853e"
+                "imgSmall"      : "/products/small/Tweeds02.png",
+                "imgLarge"      : "/products/large/Tweeds02.png",
+                "circleColor"   : "#00853e",
+                "buyLink"       : "http://www.google.com",
+                "desc"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate nulla eget dolor porttitor at aliquam augue sollicitudin. Mauris semper mauris nec ante."
             },
             {
                 "id"            : "product-name-3",
                 "title"         : "Product Name 3",
-                "imgSmall"      : "/products/small/product-id.png",
-                "imgLarge"      : "/products/large/product-id.png",
-                "circleColor"   : "#e0327b"
+                "imgSmall"      : "/products/small/Tweeds03.png",
+                "imgLarge"      : "/products/large/Tweeds03.png",
+                "circleColor"   : "#e0327b",
+                "buyLink"       : "http://www.google.com",
+                "desc"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate nulla eget dolor porttitor at aliquam augue sollicitudin. Mauris semper mauris nec ante."
             },
             {
                 "id"            : "product-name-4",
                 "title"         : "Product Name 4",
-                "imgSmall"      : "/products/small/product-id.png",
-                "imgLarge"      : "/products/large/product-id.png",
-                "circleColor"   : "#efeb00"
+                "imgSmall"      : "/products/small/Tweeds04.png",
+                "imgLarge"      : "/products/large/Tweeds04.png",
+                "circleColor"   : "#efeb00",
+                "buyLink"       : "http://www.google.com",
+                "desc"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate nulla eget dolor porttitor at aliquam augue sollicitudin. Mauris semper mauris nec ante."
             },
             {
                 "id"            : "product-name-5",
                 "title"         : "Product Name 5",
-                "imgSmall"      : "/products/small/product-id.png",
-                "imgLarge"      : "/products/large/product-id.png",
-                "circleColor"   : "#ef2a3c"
+                "imgSmall"      : "/products/small/Tweeds05.png",
+                "imgLarge"      : "/products/large/Tweeds05.png",
+                "circleColor"   : "#ef2a3c",
+                "buyLink"       : "http://www.google.com",
+                "desc"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate nulla eget dolor porttitor at aliquam augue sollicitudin. Mauris semper mauris nec ante."
             },
             {
                 "id"            : "product-name-6",
                 "title"         : "Product Name 6",
-                "imgSmall"      : "/products/small/product-id.png",
-                "imgLarge"      : "/products/large/product-id.png",
-                "circleColor"   : "#4dc8e9"
+                "imgSmall"      : "/products/small/Tweeds06.png",
+                "imgLarge"      : "/products/large/Tweeds06.png",
+                "circleColor"   : "#4dc8e9",
+                "buyLink"       : "http://www.google.com",
+                "desc"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate nulla eget dolor porttitor at aliquam augue sollicitudin. Mauris semper mauris nec ante."
             }
         ]
     }
