@@ -21,6 +21,9 @@ define([
         scrollorama: {},
 
 		initialize: function(){
+
+            _.bindAll(this, 'loadNext', 'onLoadAllComplete', 'animateScrollBlocks')
+
             var that = this;
             app.on('loaded:success', function(){
                 that.currentLoadIndex++;
@@ -53,6 +56,16 @@ define([
 
         onLoadAllComplete: function(){
 
+            // scrollorama
+            this.animateScrollBlocks();
+
+            if(app.scrollTo){ // set in router
+                $('html, body').animate({scrollTop:app.scrollTo}, 'slow');
+            }
+
+        },
+
+        animateScrollBlocks: function(){
             scrollorama = $.scrollorama({ blocks:'.scrollblock' });
 
             var delayCount = 0;
@@ -90,16 +103,15 @@ define([
             // STORY
             //------------------------------------------------------------------------------------------------------------
             // pin background
-            scroll.animate('#story', {delay:delayCount, duration:500, property:'top', start:0, end:0, pin:true});
+            scroll.animate('#story', {delay:delayCount, duration:300, property:'top', start:0, end:0, pin:true});
 
             scroll.animate('#kolohe .top', {delay:800, duration:500, property:'top', start:-630, end:0, easing:'easeOutQuad'});
             scroll.animate('#kolohe .bottom', {delay:800, duration:500, property:'top', start:1100, end:0, easing:'easeOutQuad'});
-            scroll.animate('#kolohe .kolohe-text', {delay:950, duration:100, property:'opacity', start:0, end:1});
+            scroll.animate('#kolohe .kolohe-text', {delay:1350, duration:200, property:'opacity', start:0, end:1});
 
             scroll.animate('#about .top', {delay:1400, duration:500, property:'top', start:-800, end:0, easing:'easeOutQuad'});
             scroll.animate('#about .bottom', {delay:1400, duration:500, property:'top', start:1100, end:0, easing:'easeOutQuad'});
-            scroll.animate('#about .about-text', {delay:1530, duration:100, property:'opacity', start:0, end:1});
-
+            scroll.animate('#about .about-text', {delay:2030, duration:200, property:'opacity', start:0, end:1});
         }
 
 	});

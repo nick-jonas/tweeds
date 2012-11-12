@@ -32,12 +32,12 @@ $bgTriangleWidth: 150px;
         height:100%;
         position:absolute;
         right:0px;
-        background-color:$white;
+        background-color:$product-detail-bg;
 
         > .triangle{
             width: 0;
             height: 0;
-            border-bottom: 400px solid white;
+            border-bottom: 400px solid $product-detail-bg;
             border-left: $bgTriangleWidth solid transparent;
             display:block;
             position:absolute;
@@ -87,7 +87,7 @@ $bgTriangleWidth: 150px;
                 position:relative;
                 float:left;
                 z-index:$product-detail-z + 2;
-                margin:20px 0 0 120px;
+                margin:30px 0 0 120px;
             }
         }
 
@@ -96,8 +96,14 @@ $bgTriangleWidth: 150px;
             height:$largeProductHeight;
             position:absolute;
             top:75px;
-            left:375px;
+            left:400px;
             z-index:$product-detail-z + 2;
+        }
+    }
+
+    &.inverse-color{
+        .product-title, .product-description{
+            color:white !important;
         }
     }
 }

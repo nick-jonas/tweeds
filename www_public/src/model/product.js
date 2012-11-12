@@ -11,7 +11,8 @@ define([
         parse : function(res){
             // adjust src path for retina screen
             res.imgSmall = app.imgSrc + res.imgSmall;
-            res.imgLarge = app.imgSrc + res.imgLarge;
+            res.imgLargeFront = app.imgSrc + res.imgLargeFront;
+            res.imgLargeBack = app.imgSrc + res.imgLargeBack;
             return res;
         }
 

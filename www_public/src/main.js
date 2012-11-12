@@ -31,9 +31,7 @@ function(app, Router, Handlebars, NavView, AppView) {
   // navigation from this instance.
   app.router = new Router();
 
-  // Trigger the initial route and enable HTML5 History API support, set the
-  // root folder to '/' by default.  Change in app.js.
-  Backbone.history.start({ pushState: true, root: app.root });
+  //Backbone.history.start({ pushState: false, root: app.root });
 
   app.isRetina = ((window.devicePixelRatio===undefined?1:window.devicePixelRatio)>1);
   app.imgSrc = (app.isRetina) ? 'assets/img/src2x' : 'assets/img/src';

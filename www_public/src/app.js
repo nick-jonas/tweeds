@@ -14,7 +14,16 @@ function($, _, Backbone) {
   // creation.
   var app = {
     // The root path to run the application.
-    root: "/"
+    root: "/",
+
+    // scroll positions
+    positions: {
+      'lookbook': 0,
+      'collection':2214,
+      'about': 5305,
+      'buy': 9200,
+      'instagram': 10000
+    }
   };
 
   // Localize or create a new JavaScript Template object.

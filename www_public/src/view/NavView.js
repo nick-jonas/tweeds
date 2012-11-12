@@ -1,7 +1,8 @@
 define([
+    'backbone',
     'app',
     'jquery'
-], function(app, $){
+], function(Backbone, app, $){
 
     var NavView = function(){
 
@@ -22,6 +23,19 @@ define([
                 $mainNav.addClass('closed');
             }
         });
+
+        $(".link-to-section").bind('click', function(e){
+            var id = $(this).data('link'),
+                currentPos = $(window).scrollTop(),
+                newPos = app.positions[id],
+                dist = Math.abs(newPos - currentPos);
+            e.preventDefault();
+            //console.log('navigating to ' + id + ', position: ' + newPos + ' dist: ' + dist);
+            //app.router.navigate(id, {trigger:true, replace:true});
+            window.location.hash = id;
+            $('html, body').animate({scrollTop:newPos}, dist / 2);
+        });
+
 
 
     };

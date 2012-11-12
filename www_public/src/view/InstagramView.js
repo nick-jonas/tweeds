@@ -19,9 +19,10 @@ define([
         },
 
         initialize : function(){
-          coll = new instagrams();
-          coll.bind('reset', this.onData);
-          coll.fetch();
+            _.bindAll(this, 'onData', 'onPhotoClick', 'showPhotoDetail', 'hidePhotoDetail');
+            coll = new instagrams();
+            coll.bind('reset', this.onData);
+            coll.fetch();
         },
 
         onData : function(){
@@ -32,12 +33,21 @@ define([
         onPhotoClick: function(e){
             var photo_id = $(e.currentTarget).data('id');
             var photo_model = coll.get({id:photo_id});
-           $('.ig-detail').show().html(tmplDetail({'photo' : photo_model.toJSON()}));
-           $('.ig-detail').find('.close').bind('click', this.onCloseDetail);
+            this.showPhotoDetail(photo_model);
         },
 
-        onCloseDetail: function(e){
-            $('.ig-detail').hide();
+        showPhotoDetail: function( model ){
+            $('.ig-detail').show().html(tmplDetail({'photo' : model.toJSON()}));
+            $('.ig-detail').find('.close').bind('click', this.hidePhotoDetail);
+            $('.ig-detail').animate({'height': '100%'}, 400, function(){
+
+            });
+        },
+
+        hidePhotoDetail: function(){
+            $('.ig-detail').animate({'height': '0%'}, 400, function(){
+                $('.ig-detail').hide();
+            });
         }
 
 

@@ -9,57 +9,69 @@
         "products": [
             {
                 "id"            : "product-name-1",
-                "title"         : "Product Name 1",
-                "imgSmall"      : "/products/small/Tweeds01.png",
-                "imgLarge"      : "/products/large/Tweeds01.png",
-                "circleColor"   : "#4dc8e9",
+                "title"         : "Hotel Santorini",
+                "imgSmall"      : "/products/small/Tweeds07.png",
+                "imgLargeFront" : "/products/large/Tweeds08.png",
+                "imgLargeBack"  : "/products/large/Tweeds08.png",
+                "productColor"  : "#9eb9d2",
                 "buyLink"       : "http://www.google.com",
-                "desc"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate nulla eget dolor porttitor at aliquam augue sollicitudin. Mauris semper mauris nec ante."
+                "desc"          : "Planning on waking up somewhere that ain't your own house? We all love a strange bedroom and bedside tables and dropping a pin to find out where you are. Make em remember you by your underwear.",
+                "class"           : ""
+            },
+            {
+                "id"            : "collection-label",
+                "title"         : "COLLECTION",
+                "imgSmall"      : "",
+                "imgLargeFront" : "",
+                "imgLargeBack"  : "",
+                "productColor"  : "",
+                "buyLink"       : "",
+                "desc"          : "",
+                "class"         : "collection-label"
             },
             {
                 "id"            : "product-name-2",
-                "title"         : "Product Name Longer",
-                "imgSmall"      : "/products/small/Tweeds02.png",
-                "imgLarge"      : "/products/large/Tweeds02.png",
-                "circleColor"   : "#00853e",
+                "title"         : "Pleasant-ville",
+                "imgSmall"      : "/products/small/Tweeds05.png",
+                "imgLargeFront" : "/products/large/Tweeds05.png",
+                "imgLargeBack"  : "/products/large/Tweeds06.png",
+                "productColor"  : "#fff200",
                 "buyLink"       : "http://www.google.com",
-                "desc"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate nulla eget dolor porttitor at aliquam augue sollicitudin. Mauris semper mauris nec ante."
+                "desc"          : "Perfect on a midsummer night's eve, when there's a we're-gonna-swim-at-midnight kinda vibe playing out. And there ain't a thing wrong with that.",
+                "class"         : ""
             },
             {
                 "id"            : "product-name-3",
-                "title"         : "Product Name 3",
-                "imgSmall"      : "/products/small/Tweeds03.png",
-                "imgLarge"      : "/products/large/Tweeds03.png",
-                "circleColor"   : "#e0327b",
+                "title"         : "Hello Heather",
+                "imgSmall"      : "/products/small/Tweeds01.png",
+                "imgLargeFront" : "/products/large/Tweeds01.png",
+                "imgLargeBack"  : "/products/large/Tweeds02.png",
+                "productColor"  : "#c1c0c1",
                 "buyLink"       : "http://www.google.com",
-                "desc"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate nulla eget dolor porttitor at aliquam augue sollicitudin. Mauris semper mauris nec ante."
+                "desc"          : "You can't tell us that Don Draper didn't turn you onto this blend. Oddly smooth for something so tough.",
+                "class"         : ""
             },
             {
                 "id"            : "product-name-4",
-                "title"         : "Product Name 4",
-                "imgSmall"      : "/products/small/Tweeds04.png",
-                "imgLarge"      : "/products/large/Tweeds04.png",
-                "circleColor"   : "#efeb00",
+                "title"         : "Iceberg Slim",
+                "imgSmall"      : "/products/small/Tweeds10.png",
+                "imgLargeFront" : "/products/large/Tweeds09.png",
+                "imgLargeBack"  : "/products/large/Tweeds09.png",
+                "productColor"  : "#e1e1e1",
                 "buyLink"       : "http://www.google.com",
-                "desc"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate nulla eget dolor porttitor at aliquam augue sollicitudin. Mauris semper mauris nec ante."
+                "desc"          : "A Young Buffalo lives. He wears whites in the desert. Everyday is game day and he is ready. And, he also knows there's no shame in a man owning oxi-clean or napisan. Nuthin at all.",
+                "class"         : ""
             },
             {
                 "id"            : "product-name-5",
-                "title"         : "Product Name 5",
-                "imgSmall"      : "/products/small/Tweeds05.png",
-                "imgLarge"      : "/products/large/Tweeds05.png",
-                "circleColor"   : "#ef2a3c",
+                "title"         : "Smile After Dark",
+                "imgSmall"      : "/products/small/Tweeds03.png",
+                "imgLargeFront" : "/products/large/Tweeds04.png",
+                "imgLargeBack"  : "/products/large/Tweeds04.png",
+                "productColor"  : "#252525",
                 "buyLink"       : "http://www.google.com",
-                "desc"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate nulla eget dolor porttitor at aliquam augue sollicitudin. Mauris semper mauris nec ante."
-            },
-            {
-                "id"            : "product-name-6",
-                "title"         : "Product Name 6",
-                "imgSmall"      : "/products/small/Tweeds06.png",
-                "imgLarge"      : "/products/large/Tweeds06.png",
-                "circleColor"   : "#4dc8e9",
-                "buyLink"       : "http://www.google.com",
-                "desc"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate nulla eget dolor porttitor at aliquam augue sollicitudin. Mauris semper mauris nec ante."
+                "desc"          : "These are kinda the black-ops of underwear. They look good in any light, but they shine best after dark.",
+                "class"         : "inverse-color"
             }
         ]
     }

@@ -6,7 +6,10 @@
 		<link rel="stylesheet" href="/assets/css/main.css">
 		<link rel="stylesheet" href="/assets/css/supersized.css" type="text/css" media="screen" />
 
-		<!-- typekit -->
+        <!-- typekit prod -->
+        <script type="text/javascript" src="//use.typekit.net/iki3uhf.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<!-- typekit local -->
 		<script type="text/javascript" src="//use.typekit.net/lkf4afo.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
@@ -16,16 +19,16 @@
 
 		<div class="container">
 
-			<div class="main-nav closed">
+			<div class="main-nav open">
 				<div class="nav-content">
 					<div class="logo-text hide-text"><img src="/assets/img/src/logo-typed.png"/></div>
 					<div class="nav-buttons">
 						<ul>
-							<li><a href="#" class="lookbook hide-text">LOOKBOOK</a></li>
-							<li><a href="#" class="collection hide-text">COLLECTION</a></li>
-							<li><a href="#" class="about hide-text">ABOUT</a></li>
-							<li><a href="#" class="buy hide-text">BUY</a></li>
-							<li><a href="#" class="instagram hide-text">INSTAGRAM</a></li>
+							<li><a href="#" data-link="lookbook" class="link-to-section lookbook hide-text">LOOKBOOK</a></li>
+							<li><a href="#" data-link="collection" class="link-to-section collection hide-text">COLLECTION</a></li>
+							<li><a href="#" data-link="about" class="link-to-section about hide-text">ABOUT</a></li>
+							<li><a href="#" data-link="buy" class="link-to-section buy hide-text">BUY</a></li>
+							<li><a href="#" data-link="instagram" class="link-to-section instagram hide-text">INSTAGRAM</a></li>
 						</ul>
 						<div class="social-buttons">
 							<a href="http://www.facebook.com/tweeds" target="_blank" class="social facebook hide-text">Facebook</a>

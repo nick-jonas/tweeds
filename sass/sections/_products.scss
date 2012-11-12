@@ -39,6 +39,18 @@ $productPerRow: 3;
                 top:0px;
                 width:100%;
 
+                #product-row-1{
+                    .circle-0{
+                        left: 2% * (100 / $productPerRow);
+                    }
+                    .circle-1{
+                        left: 1% * (100 / $productPerRow);
+                    }
+                    .circle-2{
+                        left: 0% * (100 / $productPerRow);
+                    }
+                }
+
                 .product-row{
                     position:absolute;
                     display:block;
@@ -52,6 +64,21 @@ $productPerRow: 3;
                     .circle-3{top:3 * $circleRadius; left: 3% * (100 / $productPerRow);};
                     .circle-4{top:4 * $circleRadius; left: 4% * (100 / $productPerRow);};
                     .circle-5{top:5 * $circleRadius; left: 5% * (100 / $productPerRow);};
+
+                    #collection-label{
+                        background:$yellow;
+                        cursor:default;
+                        .product-shot{
+                            display:none;
+                        }
+                        .product-name{
+                            display:block;
+                            .see-details{
+                                @include sprite(scroll-down);
+                                margin-left:-58px;
+                            }
+                        }
+                    }
 
                     .product-circle{
                         margin:50px auto;

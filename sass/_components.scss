@@ -1,12 +1,18 @@
 $whiteCircleDiam: 100px;
 .white-circle{
     margin:50px auto;
-    border-radius: 50%;
+    @include border-radius(50%);
     width: $whiteCircleDiam;
     height: $whiteCircleDiam;
     position:absolute;
     cursor:pointer;
     background:#FFFFFF;
+    @include single-transition(border-radius, 0.25s ease-out);
+
+    &:hover{
+        @include border-radius(0%);
+        @include single-transition(border-radius, 0.15s ease-out);
+    }
 
     .label{
         color:#000000;

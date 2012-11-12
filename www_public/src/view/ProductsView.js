@@ -55,8 +55,10 @@ define([
             // add click listeners
             $('.product-circle').bind('click', function(){
                 var product_id = $(this).attr('id');
-                var model = productColl.get(product_id);
-                that.openDetail(model);
+                if(product_id !== 'collection-label'){
+                    var model = productColl.get(product_id);
+                    that.openDetail(model);
+                }
             });
 
             app.trigger('loaded:success');

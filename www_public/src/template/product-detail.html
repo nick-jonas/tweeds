@@ -1,5 +1,7 @@
-<div class="product-detail">
-    <span class="left-half"><span class="triangle"></span></span>
+<div class="product-detail {{product.class}}">
+    <span class="left-half" style="background-color:{{product.productColor}};">
+        <span class="triangle" style="border-top-color:{{product.productColor}};"></span>
+    </span>
     <span class="right-half"><span class="triangle"></span></span>
     <div class="close-btn"></div>
     <div class="container">
@@ -9,7 +11,7 @@
             <a href="{{product.buyLink}}" target="_blank" class="buy-now white-circle"><span class="label">BUY NOW</span></a>
         </div>
         <div class="product-shot">
-            <img src="{{product.imgLarge}}"
+            <img src="{{product.imgLargeFront}}"
         </div>
     </div>
 </div>
