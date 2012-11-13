@@ -7,11 +7,17 @@
     <div class="container">
         <div class="left-col">
             <h1 class="product-title">{{capitalize product.title}}</h1>
-            <p class="product-description">{{product.desc}}</p>
+            <p class="product-description">{{capitalize product.desc}}</p>
             <a href="{{product.buyLink}}" target="_blank" class="buy-now white-circle"><span class="label">BUY NOW</span></a>
         </div>
         <div class="product-shot">
-            <img src="{{product.imgLargeFront}}"
+            <img class="front" src="{{product.imgLargeFront}}"/>
+            <img class="back hide" src="{{product.imgLargeBack}}"/>
+        </div>
+        <div class="product-switcher">
+            <div class="switch front hide-text on">1</div>
+            <div class="slash"></div>
+            <div class="switch back hide-text off">2</div>
         </div>
     </div>
 </div>

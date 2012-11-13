@@ -94,11 +94,15 @@ $productPerRow: 3;
                             position:absolute;
                             opacity:1;
                             @include single-transition(opacity, .3s ease-out);
-                            left:50%;
-                            top:50%;
-                            margin: ($smallProductHeight / -2) 0 0 ($smallProductWidth / -2);
-                            width:$smallProductWidth;
-                            height:$smallProductHeight;
+                            // left:50%;
+                            // top:50%;
+                            // margin: ($smallProductHeight / -2) 0 0 ($smallProductWidth / -2);
+                            // width:$smallProductWidth;
+                            // height:$smallProductHeight;
+                            left:0px;
+                            top:0px;
+                            width:312px;
+                            height:312px;
                         }
 
                         .product-name{

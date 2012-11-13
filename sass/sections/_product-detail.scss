@@ -58,8 +58,10 @@ $bgTriangleWidth: 150px;
     }
     > .container{
         position:relative;
-        margin:0 auto;
-        width:840px;
+        left: 50%;
+        top: 50%;
+        margin-left: -420px;
+        margin-top: -345px;
         opacity:0;
         z-index:$product-detail-z + 2;
 
@@ -98,6 +100,38 @@ $bgTriangleWidth: 150px;
             top:75px;
             left:400px;
             z-index:$product-detail-z + 2;
+            .hide{
+                display:none;
+            }
+        }
+
+        .product-switcher{
+            position:absolute;
+            z-index:$product-detail-z + 3;
+            top: 530px;
+            left: 610px;
+            .switch{
+                position:absolute;
+                cursor:pointer;
+                &.front{
+                    left: -40px;
+                    @include sprite(number-1-off);
+                }
+                &.back{
+                    left: 40px;
+                    @include sprite(number-2-off);
+                }
+
+                &.front.on{@include sprite(number-1-on);}
+                &.back.on{@include sprite(number-2-on);}
+
+            }
+            .slash{
+                @include sprite(number-slash);
+                position:absolute;
+                top: -24px;
+                left: -15px;
+            }
         }
     }
 

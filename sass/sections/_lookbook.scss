@@ -7,6 +7,7 @@ $minwidth:800px;
 	#lookbook-container{
 		#lookbook{
 			// ARROWS
+
 			.arrow{
 				@include sprite(arrow-white-right);
 				position:absolute;

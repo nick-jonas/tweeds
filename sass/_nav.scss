@@ -1,12 +1,14 @@
 $box-width:88px;
 $box-height:80px;
+$main-nav-height:405px;
 $boxes:2;
 
 .main-nav{
 	position:fixed;
-	top:25%;
+	top:50%;
 	margin:0px;
 	padding:0px;
+	margin-top:-$main-nav-height/2;
 	height:$box-height * $boxes;
 	width:100%;
 	vertical-align:top;
@@ -16,8 +18,9 @@ $boxes:2;
 	.nav-content{
 		@include rgba-background($nav-content);
 		display:inline-block;
-		width:91%;
-		height:405px;
+		width:100%;
+		height:$main-nav-height;
+		margin-left:-$box-width;
 		position:relative;
 		.logo-text{
 			margin:65px auto;
@@ -91,44 +94,48 @@ $boxes:2;
 				}
 			}
 		}
+		.boxes{
+			display:inline-block;
+			vertical-align:top;
+			margin:0px;
+			padding:0px;
+			position: absolute;
+			top: 0px;
+			right: -$box-width;
+			.box{
+				width:$box-width;
+				height:$box-height;
+				display:block;
+			}
+			#logo-icon{
+				background:$nav-box;
+				.icon{
+					@include sprite(logo-icon);
+					display:block;
+					margin:15px 0 0 18px;
+				}
+			}
+			#nav-arrow{
+				.arrow{
+					display:block;
+					margin: 19px 0 0 23px;
+				}
+			}
+		}
 	}
 
-	.boxes{
-		display:inline-block;
-		vertical-align:top;
-		margin:0px;
-		padding:0px;
-		.box{
-			width:$box-width;
-			height:$box-height;
-			display:block;
-		}
-		#logo-icon{
-			background:$nav-box;
-			.icon{
-				@include sprite(logo-icon);
-				display:block;
-				margin:15px 0 0 18px;
-			}
-		}
-		#nav-arrow{
-			.arrow{
-				display:block;
-				margin: 19px 0 0 23px;
-			}
-		}
-	}
 }
 
 @media screen and (max-width: $bp-small-nav) {
 
 	.main-nav{
 		position:absolute;
-		top:0px;
+		top:200px;
 		left:0px;
 		width:100%;
 		.nav-content{
 			width:100%;
+			margin-left:0px;
 		}
 		&.closed{
 			.nav-content{ left:91%; }
@@ -143,9 +150,12 @@ $boxes:2;
 
 .closed{
 	@include animation(my-animation 1s);
+	left:-100%;
+	margin-left:$box-width;
 
-	left:-91%;
 	.boxes{
+		//left:100%;
+
 		#nav-arrow{
 			background:black;
 			.arrow{
@@ -174,6 +184,16 @@ $boxes:2;
 }
 
 @include keyframes(my-animation){
-	0%{ left:0px;}
-	100%{ left:-91%;}
+	0%{
+		left:0px;
+		margin-left:-$box-width;
+	}
+	50%{
+		left:-100%;
+		margin-left:-$box-width/2;
+	}
+	100%{
+		left:-100%;
+		margin-left:$box-width;
+	}
 }

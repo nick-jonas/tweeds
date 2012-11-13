@@ -77,8 +77,32 @@ define([
             $('.product-detail .close-btn').bind('click', function(){
                 that.closeDetail();
             });
+
+            $('.product-detail .product-switcher .switch').bind('click', this.switchProductShot);
+
             this.sizeTriangles();
             this.animateTriangles(this.showContainer);
+        },
+
+        switchProductShot: function(e){
+            var $back = $('.product-detail .product-switcher .switch.back'),
+                $front = $('.product-detail .product-switcher .switch.front'),
+                $backImage = $('.product-shot .back'),
+                $frontImage = $('.product-shot .front');
+            if($(e.currentTarget).hasClass('front')){
+                // switch to front
+                $back.removeClass('on');
+                $front.addClass('on');
+                $frontImage.removeClass('hide');
+                $backImage.addClass('hide');
+            }else{
+                // switch to back
+                $front.removeClass('on');
+                $back.addClass('on');
+                $backImage.removeClass('hide');
+                $frontImage.addClass('hide');
+            }
+            console.dir(e.currentTarget);
         },
 
         closeDetail: function(){

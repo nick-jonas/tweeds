@@ -6,21 +6,27 @@ define([
 
     var NavView = function(){
 
-        var $textLogo = $('.main-nav .logo-text img');
+        var $mainNav = $('.main-nav'),
+            $textLogo = $('.main-nav .logo-text img'),
+            $lookbookArrows = $('.lookbook-arrows');
 
         if(app.isRetina){
             $textLogo.attr('src', app.imgSrc + '/logo-typed.png');
         }
 
+        $lookbookArrows.hide();
+
         $("#nav-arrow").click(function(e){
             e.preventDefault();
-            var $mainNav = $('.main-nav');
-            if($mainNav.hasClass('closed')){
+
+            if($mainNav.hasClass('closed')){ // open nav
                 $mainNav.removeClass('closed');
                 $mainNav.addClass('open');
-            }else{
+                $lookbookArrows.hide();
+            }else{                          // close nav
                 $mainNav.removeClass('open');
                 $mainNav.addClass('closed');
+                $lookbookArrows.show();
             }
         });
 

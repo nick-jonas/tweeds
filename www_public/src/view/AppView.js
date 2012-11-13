@@ -18,11 +18,13 @@ define([
 
         totalLoad: 3,
 
+        myInterval: null,
+
         scrollorama: {},
 
 		initialize: function(){
 
-            _.bindAll(this, 'loadNext', 'onLoadAllComplete', 'animateScrollBlocks')
+            _.bindAll(this, 'loadNext', 'onLoadAllComplete', 'initApp', 'animateScrollBlocks');
 
             var that = this;
             app.on('loaded:success', function(){
@@ -55,14 +57,34 @@ define([
         },
 
         onLoadAllComplete: function(){
-
-            // scrollorama
-            this.animateScrollBlocks();
-
-            if(app.scrollTo){ // set in router
-                $('html, body').animate({scrollTop:app.scrollTo}, 'slow');
+            var that = this;
+            if(window.isLoaded){
+                this.initApp();
+            }else{
+                var checkTextValue = setTimeout(function() {
+                    if (window.isLoaded){
+                        that.initApp();
+                    } else {
+                        setTimeout(arguments.callee, 1000);
+                    }
+                }, 1000);
             }
+        },
 
+        initApp: function(){
+            var that = this;
+            $('#preloader-white').animate({'height': '0px'}, 300, function(){
+                // scrollorama
+                that.animateScrollBlocks();
+
+                if(app.scrollTo){ // set in router
+                    $('html, body').animate({scrollTop:app.scrollTo}, 'slow');
+                }
+
+                $('.preloader').fadeTo(500, 0, function(){
+                    $(this).remove();
+                });
+            });
         },
 
         animateScrollBlocks: function(){

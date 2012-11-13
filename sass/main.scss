@@ -25,6 +25,7 @@
 @import "components";
 @import "nav";
 
+@import "sections/preloader";
 @import "sections/lookbook";
 @import "sections/products";
 @import "sections/product-detail";
@@ -36,6 +37,10 @@
 
 html, body{
 	margin:0;
+}
+
+body{
+    //overflow:hidden;
 }
 
 .hide-text {

@@ -5,7 +5,11 @@
 	Dual licensed under MIT and GPL.
 */
 
-(function($) {
+define(['jquery'],
+	function($){
+
+//(function($) {
+
     $.scrollorama = function(options) {
 		var scrollorama = this,
 			blocks = [],
@@ -533,4 +537,7 @@
 		}
 	});
 	*/
-})(jQuery);
+
+
+});
+//})(jQuery);
