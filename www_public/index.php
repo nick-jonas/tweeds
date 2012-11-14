@@ -13,10 +13,17 @@
 		<script type="text/javascript" src="//use.typekit.net/lkf4afo.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+        <script type="text/javascript">
+            <?php if(isset($_REQUEST['skip_preload'])): ?>
+                window.skipPreloader = true;
+            <?php endif; ?>
+        </script>
+
 	</head>
 
 	<body>
 
+        <?php if(!isset($_REQUEST['skip_preload'])): ?>
         <div class="preloader">
             <div class="preloader-img">
                 <img src="/assets/img/src2x/preloader.png"/>
@@ -24,10 +31,11 @@
             <div class="preloader-black"></div>
             <div id="preloader-white" class="preloader-white"></div>
         </div>
+        <?php endif; ?>
 
 		<div class="container">
 
-			<div class="main-nav open">
+			<div class="main-nav <?php if($_REQUEST['nav_closed']){ echo 'closed'; } else { echo 'open'; } ?>">
 				<div class="nav-content">
 					<div class="logo-text hide-text"><img src="/assets/img/src/logo-typed.png"/></div>
 					<div class="nav-buttons">
@@ -56,7 +64,7 @@
 
 			</div>
 
-            <div class="scrollblock" id="lookbook-scroll">
+            <div class="scrollblock" id="lookbook-scroll" data-position="0">
                 <section id="lookbook-container" class="section-container">
                     <!-- slideshow -->
                     <div id="lookbook">
@@ -85,7 +93,7 @@
                 </section>
             </div>
 
-            <div class="scrollblock" id="products-scroll">
+            <div class="scrollblock" id="products-scroll" data-position="1">
     			<section id="products-container" class="section-container">
                     <div id="products">
                         <!-- template/template.html -->
@@ -101,7 +109,7 @@
                 </section>
             </div> -->
 
-            <div class="scrollblock" id="about-scroll">
+            <div class="scrollblock" id="about-scroll" data-position="2">
                 <section id="story" class="section-container">
 
                     <div class="story-text story-text-block">
@@ -129,7 +137,7 @@ SIX MONTHS LATER AND THE PAIR FIND THEMSELVES ON THE SAME BOAT IN THE INDIAN OCE
                 </section>
             </div>
 
-            <div class="scrollblock" id="buy-scroll">
+            <div class="scrollblock" id="buy-scroll" data-position="3">
                 <section id="buy" class="section-container">
                     <div class="buy-content">
                         <h1>TWEEDS IS AVAILABLE<br/>AT THESE FINE RETAILERS...</h1>
@@ -141,7 +149,7 @@ SIX MONTHS LATER AND THE PAIR FIND THEMSELVES ON THE SAME BOAT IN THE INDIAN OCE
                 </section>
             </div>
 
-            <div class="scrollblock" id="instagram-scroll">
+            <div class="scrollblock" id="instagram-scroll" data-position="4">
     			<section id="instagram-container" class="section-container">
                     <div id="instagram"></div>
                 </section>
@@ -224,7 +232,7 @@ SIX MONTHS LATER AND THE PAIR FIND THEMSELVES ON THE SAME BOAT IN THE INDIAN OCE
                 }
             });
 
-            loader.start();
+            if(!window.skipPreloader) loader.start();
 
   		</script>
 

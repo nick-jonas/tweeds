@@ -22,11 +22,15 @@ define([
 
         scrollorama: {},
 
+        currentHeight: 0,
+
 		initialize: function(){
 
-            _.bindAll(this, 'loadNext', 'onLoadAllComplete', 'initApp', 'animateScrollBlocks');
-
+            _.bindAll(this, 'loadNext', 'onLoadAllComplete', 'initApp', 'animateScrollBlocks', 'onWindowResize');
             var that = this;
+            $(window).on('resize', this.onWindowResize);
+            this.onWindowResize();
+
             app.on('loaded:success', function(){
                 that.currentLoadIndex++;
                 if(that.currentLoadIndex == that.totalLoad){
@@ -37,6 +41,22 @@ define([
             });
             this.loadNext();
 		},
+
+        onWindowResize: function(){
+            var w = $(window).width(),
+                h = $(window).height();
+            currentHeight = h;
+            // $('#lookbook #supersized').css('height', h + 'px');
+            // $('.scrollblock').each(function(index){
+            //     var pos = $(this).data('position');
+            //     $(this).css('height', h + 'px');
+            //     if($(this).css('top') !== 0) {
+            //         $(this).css('top', (pos * h));
+            //         console.log('pos: ' + (pos * h ));
+            //     }
+            // });
+
+        },
 
 		render: function(){
 			return el;
@@ -58,11 +78,17 @@ define([
 
         onLoadAllComplete: function(){
             var that = this;
-            if(window.isLoaded){
+
+            if(window.skipPreloader){
+                this.initApp();
+            }
+            else if(window.isLoaded){
+                this.animateOutPreloader();
                 this.initApp();
             }else{
                 var checkTextValue = setTimeout(function() {
                     if (window.isLoaded){
+                        that.animateOutPreloader();
                         that.initApp();
                     } else {
                         setTimeout(arguments.callee, 1000);
@@ -71,20 +97,22 @@ define([
             }
         },
 
-        initApp: function(){
-            var that = this;
+        animateOutPreloader: function(){
             $('#preloader-white').animate({'height': '0px'}, 300, function(){
-                // scrollorama
-                that.animateScrollBlocks();
-
-                if(app.scrollTo){ // set in router
-                    $('html, body').animate({scrollTop:app.scrollTo}, 'slow');
-                }
-
                 $('.preloader').fadeTo(500, 0, function(){
                     $(this).remove();
                 });
             });
+        },
+
+        initApp: function(){
+            var that = this;
+            // scrollorama
+            that.animateScrollBlocks();
+            if(app.scrollTo){ // set in router
+                $('html, body').animate({scrollTop:app.scrollTo}, 'slow');
+            }
+            this.onWindowResize();
         },
 
         animateScrollBlocks: function(){

@@ -54,7 +54,7 @@ define([
 
 				// Size & Position
 				min_width		        :   700,			// Min width allowed (in pixels)
-				min_height		        :   800,			// Min height allowed (in pixels)
+				min_height		        :   $(window).height(),			// Min height allowed (in pixels)
 				vertical_center         :   1,			// Vertically center background
 				horizontal_center       :   1,			// Horizontally center background
 				fit_always				:	0,			// Image will never exceed browser width or height (Ignores min. dimensions)
