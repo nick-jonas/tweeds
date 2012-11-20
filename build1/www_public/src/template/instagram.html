@@ -1,0 +1,18 @@
+<div class="ig-header">
+    <h1>TWEEDS-TAGRAMS</h1>
+    <hr>
+    <h2>@TWEEDS</h2>
+</div>
+
+<div class="photos">
+    {{#each this.photos}}
+        <div class="photo-container" data-id="{{this.id}}">
+            <div class="photo">
+                <img src="{{this.images.standard_resolution.url}}"/>
+            </div>
+        </div>
+    {{/each}}
+    <div style="clear:both;"></div>
+</div>
+
+<div class="ig-detail"></div>

@@ -18,5 +18,8 @@ Icon?
 
 #        VIDEO
 
-www_public/assets/assets/video/*
-/sass/.sass-cache/*
+build1/www_public/assets/assets/video/*
+build1/sass/.sass-cache/*
+
+build2/www_public/assets/assets/video/*
+build2/sass/.sass-cache/*

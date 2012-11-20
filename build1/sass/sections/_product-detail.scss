@@ -1,0 +1,143 @@
+$largeProductWidth:430px;
+$largeProductHeight:490px;
+$bgTriangleWidth: 150px;
+
+.product-detail{
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    z-index:$product-detail-z;
+    .left-half{
+        width:0%;
+        height:100%;
+        position:absolute;
+        left:0px;
+        background-color:$product-detail-bg;
+        > .triangle{
+            width: 0;
+            height: 0;
+            border-top: 400px solid $product-detail-bg;
+            border-right: $bgTriangleWidth solid transparent;
+            display:block;
+            position:absolute;
+            top:0px;
+            right:0px;// ->>> -$bgTriangleWidth;
+            z-index:$product-detail-z + 1;
+        }
+    }
+    .right-half{
+        width:0%;
+        height:100%;
+        position:absolute;
+        right:0px;
+        background-color:$product-detail-bg;
+
+        > .triangle{
+            width: 0;
+            height: 0;
+            border-bottom: 400px solid $product-detail-bg;
+            border-left: $bgTriangleWidth solid transparent;
+            display:block;
+            position:absolute;
+            left:0;// ->> -$bgTriangleWidth;
+            top:50%;
+            bottom:0px;
+            z-index:$product-detail-z + 1;
+        }
+
+    }
+    .close-btn{
+        @include sprite(product-detail-close);
+        display:block;
+        cursor:pointer;
+        position:absolute;
+        right:40px;
+        top:30px;
+    }
+    > .container{
+        position:relative;
+        left: 50%;
+        top: 50%;
+        margin-left: -420px;
+        margin-top: -345px;
+        opacity:0;
+        z-index:$product-detail-z + 2;
+
+        .left-col{
+            position:absolute;
+            top:145px;
+            left:45px;
+            .product-title{
+                @include body-text(4em, #000000);
+                width: 280px;
+                text-align: center;
+                line-height: 1.5;
+                position:relative;
+                display:block;
+                clear:both;
+                padding:0 0 0 30px;
+            }
+            .product-description{
+                font-family:$futura;
+                color:#000000;
+                width:340px;
+                text-align:center;
+            }
+            .buy-now{
+                position:relative;
+                float:left;
+                z-index:$product-detail-z + 2;
+                margin:30px 0 0 120px;
+            }
+        }
+
+        .product-shot{
+            width:$largeProductWidth;
+            height:$largeProductHeight;
+            position:absolute;
+            top:75px;
+            left:400px;
+            z-index:$product-detail-z + 2;
+            .hide{
+                display:none;
+            }
+        }
+
+        .product-switcher{
+            position:absolute;
+            z-index:$product-detail-z + 3;
+            top: 530px;
+            left: 610px;
+            .switch{
+                position:absolute;
+                cursor:pointer;
+                &.front{
+                    left: -40px;
+                    @include sprite(number-1-off);
+                }
+                &.back{
+                    left: 40px;
+                    @include sprite(number-2-off);
+                }
+
+                &.front.on{@include sprite(number-1-on);}
+                &.back.on{@include sprite(number-2-on);}
+
+            }
+            .slash{
+                @include sprite(number-slash);
+                position:absolute;
+                top: -24px;
+                left: -15px;
+            }
+        }
+    }
+
+    &.inverse-color{
+        .product-title, .product-description{
+            color:white !important;
+        }
+    }
+}

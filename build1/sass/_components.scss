@@ -1,0 +1,32 @@
+$whiteCircleDiam: 100px;
+.white-circle{
+    margin:50px auto;
+    @include border-radius(50%);
+    width: $whiteCircleDiam;
+    height: $whiteCircleDiam;
+    position:absolute;
+    cursor:pointer;
+    background:#FFFFFF;
+    @include single-transition(border-radius, 0.25s ease-out);
+
+    &:hover{
+        @include border-radius(0%);
+        @include single-transition(border-radius, 0.15s ease-out);
+    }
+
+    .label{
+        color:#000000;
+        font-family:$futura;
+        font-size:12px;
+        font-weight:700;
+        letter-spacing:3px;
+        display: table-cell;
+        #position: absolute;
+        #top: 50%;
+        vertical-align: middle;
+        height: (0.96 * $whiteCircleDiam);
+        width:$whiteCircleDiam;
+        padding:0 12px 0 12px;
+        text-align:center;
+    }
+}
