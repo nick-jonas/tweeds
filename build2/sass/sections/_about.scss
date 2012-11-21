@@ -1,0 +1,10 @@
+.about{
+    background: url('../img/src/about/aboutbackground.jpg') 50% 0 repeat fixed;
+    height:$section-height;
+    padding:0px;
+    margin:0px;
+    position:relative;
+    @include background-size(cover);
+
+
+}

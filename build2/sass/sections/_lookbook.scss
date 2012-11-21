@@ -1,34 +1,10 @@
-$minwidth:800px;
+.lookbook{
+    background: url('../img/src/lookbook/1.jpg') 50% 0 repeat fixed;
+    height:$section-height;
+    padding:0px;
+    margin:0px;
+    position:relative;
+    @include background-size(cover);
 
-#lookbook-scroll{ // .scrollblock
 
-	height:800px;
-
-	#lookbook-container{
-		#lookbook{
-			// ARROWS
-
-			.arrow{
-				@include sprite(arrow-white-right);
-				position:absolute;
-				margin-top:370px;
-				z-index:$lookbook-arrow-z;
-				&.left{
-					@include rotate(180deg);
-					left:25px;
-				}
-				&.right{
-					right:25px
-				}
-			}
-
-			@media screen and (max-width: $bp-small-nav) {
-				#prevslide, #nextslide{
-					display:none !important;
-				}
-			}
-
-		}
-	}
 }
-

@@ -3,6 +3,7 @@
 @import "compass/css3/transition";
 @import "compass/css3/box-shadow";
 @import "compass/css3/border-radius";
+@import "compass/css3/background-size";
 
 // bootstrap
 @import "bootstrap/mixins";
@@ -25,22 +26,15 @@
 @import "components";
 @import "nav";
 
-@import "sections/preloader";
-@import "sections/lookbook";
-@import "sections/products";
-@import "sections/product-detail";
-@import "sections/instagram";
-@import "sections/young-buffalo-wear-tweeds";
-@import "sections/mask-transition";
-@import "sections/story";
-@import "sections/buy";
+@import "sections/lookbook.scss";
+@import "sections/products.scss";
+@import "sections/about.scss";
+@import "sections/buy.scss";
+@import "sections/instagram.scss";
+
 
 html, body{
 	margin:0;
-}
-
-body{
-    //overflow:hidden;
 }
 
 .hide-text {
@@ -58,25 +52,3 @@ a{
 li{
     list-style-type:none;
 }
-
-.scrollblock{
-    width:100%;
-    position:relative;
-    height:800px;
-    >.section-container{
-        width:100%;
-    }
-}
-
-
-// section{
-//     float:left;
-//     clear:both;
-// }
-// section:after {
-//    content: ".";
-//    visibility: hidden;
-//    display: block;
-//    height: 0;
-//    clear: both;
-// }
