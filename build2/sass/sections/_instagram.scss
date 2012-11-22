@@ -6,6 +6,6 @@
     position:relative;
     margin:0 auto;
     @include background-size(cover);
-
+    z-index:$section-instagram-z;
 
 }

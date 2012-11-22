@@ -17,6 +17,7 @@ $productPerRow: 3;
     padding:0px;
     margin:0px;
     position:relative;
+    z-index:$section-products-z;
 
 
 
@@ -42,6 +43,18 @@ $productPerRow: 3;
                 left: 2% * (100 / $productPerRow);
             }
         }
+    }
+
+    .down-arrow-white{
+        position:absolute;
+        bottom:35px;
+        left:20px;
+    }
+
+    .pager{
+        position:absolute;
+        bottom: 80px;
+        right:100px;
     }
 
 }

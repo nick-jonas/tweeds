@@ -3,11 +3,11 @@ require "rgbapng"
 require "animation"
 
 # Set this to the root of your project when deployed:
-http_path = "../www_public/"
-css_dir = "../www_public/assets/css"
+http_path = "../webapp/"
+css_dir = "../webapp/assets/css"
 sass_dir = "./"
-images_dir = "../www_public/assets/img"
-javascripts_dir = "../www_public/assets/js"
+images_dir = "../webapp/assets/img"
+javascripts_dir = "../webapp/assets/js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

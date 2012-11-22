@@ -30,3 +30,71 @@ $whiteCircleDiam: 100px;
         text-align:center;
     }
 }
+
+.down-arrow-white{
+    @include sprite(arrow-white-down);
+}
+
+.down-arrow-black{
+    @include sprite(arrow-black-down);
+}
+
+.left-arrow-white{
+    @include rotate(180deg);
+    @include sprite(arrow-white-right);
+}
+
+.left-arrow-black{
+    @include rotate(180deg);
+    @include sprite(arrow-black-right);
+}
+
+.right-arrow-white{
+    @include sprite(arrow-white-right);
+}
+
+.right-arrow-black{
+    @include sprite(arrow-black-right);
+}
+
+.page-down{
+    cursor:pointer;
+    @extend .down-arrow-black;
+    &.white{
+        @extend .down-arrow-white;
+    }
+}
+
+
+.pager{
+    .num{
+        position:absolute;
+        &.left{
+            left: -40px;
+        }
+        &.right{
+            left: 40px;
+        }
+        &.number-1{
+            @include sprite(number-1-black);
+            &.white{ @include sprite(number-1-white); }
+        }
+        &.number-2{
+            @include sprite(number-2-black);
+            &.white{ @include sprite(number-2-white); }
+        }
+        &.number-3{
+            @include sprite(number-3-black);
+            &.white{ @include sprite(number-3-white); }
+        }
+    }
+    .slash{
+        @include sprite(number-slash);
+        position:absolute;
+        top: -24px;
+        left: -15px;
+        &.white{
+            @include sprite(number-slash-white);
+        }
+    }
+}
