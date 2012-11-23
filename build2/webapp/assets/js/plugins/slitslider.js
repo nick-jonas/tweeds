@@ -108,7 +108,7 @@ define([
             };
             this.transEndEventName = this.transEndEventNames[ Modernizr.prefixed( 'transition' ) ];
             // suport for css 3d transforms and css transitions
-            this.support = Modernizr.csstransitions && Modernizr.csstransforms3d;
+            this.support = Modernizr.csstransitions;// && Modernizr.csstransforms3d;
             console.log('is supported: ' + this.support);
             // the slider
             this.$el = this.$elWrapper.children( '.sl-slider' );
@@ -218,46 +218,54 @@ define([
             this._validateValues( config );
 
             var cssStyle = config.orientation === 'horizontal' ? {
-                    marginTop : -this.size.height / 2
+                    marginTop : 0//-this.size.height / 2
                 } : {
                     marginLeft : -this.size.width / 2
                 },
                 // default slide's slices style
-                resetStyle = {
-                    'transform' : 'translate(0%,0%) rotate(0deg) scale(1)',
+                slice1reset = {
+                    //'transform' : 'translate(0%,0%) rotate(0deg) scale(1)',
+                    'top' : '-200px',
+                    opacity : 1
+                },
+
+                slice2reset = {
+                    'top' : '0px',
                     opacity : 1
                 },
 
                 // slice1 style
                 slice1Style = config.orientation === 'horizontal' ? {
-                    'transform'         : 'translateY(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
-                    '-moz-transform'    : 'translateY(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
-                    '-ms-transform'     : 'translateY(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
-                    '-o-transform'      : 'translateY(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
-                    '-webkit-transform' : 'translateY(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')'
+                    'top' : '-1280px'
+                    // 'transform'         : 'translateY(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
+                    // '-moz-transform'    : 'translateY(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
+                    // '-ms-transform'     : 'translateY(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
+                    // '-o-transform'      : 'translateY(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
+                    // '-webkit-transform' : 'translateY(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')'
                     //'transform-origin' : '0 0'
                 } : {
-                    'transform'         : 'translateX(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
-                    '-moz-transform'    : 'translateX(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
-                    '-ms-transform'     : 'translateX(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
-                    '-o-transform'      : 'translateX(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
-                    '-webkit-transform' : 'translateX(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')'
+                    // 'transform'         : 'translateX(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
+                    // '-moz-transform'    : 'translateX(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
+                    // '-ms-transform'     : 'translateX(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
+                    // '-o-transform'      : 'translateX(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')',
+                    // '-webkit-transform' : 'translateX(-' + this.options.translateFactor + '%) rotate(' + config.slice1angle + 'deg) scale(' + config.slice1scale + ')'
                     //'transform-origin' : '0px 0px'
                 },
                 // slice2 style
                 slice2Style = config.orientation === 'horizontal' ? {
-                    'transform'         : 'translateY(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
-                    '-moz-transform'    : 'translateY(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
-                    '-ms-transform'     : 'translateY(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
-                    '-o-transform'      : 'translateY(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
-                    '-webkit-transform' : 'translateY(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')'
+                    'top' : $(window).height() + 'px'
+                    // 'transform'         : 'translateY(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
+                    // '-moz-transform'    : 'translateY(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
+                    // '-ms-transform'     : 'translateY(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
+                    // '-o-transform'      : 'translateY(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
+                    // '-webkit-transform' : 'translateY(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')'
                     //'transform-origin' : '0px 0px'
                 } : {
-                    'transform'         : 'translateX(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
-                    '-moz-transform'    : 'translateX(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
-                    '-ms-transform'     : 'translateX(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
-                    '-o-transform'      : 'translateX(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
-                    '-webkit-transform' : 'translateX(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')'
+                    // 'transform'         : 'translateX(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
+                    // '-moz-transform'    : 'translateX(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
+                    // '-ms-transform'     : 'translateX(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
+                    // '-o-transform'      : 'translateX(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')',
+                    // '-webkit-transform' : 'translateX(' + this.options.translateFactor + '%) rotate(' + config.slice2angle + 'deg) scale(' + config.slice2scale + ')'
                     //'transform-origin' : '0px 0px'
                 };
 
@@ -295,7 +303,13 @@ define([
                                 this.css( slice1Style );
                                 setTimeout( function() {
 
-                                    slice.css( resetStyle );
+                                    var $inners = slice.find('.slice-text, .pager, .about-nav-arrows');
+                                    $inners.fadeTo(0, 0);
+                                    slice.css( slice1reset );
+                                    setTimeout( function(){
+                                        $inners.fadeTo(800, 1);
+                                    }, 600);
+
 
                                 }, 50 );
 
@@ -306,6 +320,9 @@ define([
                                 setTimeout( function() {
 
                                     slice.css( slice1Style );
+
+                                    var $inners = slice.find('.slice-text, .pager, .about-nav-arrows');
+                                    $inners.fadeTo(0, 0);
 
                                 }, 50 );
 
@@ -324,8 +341,7 @@ define([
                                     $currentSlide.addClass( 'sl-trans-back-elems' );
 
                                     if( self.support ) {
-
-                                        slice.css( resetStyle ).on( self.transEndEventName, function() {
+                                        slice.css( slice2reset ).on( self.transEndEventName, function() {
 
                                             self._onEndNavigate( slice, $currentSlide, dir );
 
@@ -347,6 +363,10 @@ define([
                                 setTimeout( function() {
 
                                     $nextSlide.addClass( 'sl-trans-elems' );
+
+                                    console.log('hiding!!! 2');
+                                    var $inners = slice.find('.slice-text, .pager, .about-nav-arrows');
+                                    $inners.fadeTo(0, 0);
 
                                     if( self.support ) {
 
@@ -623,6 +643,7 @@ define([
             }
 
         },
+
         // public method: check if isAnimating is true
         isActive : function() {
 

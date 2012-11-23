@@ -13,7 +13,7 @@ define([
 
             // http://tympanus.net/codrops/2012/06/05/fullscreen-slit-slider-with-jquery-and-css3/
             var slitslider = $( '#slider' ).slitslider( {
-                speed:700,
+                speed:600,
                 translateFactor:230,
                 maxAngle:25,
                 maxScale: 1,
