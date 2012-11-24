@@ -25,6 +25,7 @@ require.config({
 
     // Libraries.
     jquery:         "../assets/js/libs/jquery",
+    // modernizr:      "../assets/js/libs/modernizr",
     lodash:         "../assets/js/libs/lodash",
     backbone:       "../assets/js/libs/backbone",
     hbs:            "../assets/js/libs/hbs",

@@ -364,7 +364,6 @@ define([
 
                                     $nextSlide.addClass( 'sl-trans-elems' );
 
-                                    console.log('hiding!!! 2');
                                     var $inners = slice.find('.slice-text, .pager, .about-nav-arrows');
                                     $inners.fadeTo(0, 0);
 

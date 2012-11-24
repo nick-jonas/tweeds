@@ -8,7 +8,7 @@
 
         "products": [
             {
-                "id"            : "product-name-1",
+                "id"            : "hotel-santorini",
                 "title"         : "Hotel Santorini",
                 "imgSmall"      : "/products/small/Tweeds07.png",
                 "imgLargeFront" : "/products/large/Tweeds07.png",
@@ -30,7 +30,7 @@
                 "class"         : "collection-label"
             },
             {
-                "id"            : "product-name-2",
+                "id"            : "pleasant-ville",
                 "title"         : "Pleasant-ville",
                 "imgSmall"      : "/products/small/Tweeds05.png",
                 "imgLargeFront" : "/products/large/Tweeds05.png",
@@ -41,7 +41,7 @@
                 "class"         : ""
             },
             {
-                "id"            : "product-name-3",
+                "id"            : "hello-heather",
                 "title"         : "Hello Heather",
                 "imgSmall"      : "/products/small/Tweeds01.png",
                 "imgLargeFront" : "/products/large/Tweeds01.png",
@@ -52,7 +52,7 @@
                 "class"         : ""
             },
             {
-                "id"            : "product-name-4",
+                "id"            : "iceberg-slim",
                 "title"         : "Iceberg Slim",
                 "imgSmall"      : "/products/small/Tweeds10.png",
                 "imgLargeFront" : "/products/large/Tweeds10.png",
@@ -63,7 +63,7 @@
                 "class"         : ""
             },
             {
-                "id"            : "product-name-5",
+                "id"            : "smile-after-dark",
                 "title"         : "Smile After Dark",
                 "imgSmall"      : "/products/small/Tweeds03.png",
                 "imgLargeFront" : "/products/large/Tweeds03.png",

@@ -5,27 +5,86 @@ $smallProductHeight: 189px;
 $productPerRow: 3;
 
 .products{
+
     &.products-1{
         background: url('../img/src/products/bg-mountains.jpg') 50% 0 repeat fixed;
         @include background-size(cover);
     }
+
     &.products-2{
         background: url('../img/src/products/bg-surfer.jpg') 50% 0 repeat fixed;
         @include background-size(cover);
     }
+
     height:$section-height;
     padding:0px;
     margin:0px;
     position:relative;
     z-index:$section-products-z;
 
-
-
     .content{
         margin:0 auto;
         height:100%;
         width:80%;
         position:relative;
+
+        #collection-label{
+            background:$yellow;
+            cursor:default;
+            .product-shot{
+                display:none;
+            }
+            .product-name{
+                display:block;
+                opacity:1;
+                background:none;
+                .product-no{
+                    color:#000;
+                    @include body-text(1.0em, #000000);
+                }
+                .product-name-container{
+                    h1{
+                        color:#000;
+                    }
+                }
+                .see-details{
+                    @include sprite(scroll-down);
+                    margin-left:-58px;
+                }
+            }
+        }
+
+        #hotel-santorini{
+            .product-name{
+                @include rgba-background(rgba(0,133,62,0.70));
+            }
+        }
+
+        #pleasant-ville{
+            .product-name{
+                @include rgba-background(rgba(238,46,36,0.70));
+            }
+        }
+
+        #hello-heather{
+            .product-name{
+                @include rgba-background(rgba(224,50,123,0.70));
+            }
+        }
+
+        #iceberg-slim{
+            .product-name{
+                @include rgba-background(rgba(77,200,233,0.70));
+            }
+        }
+
+        #smile-after-dark{
+            .product-name{
+                @include rgba-background(rgba(255,242,0,0.70));
+            }
+        }
+
+
         .product-circle{
             border-radius: 50%;
             width: $circleDiameter;
@@ -41,6 +100,71 @@ $productPerRow: 3;
             }
             &.circle-2{
                 left: 2% * (100 / $productPerRow);
+            }
+
+            .product-shot{
+                position:absolute;
+                opacity:1;
+                @include single-transition(opacity, .3s ease-out);
+                left:0px;
+                top:0px;
+                width:312px;
+                height:312px;
+            }
+
+            .product-name{
+                opacity:0;
+                width:100%;
+                height:100%;
+                position:absolute;
+                z-index:100;
+                @include border-radius(50%);
+                @include rgba-background(rgba(0,133,62,0.70));
+                .product-no{
+                    color:#FFFFFF;
+                    font-family:$futura;
+                    width:100%;
+                    text-align:center;
+                    position:absolute;
+                    top:65px;
+                    letter-spacing:2px;
+                    font-size:0.9em;
+                    font-weight:300;
+                }
+                .product-name-container{
+                    display: table-cell;
+                    #position: absolute;
+                    #top: 50%;
+                    vertical-align: middle;
+                    height: (0.9 * $circleDiameter);
+                    width:$circleDiameter;
+                    h1{
+                        margin:0 auto;
+                        padding:20px 0 0 0;
+                        width:(0.6 * $circleDiameter);
+                        #position: relative;
+                        #top: -50%;
+                        text-align:center;
+                        @include body-text(2.1em, #FFFFFF);
+                        letter-spacing:3px;
+                    }
+                }
+                .see-details{
+                    position:absolute;
+                    left:50%;
+                    margin-left:-50px;
+                    bottom:50px;
+                    @include sprite(see-details);
+                }
+            }
+        }
+
+        .product-circle:hover{
+            .product-shot{}
+            .product-name{
+                opacity:1;
+                //@include single-transition(background, 0.3s ease-out);
+                display:block;
             }
         }
     }
