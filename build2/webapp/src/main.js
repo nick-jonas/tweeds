@@ -1,15 +1,22 @@
 require(
     [
         "jquery",
+        "handlebars",
         "view/AppView",
         "view/LookbookView",
-        "view/AboutView"
+        "view/AboutView",
+        "view/ProductsView"
     ],
 
-function($, AppView, LookbookView, AboutView) {
+function($, Handlebars, AppView, LookbookView, AboutView, ProductsView) {
+
+    Handlebars.registerHelper('capitalize', function(productTitle){
+        return productTitle.toUpperCase();
+    });
 
     var appView = new AppView();
     var lookbookView = new LookbookView();
     var aboutView = new AboutView();
+    var productsView = new ProductsView();
 });
 

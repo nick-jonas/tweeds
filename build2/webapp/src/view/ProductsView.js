@@ -1,13 +1,12 @@
 define([
     'jquery',
-    'lodash',
+    'underscore',
     'backbone',
     'handlebars',
     'collection/products',
     'hbs!template/products',
-    'hbs!template/product-detail',
-    'app'
-], function($, _, Backbone, Handlebars, products, tmpl, detailTmpl, app){
+    'hbs!template/product-detail'
+], function($, _, Backbone, Handlebars, products, tmpl, detailTmpl){
 
     var ProductsView = Backbone.View.extend({
 
@@ -18,11 +17,11 @@ define([
         'isAnimTrianglesComplete'   : false,
 
         initialize: function(){
-            _.bindAll(this, 'reset', 'render', 'onData', 'onWindowResize', 'openDetail', 'closeDetail');
+            _.bindAll(this, 'onData', 'onWindowResize', 'openDetail', 'closeDetail');
             productColl = new products();
             productColl.bind('reset', this.onData);
             productColl.fetch();
-            $(window).on('resize', this.onWindowResize);
+            //$(window).on('resize', this.onWindowResize);
         },
 
         onData: function(){
@@ -31,26 +30,26 @@ define([
                 that = this,
                 thisProd;
 
-            Handlebars.registerHelper('getProductRowDepthIndex', function(rowIndex){
-                return 100 + rowIndex;
-            });
+            // Handlebars.registerHelper('getProductRowDepthIndex', function(rowIndex){
+            //     return 100 + rowIndex;
+            // });
 
-            Handlebars.registerHelper('getProductBackgroundDepthIndex', function(rowIndex){
-                return 100 + rowIndex;
-            });
+            // Handlebars.registerHelper('getProductBackgroundDepthIndex', function(rowIndex){
+            //     return 100 + rowIndex;
+            // });
 
-            for(var i = 0; i < productColl.length; i++){
-                thisProd = productColl.toJSON()[i];
-                thisRow.push(thisProd);
-                if((i + 1) % 3 === 0 && i > 0){
-                    productRows.push({'row' : thisRow.splice(0, 3)});
-                }
-            }
+            // for(var i = 0; i < productColl.length; i++){
+            //     thisProd = productColl.toJSON()[i];
+            //     thisRow.push(thisProd);
+            //     if((i + 1) % 3 === 0 && i > 0){
+            //         productRows.push({'row' : thisRow.splice(0, 3)});
+            //     }
+            // }
 
-            $('#products').html(tmpl({
-                'productRows'      : { 'rows' : productRows },
-                'backgrounds'      : productColl.backgrounds
-            }));
+            // $('#products').html(tmpl({
+            //     'productRows'      : { 'rows' : productRows },
+            //     'backgrounds'      : productColl.backgrounds
+            // }));
 
             // add click listeners
             $('.product-circle').bind('click', function(){
@@ -61,27 +60,27 @@ define([
                 }
             });
 
-            app.trigger('loaded:success');
-
         },
 
         openDetail: function( productModel ){
             var that = this;
-            $('#products').append(detailTmpl({
+            $('body').append(detailTmpl({
                 'product'      : productModel.toJSON()
             }));
             $('body').css('overflow', 'hidden');
             // animate left & right
-            $('.product-detail .left-half').animate({width:'50%'}, 400);
-            $('.product-detail .right-half').animate({width:'50%'}, 400);
+            $('.product-detail .left-half').animate({left:'-49%'}, 400);
+            $('.product-detail .right-half').animate({right:'-57%'}, 400, function(){
+                that.showContainer();
+            });
             $('.product-detail .close-btn').bind('click', function(){
                 that.closeDetail();
             });
 
             $('.product-detail .product-switcher .switch').bind('click', this.switchProductShot);
 
-            this.sizeTriangles();
-            this.animateTriangles(this.showContainer);
+            // this.sizeTriangles();
+            // this.animateTriangles(this.showContainer);
         },
 
         switchProductShot: function(e){
@@ -102,7 +101,6 @@ define([
                 $backImage.removeClass('hide');
                 $frontImage.addClass('hide');
             }
-            console.dir(e.currentTarget);
         },
 
         closeDetail: function(){

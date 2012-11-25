@@ -6,6 +6,20 @@ define([
 
 	var AppView = Backbone.View.extend({
 
+        // these must be in scrolling order from top to bottom
+        sectionsWithPageDownArrow: [{id: 'products-1', nextSectionOffset: 2650, label: 'PRODUCTS / 2'},
+                                    {id: 'products-2', nextSectionOffset: 3842, label: 'ABOUT'},
+                                    {id: 'about', nextSectionOffset: 4840, label: 'BUY'}
+                                    ],
+
+        // is animating from clicking next arrow
+        isScrollingFromClick: false,
+
+        nextSection: {},
+
+        $nextPageArrow: $('#nextPageArrow'),
+        $nextPageLabel: $('.nextPageLabel'),
+
 		initialize: function(){
 
             var that = this,
@@ -36,6 +50,9 @@ define([
 
                 $window.scroll(function(){
                     var id = $self.attr('id');
+
+                    that.updateNextPageArrow();
+
                     if(that.isInView($self)){
                         that.positionSection($self);
                         if(id == 'lookbook'){ // show slideshow when in view
@@ -52,10 +69,13 @@ define([
             }); // each data-type
 
 
-
-            $('.page-down').bind('click', function(){
-                var pushDown = $(this).data('nextsection');
-                $('html, body').animate({scrollTop:pushDown}, 'slow');
+            // click handler for next page arrow
+            this.$nextPageArrow.bind('click', function(){
+                that.isScrollingFromClick = true;
+                var pushDown = that.nextSection.nextSectionOffset; //$(this).attr('data-nextsection');
+                $('html, body').animate({scrollTop:pushDown}, 'slow', function(){
+                    that.isScrollingFromClick = false;
+                });
             });
 
 
@@ -90,6 +110,23 @@ define([
                     top = (yPos + $sprite.data('offsetY')) + 'px';
                 $sprite.css('top', top);
             });
+        },
+
+        updateNextPageArrow: function(){
+            if(!this.isScrollingFromClick){
+                 var i = this.sectionsWithPageDownArrow.length - 1;
+                for(i; i >= 0; i--){
+                    var section = $('#' + this.sectionsWithPageDownArrow[i].id);
+                    if(this.isInView(section)){
+                        this.nextSection = this.sectionsWithPageDownArrow[i];
+                        this.$nextPageArrow.css('display', 'block');
+                        this.$nextPageArrow.attr('data-nextsection', this.nextSection.nextSectionOffset);
+                        this.$nextPageLabel.html(this.nextSection.label);
+                        return;
+                    }
+                }
+                this.$nextPageArrow.css('display', 'none');
+            }
         },
 
         isInView: function($obj){

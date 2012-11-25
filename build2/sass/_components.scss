@@ -7,11 +7,14 @@ $whiteCircleDiam: 100px;
     position:absolute;
     cursor:pointer;
     background:#FFFFFF;
-    @include single-transition(border-radius, 0.25s ease-out);
+    @include single-transition(background, 0.15s ease-out);
 
     &:hover{
-        @include border-radius(0%);
-        @include single-transition(border-radius, 0.15s ease-out);
+        @include single-transition(background, 0.15s ease-out);
+        background:#000;
+        .label{
+            color:#FFF;
+        }
     }
 
     .label{
@@ -58,12 +61,48 @@ $whiteCircleDiam: 100px;
 }
 
 .page-down{
+    display:none;
     cursor:pointer;
-    @extend .down-arrow-black;
+    z-index:$page-down-z;
+    position:fixed;
+    bottom:35px;
+    left:20px;
+    .arrow{
+        display:block;
+        @extend .down-arrow-black;
+        @include single-transition(opacity, 0.25s ease-out);
+        opacity:1;
+    }
     &.white{
-        @extend .down-arrow-white;
+        .arrow{
+            display:block;
+            @extend .down-arrow-white;
+            @include single-transition(opacity, 0.25s ease-out);
+            opacity:1;
+        }
+    }
+    .nextPageLabel{
+        @include body-text(1.5em, #FFF);
+        position:fixed;
+        bottom:35px;
+        left:-200px;
+        @include single-transition(left, 0.25s ease-in-out);
+        z-index:$page-down-z;
     }
 }
+
+.page-down:hover{
+    background:none;
+    .arrow{
+        @include single-transition(opacity, 0.25s ease-out);
+        opacity:0;
+    }
+    .nextPageLabel{
+        left:20px;
+        @include single-transition(left, 0.45s ease-out);
+    }
+}
+
 
 
 .pager{
