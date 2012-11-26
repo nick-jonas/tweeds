@@ -29,7 +29,7 @@ $whiteCircleDiam: 100px;
         vertical-align: middle;
         height: (0.96 * $whiteCircleDiam);
         width:$whiteCircleDiam;
-        padding:0 12px 0 12px;
+        padding:2px 12px 0 12px;
         text-align:center;
     }
 }
@@ -101,6 +101,14 @@ $whiteCircleDiam: 100px;
         left:20px;
         @include single-transition(left, 0.45s ease-out);
     }
+}
+
+#products-pager{
+    position:fixed;
+    z-index:$page-down-z;
+    bottom:70px;
+    right:80px;
+    display:none;
 }
 
 

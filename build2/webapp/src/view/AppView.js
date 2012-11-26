@@ -9,7 +9,7 @@ define([
         // these must be in scrolling order from top to bottom
         sectionsWithPageDownArrow: [{id: 'products-1', nextSectionOffset: 2650, label: 'PRODUCTS / 2'},
                                     {id: 'products-2', nextSectionOffset: 3842, label: 'ABOUT'},
-                                    {id: 'about', nextSectionOffset: 4840, label: 'BUY'}
+                                    {id: 'about', nextSectionOffset: 5050, label: 'BUY'}
                                     ],
 
         // is animating from clicking next arrow
@@ -19,6 +19,9 @@ define([
 
         $nextPageArrow: $('#nextPageArrow'),
         $nextPageLabel: $('.nextPageLabel'),
+        $productsPager: $('#products-pager'),
+        $productSections: $('section.products'),
+        $sectionAfterProducts: $('#about'),
 
 		initialize: function(){
 
@@ -52,6 +55,7 @@ define([
                     var id = $self.attr('id');
 
                     that.updateNextPageArrow();
+                    that.updateProductsPager();
 
                     if(that.isInView($self)){
                         that.positionSection($self);
@@ -78,18 +82,8 @@ define([
                 });
             });
 
-
-            $('.pager').each(function(){
-                var $this = $(this),
-                    leftNo = $(this).data('left'),
-                    rightNo = $(this).data('right'),
-                    white = ($this.hasClass('white')) ? ' white' : '',
-                    left = '<div class="hide-text num left number-' + leftNo + white + '">' + leftNo + '</div>',
-                    right = '<div class="hide-text num right number-' + rightNo + white + '">' + rightNo + '</div>',
-                    slash = '<div class="slash' + white + '"></div>';
-                $(this).html(left + slash + right);
-
-            });
+            // init products pager
+            this.$productsPager.attr('data-right', this.$productSections.size());
 
 		},
 
@@ -127,6 +121,30 @@ define([
                 }
                 this.$nextPageArrow.css('display', 'none');
             }
+        },
+
+        updateProductsPager: function(){
+            var i = this.$productSections.size() - 1;
+            for(i; i >= 0; i--){
+                if(this.isInView($(this.$productSections[i])) && !this.isInView(this.$sectionAfterProducts)){
+                    this.$productsPager.css('display', 'block');
+                    this.$productsPager.attr('data-left', i + 1);
+                    this.updatePagerNumbers();
+                    return;
+                }
+            }
+            this.$productsPager.css('display', 'none');
+        },
+
+        updatePagerNumbers: function(){
+            var $this = this.$productsPager,
+                leftNo = $this.attr('data-left'),
+                rightNo = $this.attr('data-right'),
+                white = ($this.hasClass('white')) ? ' white' : '',
+                left = '<div class="hide-text num left number-' + leftNo + white + '">' + leftNo + '</div>',
+                right = '<div class="hide-text num right number-' + rightNo + white + '">' + rightNo + '</div>',
+                slash = '<div class="slash' + white + '"></div>';
+            $this.html(left + slash + right);
         },
 
         isInView: function($obj){

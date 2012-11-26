@@ -5,7 +5,7 @@ define([
     'handlebars',
     'collection/products',
     'hbs!template/products',
-    'hbs!template/product-detail'
+    'hbs!template/product-detail',
 ], function($, _, Backbone, Handlebars, products, tmpl, detailTmpl){
 
     var ProductsView = Backbone.View.extend({
@@ -69,8 +69,8 @@ define([
             }));
             $('body').css('overflow', 'hidden');
             // animate left & right
-            $('.product-detail .left-half').animate({left:'-49%'}, 400);
-            $('.product-detail .right-half').animate({right:'-57%'}, 400, function(){
+            $('.product-detail .left-half').animate({left:'-49%'}, 600);
+            $('.product-detail .right-half').animate({right:'-57%'}, 600, function(){
                 that.showContainer();
             });
             $('.product-detail .close-btn').bind('click', function(){
@@ -90,23 +90,29 @@ define([
                 $frontImage = $('.product-shot .front');
             if($(e.currentTarget).hasClass('front')){
                 // switch to front
-                $back.removeClass('on');
-                $front.addClass('on');
-                $frontImage.removeClass('hide');
-                $backImage.addClass('hide');
+                $('.product-shot').fadeTo(300, 0, function(){
+                    $back.removeClass('on');
+                    $front.addClass('on');
+                    $frontImage.removeClass('hide');
+                    $backImage.addClass('hide');
+                    $(this).fadeTo(300, 1);
+                });
             }else{
                 // switch to back
-                $front.removeClass('on');
-                $back.addClass('on');
-                $backImage.removeClass('hide');
-                $frontImage.addClass('hide');
+                $('.product-shot').fadeTo(300, 0, function(){
+                    $front.removeClass('on');
+                    $back.addClass('on');
+                    $backImage.removeClass('hide');
+                    $frontImage.addClass('hide');
+                    $(this).fadeTo(300, 1);
+                });
             }
         },
 
         closeDetail: function(){
             this.hideContainer();
-            $('.product-detail .left-half .triangle').delay(100).animate({'right': 0}, 400);
-            $('.product-detail .right-half .triangle').delay(100).animate({'left': 0}, 400);
+            // $('.product-detail .left-half .triangle').delay(100).animate({'right': 0}, 400);
+            // $('.product-detail .right-half .triangle').delay(100).animate({'left': 0}, 400);
             $('.product-detail .left-half').delay(300).animate({width:'0%'}, 400);
             $('.product-detail .right-half').delay(300).animate({width:'0%'}, 400, function(){
                 $('body').css('overflow', 'visible');
@@ -122,7 +128,7 @@ define([
         },
 
         showContainer: function(){
-            $('.product-detail .container').fadeTo(1000, 1);
+            $('.product-detail .container').delay(300).fadeTo(800, 1);
         },
 
         hideContainer: function(){

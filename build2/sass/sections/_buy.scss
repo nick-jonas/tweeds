@@ -8,4 +8,33 @@
     @include background-size(cover);
     z-index:$section-buy-z;
 
+    .buy-content{
+        margin:0 auto;
+        text-align:center;
+        width:100%;
+        padding:260px 0 0 0;
+        h1{
+            @include body-text(3.0em, #FFFFFF);
+            font-weight:400;
+            letter-spacing: 1px;
+            padding:204px 0 32px 0;
+        }
+        .store-container{
+            position:relative;
+            margin:0 auto;
+            width:100%;
+            .store-btn{
+                margin:50px auto;
+            }
+
+            .surf-stitch{
+                margin-left:-125px;
+            }
+            .swell{
+                margin-left:25px;
+            }
+        }
+
+    }
+
 }
