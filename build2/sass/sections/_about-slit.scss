@@ -10,6 +10,8 @@
     position: absolute;
     top: 0;
     left: 0;
+    width:100%;
+    height:100%;
 }
 
 /* Slide wrapper and slides */
@@ -38,15 +40,15 @@
 .sl-content-slice {
     overflow: hidden;
     position: absolute;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    background: transparent;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
+    // -webkit-box-sizing: content-box;
+    // -moz-box-sizing: content-box;
+    // box-sizing: content-box;
+    // background: transparent;
+    // -webkit-backface-visibility: hidden;
+    // -moz-backface-visibility: hidden;
+    // -o-backface-visibility: hidden;
+    // -ms-backface-visibility: hidden;
+    // backface-visibility: hidden;
     opacity : 1;
 }
 
@@ -57,11 +59,11 @@
     //height: 50%%;
     height:100%;
     left: -200px;
-    -webkit-transform: translateY(0%) scale(1);
-    -moz-transform: translateY(0%) scale(1);
-    -o-transform: translateY(0%) scale(1);
-    -ms-transform: translateY(0%) scale(1);
-    transform: translateY(0%) scale(1);
+    // -webkit-transform: translateY(0%) scale(1);
+    // -moz-transform: translateY(0%) scale(1);
+    // -o-transform: translateY(0%) scale(1);
+    // -ms-transform: translateY(0%) scale(1);
+    // transform: translateY(0%) scale(1);
 }
 
 .sl-slide-horizontal .sl-content-slice:first-child {
@@ -86,33 +88,12 @@
     }
 }
 
-/* Vertical slice */
-
-// .sl-slide-vertical .sl-content-slice {
-//     width: 50%;
-//     height: 100%;
-//     top: -200px;
-//     -webkit-transform: translateX(0%) scale(1);
-//     -moz-transform: translateX(0%) scale(1);
-//     -o-transform: translateX(0%) scale(1);
-//     -ms-transform: translateX(0%) scale(1);
-//     transform: translateX(0%) scale(1);
-// }
-
-// .sl-slide-vertical .sl-content-slice:first-child {
-//     left: -200px;
-//     padding: 200px 0px 200px 200px;
-// }
-
-// .sl-slide-vertical .sl-content-slice:nth-child(2) {
-//     left: 50%;
-//     padding: 200px 200px 200px 0px;
-// }
-
 /* Content wrapper */
 /* Width and height is set dynamically */
 .sl-content-wrapper {
     position: absolute;
+    width:100%;
+    height:100%;
 }
 
 .sl-content {
@@ -122,31 +103,187 @@
 }
 
 
+$sliceWidth:2560px;
+
 #about-slide{
+    z-index:10;
+    // BOTTOM
     .sl-slide-inner{
-        background:url('../img/src/about/about_top.png');
-        @include background-size(cover);
+        // background:url('../img/src/about/about_top.png');
+        // @include background-size(cover);
+        background:$pink;
+        top: 50%;
+        width: 126%;
+        height: 70%;
+        left:-15px;
+        @include rotate(-10deg);
+        .slice-content{
+            position:absolute;
+            top:0px;
+            left:59%;
+            width:283px;
+            height:364px;
+        }
     }
+    // TOP
     .sl-slide-inner-2{
-        background:url('../img/src/about/about_bottom.png');
-        @include background-size(cover);
+        // background:url('../img/src/about/about_bottom.png');
+        // @include background-size(cover);
+        background:$yellow;
+        top: -245px;
+        width: 126%;
+        height: 70%;
+        margin-left: -66px;
+        margin-top: 47px;
+        left:-15px;
+        @include rotate(-10deg);
+        .slice-content{
+            position:absolute;
+            bottom:0px;
+            left:59%;
+            width:229px;
+            height:315px;
+        }
+    }
+    .about-text{
+        p{
+            @include story-body();
+            width:60%;
+            .title{
+                @include story-headline();
+            }
+        }
+        margin-top: 220px;
+
+        @media screen and (min-width: 1120px) {
+
+            p{
+                width:40%;
+            }
+        }
+
+        @media screen and (max-width: 460px) {
+            margin-top: 100px;
+            p{
+                width:75%;
+            }
+        }
     }
 }
 
 #kolohe-slide{
+    z-index:9;
+    // BOTTOM
     .sl-slide-inner{
-        background:url('../img/src/about/kolohe_top.png');
-        @include background-size(cover);
+        // background:url('../img/src/about/kolohe_top.png');
+        // @include background-size(cover);
+        background:$kolohe-blue;
+        top: 50%;
+        width: 126%;
+        height: 70%;
+        left:-15px;
+        @include rotate(-10deg);
+        .slice-content{
+            position:absolute;
+            top:0px;
+            left:50%;
+            margin-left:-295px;
+            width:764px;
+            height:347px;
+        }
+
     }
+    // TOP
     .sl-slide-inner-2{
-        background:url('../img/src/about/kolohe_bottom.png');
-        @include background-size(cover);
+        // background:url('../img/src/about/kolohe_bottom.png');
+        // @include background-size(cover);
+        background:$kolohe-green;
+        top: -245px;
+        width: 126%;
+        height: 70%;
+        margin-left: -66px;
+        margin-top: 47px;
+        left:-15px;
+        @include rotate(-10deg);
+        .slice-content{
+            position:absolute;
+            bottom:0px;
+            left:50%;
+            margin-left:-355px;
+            width:770px;
+            height:420;
+        }
+    }
+    .kolohe-text{
+        margin-top:240px;
+        p{
+            @include story-body();
+            .title{
+                @include story-headline();
+                color:white;
+            }
+            width:35%;
+            color:white;
+            @media screen and (max-width: 1120px) {
+                width:60%;
+            }
+        }
+        @media screen and (max-width: 668px){
+            margin-top:120px;
+        }
+        @media screen and (max-width: 586px){
+            margin-top:30px;
+        }
     }
 }
 
 #story-slide{
-    .sl-slide-inner{
-        background:url('../img/src/about/storybackground.jpg');
-        @include background-size(cover);
+
+
+
+    .story-bg{
+        background:url('../img/src/about/storybackground.png');
+        background-repeat:no-repeat;
+        background-position:center;
+        width:100%;
+        height:100%;
+        position:absolute;
+    }
+    .story-text{
+        margin-top:220px;
+        p{
+            @include story-body();
+            .title{
+                @include story-headline();
+                width:100px;
+                line-height:1;
+            }
+            .ellipsis{
+                display:block;
+                width:40px;
+                height:20px;
+                margin:0 auto;
+                color:black;
+                &:hover{
+                    color:white;
+                }
+            }
+            width:45%;
+            @media screen and (max-width: 1120px) {
+                width:60%;
+            }
+        }
+
+        @media screen and (min-width: 1600px){
+            p{
+                width:30%;
+            }
+        }
+
+        @media screen and (max-width: $bp-small-nav){
+            p{
+                width:80%;
+            }
+        }
     }
 }

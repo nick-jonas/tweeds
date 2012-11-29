@@ -23,20 +23,24 @@
 // site-specific
 @import "variables";
 @import "mixins";
-@import "components";
+@import "components/components";
+@import "components/scrollbar";
 @import "nav";
 
 @import "sections/lookbook.scss";
+@import "sections/youngbuff.scss";
 @import "sections/products.scss";
 @import "sections/product-detail.scss";
 @import "sections/about.scss";
 @import "sections/about-slit.scss";
 @import "sections/buy.scss";
 @import "sections/instagram.scss";
+@import "sections/preloader.scss";
 
 
 html, body{
 	margin:0;
+    overflow-x:hidden;
 }
 
 .hide-text {

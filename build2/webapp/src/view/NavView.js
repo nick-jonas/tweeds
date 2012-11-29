@@ -1,18 +1,14 @@
 define([
     'backbone',
-    'app',
     'jquery'
-], function(Backbone, app, $){
+], function(Backbone, $){
 
     var NavView = function(){
 
-        var $mainNav = $('.main-nav'),
+        var that = this,
+            $mainNav = $('.main-nav'),
             $textLogo = $('.main-nav .logo-text img'),
             $lookbookArrows = $('.lookbook-arrows');
-
-        if(app.isRetina){
-            $textLogo.attr('src', app.imgSrc + '/logo-typed.png');
-        }
 
         $lookbookArrows.hide();
 
@@ -20,29 +16,36 @@ define([
             e.preventDefault();
 
             if($mainNav.hasClass('closed')){ // open nav
-                $mainNav.removeClass('closed');
-                $mainNav.addClass('open');
-                $lookbookArrows.hide();
+               that.openNav();
             }else{                          // close nav
-                $mainNav.removeClass('open');
-                $mainNav.addClass('closed');
-                $lookbookArrows.show();
+                that.closeNav();
             }
         });
 
         $(".link-to-section").bind('click', function(e){
             var id = $(this).data('link'),
                 currentPos = $(window).scrollTop(),
-                newPos = app.positions[id],
+                newPos = parseInt($(this).data('position'), 10),
                 dist = Math.abs(newPos - currentPos);
+
             e.preventDefault();
-            //console.log('navigating to ' + id + ', position: ' + newPos + ' dist: ' + dist);
-            //app.router.navigate(id, {trigger:true, replace:true});
-            window.location.hash = id;
+
+            that.closeNav();
+
             $('html, body').animate({scrollTop:newPos}, dist / 2);
         });
 
+        this.openNav = function(){
+             $mainNav.removeClass('closed');
+            $mainNav.addClass('open');
+            $lookbookArrows.hide();
+        };
 
+        this.closeNav = function(){
+            $mainNav.removeClass('open');
+            $mainNav.addClass('closed');
+            $lookbookArrows.show();
+        };
 
     };
 

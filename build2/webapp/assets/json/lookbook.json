@@ -3,12 +3,12 @@
 		{
 			"title" : "happy-boy",
 			"video" : null,
-			"image" : "/lookbook/1.jpg"
+			"image" : "/lookbook/Tweeds1.jpg"
 		},
 		{
 			"title" : "sky-ocean",
 			"video" : null,
-			"image" : "/lookbook/2.jpg"
+			"image" : "/lookbook/Tweeds2.jpg"
 		},
 		{
 			"title" : "pull-down-pants",
@@ -16,17 +16,18 @@
 				"id": "surf demo",
 				"path" : "assets/video/surfdemo.mp4"
 				},
-			"image" : "/lookbook/3.jpg"
+			"image" : "/lookbook/Tweeds3.jpg"
 		},
 		{
 			"title" : "surfing",
 			"video" : null,
-			"image" : "/lookbook/4.jpg"
+			"image" : "/lookbook/Tweeds4.jpg"
 		},
 		{
 			"title" : "grab-butt",
 			"video" : null,
-			"image" : "/lookbook/5.jpg"
+			"image" : "/lookbook/Tweeds5.jpg"
 		}
+
 	]
 }

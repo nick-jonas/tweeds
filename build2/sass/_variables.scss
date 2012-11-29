@@ -5,6 +5,10 @@ $babyblue: #00d0fd;
 $beige: #ebe3da;
 $green: #398c00;
 $light-gray: #ebebeb;
+$pink: #dd75af;
+$forest-green: #1f411e;
+$kolohe-green: #00853e;
+$kolohe-blue: #4dc8e9;
 
 $nav-box: $yellow;
 $nav-content: rgba(0,208,253,0.70);
@@ -17,7 +21,7 @@ $preloader-bg: $yellow;
 $nav-z: 102;
 $product-detail-z: 200;
 $ig-detail-z: 10;
-$lookbook-arrow-z: 1;
+$lookbook-arrow-z: 2;
 $product-backgrounds-z:100;
 $young-buffalo-triangle-z:100;
 $preloader-z:300;
@@ -28,11 +32,11 @@ $section-instagram-z:2;
 $page-down-z:9;
 
 // breakpoints
-$bp-medium-nav: 800px;
+$bp-medium-nav: 840px;
 $bp-small-nav: 460px;
 $bp-medium-product-circles: 900px;
 $bp-small-product-circles: $bp-small-nav;
-$bp-ig-detail: 640px;
+$bp-ig-detail: 990px;
 
 $section-height:1280px;
 

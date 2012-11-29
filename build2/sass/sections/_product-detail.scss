@@ -75,18 +75,19 @@ $bgTriangleWidth: 150px;
             left:45px;
             .product-title{
                 @include body-text(4em, #000000);
-                width: 280px;
+                width: 310px;
                 text-align: center;
                 line-height: 1.5;
                 position:relative;
                 display:block;
                 clear:both;
-                padding:0 0 0 30px;
+                padding:0 0 10px 0;
             }
             .product-description{
                 font-family:$futura;
                 color:#000000;
-                width:340px;
+                width:277px;
+                margin:0 auto;
                 text-align:center;
                 font-size:0.8em;
             }
@@ -94,7 +95,7 @@ $bgTriangleWidth: 150px;
                 position:relative;
                 float:left;
                 z-index:$product-detail-z + 2;
-                margin:60px 0 0 120px;
+                margin:45px 0 0 120px;
             }
         }
 

@@ -17,7 +17,7 @@ define([
         'isAnimTrianglesComplete'   : false,
 
         initialize: function(){
-            _.bindAll(this, 'onData', 'onWindowResize', 'openDetail', 'closeDetail');
+            _.bindAll(this, 'onData', 'onWindowResize', 'openDetail', 'closeDetail', 'onKeyup');
             productColl = new products();
             productColl.bind('reset', this.onData);
             productColl.fetch();
@@ -67,10 +67,11 @@ define([
             $('body').append(detailTmpl({
                 'product'      : productModel.toJSON()
             }));
-            $('body').css('overflow', 'hidden');
+
             // animate left & right
             $('.product-detail .left-half').animate({left:'-49%'}, 600);
             $('.product-detail .right-half').animate({right:'-57%'}, 600, function(){
+                $('html, body').css('overflow-y', 'hidden');
                 that.showContainer();
             });
             $('.product-detail .close-btn').bind('click', function(){
@@ -79,8 +80,30 @@ define([
 
             $('.product-detail .product-switcher .switch').bind('click', this.switchProductShot);
 
+            $(document).bind('keyup', this.onKeyup);
+
             // this.sizeTriangles();
             // this.animateTriangles(this.showContainer);
+        },
+
+        onKeyup: function(e){
+            if(e.keyCode === 27){
+                this.closeDetail();
+            }
+        },
+
+        closeDetail: function(){
+
+            $('html, body').css('overflow-y', 'visible');
+
+            this.hideContainer();
+            // $('.product-detail .left-half .triangle').delay(100).animate({'right': 0}, 400);
+            // $('.product-detail .right-half .triangle').delay(100).animate({'left': 0}, 400);
+            $('.product-detail .left-half').delay(300).animate({width:'0%'}, 400);
+            $('.product-detail .right-half').delay(300).animate({width:'0%'}, 400, function(){
+
+                $('.product-detail').remove();
+            });
         },
 
         switchProductShot: function(e){
@@ -107,17 +130,6 @@ define([
                     $(this).fadeTo(300, 1);
                 });
             }
-        },
-
-        closeDetail: function(){
-            this.hideContainer();
-            // $('.product-detail .left-half .triangle').delay(100).animate({'right': 0}, 400);
-            // $('.product-detail .right-half .triangle').delay(100).animate({'left': 0}, 400);
-            $('.product-detail .left-half').delay(300).animate({width:'0%'}, 400);
-            $('.product-detail .right-half').delay(300).animate({width:'0%'}, 400, function(){
-                $('body').css('overflow', 'visible');
-                $('.product-detail').remove();
-            });
         },
 
         animateTriangles: function( fn ){

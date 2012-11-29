@@ -11,22 +11,21 @@ define([
 		'coll': {},
 
 		initialize: function(){
-			_.bindAll(this, 'reset', 'render', 'onData', 'onWindowResize');
+			_.bindAll(this, 'reset', 'render', 'onLookData', 'onWindowResize');
 			coll = new lookbooks();
-			coll.bind('reset', this.onData);
+			coll.bind('reset', this.onLookData);
 			coll.fetch();
 
 			$(window).on('resize', this.onWindowResize);
 		},
 
-		onData: function(){
+		onLookData: function(){
 			var imageData = coll.toJSON();
 
 			var $leftLookArrow = $('#prevslide'),
 				$rightLookArrow = $('#nextslide');
 
 			$leftLookArrow.click(function(e){
-				console.log('clicked left!');
 				e.preventDefault();
 				api.prevSlide();
 			});

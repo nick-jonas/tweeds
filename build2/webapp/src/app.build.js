@@ -32,6 +32,14 @@
     "plugins/slitslider": ["jquery", "plugins/cond"]
   },
 
+  hbs : {
+      templateExtension : 'html',
+      // if disableI18n is `true` it won't load locales and the i18n helper
+      // won't work as well.
+      disableI18n : false,
+      disableHelpers: true
+  },
+
   include:'requireLib',
 
   name: "main",

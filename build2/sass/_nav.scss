@@ -24,8 +24,7 @@ $boxes:2;
 		position:relative;
 		.logo-text{
 			margin:65px auto;
-			padding:0 25px 0 25px;
-			width:50%;
+			width:634px;
 		}
 		.nav-buttons{
 			margin:0 auto;
@@ -66,8 +65,14 @@ $boxes:2;
 					&.twitter:hover{ @include sprite(social-icons-twitter-on);}
 				}
 			}
+		}
 
-			@media screen and (max-width: $bp-medium-nav) {
+		@media screen and (max-width: $bp-medium-nav) {
+			.logo-text{
+				padding:0 25px 0 25px;
+				width:50%;
+			}
+			.nav-buttons{
 				> ul{
 					width: 100%;
 					position: absolute;
@@ -94,6 +99,7 @@ $boxes:2;
 				}
 			}
 		}
+
 		.boxes{
 			display:inline-block;
 			vertical-align:top;
@@ -123,28 +129,6 @@ $boxes:2;
 			}
 		}
 	}
-
-}
-
-@media screen and (max-width: $bp-small-nav) {
-
-	.main-nav{
-		position:absolute;
-		top:200px;
-		left:0px;
-		width:100%;
-		.nav-content{
-			width:100%;
-			margin-left:0px;
-		}
-		&.closed{
-			.nav-content{ left:91%; }
-		}
-
-		.boxes{
-			display:none;
-		}
-	}
 }
 
 
@@ -166,18 +150,46 @@ $boxes:2;
 }
 
 .open{
-
 	@include single-transition(left, 0.7s ease-in-out);
-
-	.nav-content{
-
-	}
+	.nav-content{}
 	.boxes{
 		#nav-arrow{
 			background:white;
 			@include rotate(180deg);
 			.arrow{
 				@include sprite(arrow-black-right);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $bp-small-nav) {
+
+	.main-nav{
+		position:absolute;
+		top:0px;
+		left:0px;
+		width:100%;
+		margin:0px;
+		.nav-content{
+			width:100%;
+			margin-left:0px;
+			.logo-text{
+				padding:0 25px 0 25px;
+				width:50%;
+			}
+			.boxes{
+				display:none;
+			}
+		}
+		&.closed{
+			left:0px;
+			margin:0px;
+			.nav-content{
+				left:0px;
+				.boxes{
+					display:none;
+				}
 			}
 		}
 	}

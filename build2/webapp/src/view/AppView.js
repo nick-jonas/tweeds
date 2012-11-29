@@ -7,9 +7,9 @@ define([
 	var AppView = Backbone.View.extend({
 
         // these must be in scrolling order from top to bottom
-        sectionsWithPageDownArrow: [{id: 'products-1', nextSectionOffset: 2650, label: 'PRODUCTS / 2'},
-                                    {id: 'products-2', nextSectionOffset: 3842, label: 'ABOUT'},
-                                    {id: 'about', nextSectionOffset: 5050, label: 'BUY'}
+        sectionsWithPageDownArrow: [{id: 'products-1', nextSectionId: 'products-2', nextSectionOffset: 2600, nextSectionHeight: 1280, nextSectionContentHeight: 900, label: 'PRODUCTS / 2'},
+                                    {id: 'products-2', nextSectionId: 'about', nextSectionOffset: 3842, nextSectionHeight: 1000, nextSectionContentHeight: 400, label: 'ABOUT'},
+                                    {id: 'about', nextSectionId: 'buy', nextSectionOffset: 4840, nextSectionHeight: 1280, nextSectionContentHeight: 340, label: 'BUY'}
                                     ],
 
         // is animating from clicking next arrow
@@ -23,11 +23,14 @@ define([
         $productSections: $('section.products'),
         $sectionAfterProducts: $('#about'),
 
+        offset: 7000,
+
 		initialize: function(){
 
             var that = this,
                 $window = $(window);
 
+            _.bind(this, 'positionSection');
 
             // document.addEventListener("scroll", function(){
             //     console.log($(window).scrollTop());
@@ -38,6 +41,12 @@ define([
                 $(this).data('offsetY', parseInt($(this).attr('data-offsetY'), 10));
                 $(this).data('speed', $(this).attr('data-speed'));
             });
+
+            if($window.scrollTop() > 1320){
+                $('#supersized').css('display', 'none');
+            }else{
+                $('#supersized').css('display', 'block');
+            }
 
             // For each element that has a data-type attribute
             $('section[data-type="background"]').each(function(){
@@ -57,16 +66,18 @@ define([
                     that.updateNextPageArrow();
                     that.updateProductsPager();
 
+                    if($window.scrollTop() > 8336){
+                        that.hideSection('lookbook');
+                    }else{
+                        that.showSection('lookbook');
+                    }
+
                     if(that.isInView($self)){
                         that.positionSection($self);
-                        if(id == 'lookbook'){ // show slideshow when in view
-                            $('#supersized').css('display', 'block');
-                        }
+                        that.showSection(id);
 
                     }else{ // not in view
-                        if(id == 'lookbook'){ // hide slide show when out of view
-                            $('#supersized').css('display', 'none');
-                        }
+                        that.hideSection(id);
                     }
                 }); // window scroll
 
@@ -76,31 +87,88 @@ define([
             // click handler for next page arrow
             this.$nextPageArrow.bind('click', function(){
                 that.isScrollingFromClick = true;
-                var pushDown = that.nextSection.nextSectionOffset; //$(this).attr('data-nextsection');
+                var pushDown = that.nextSection.nextSectionOffset;
+                var windowHeight = $(window).height();
+                var topSpaceHeight = ((that.nextSection.nextSectionHeight / 2) - (that.nextSection.nextSectionContentHeight / 2));
+                var diff = topSpaceHeight / 2;
+                // console.log('windowHeight = ' + windowHeight);
+                // console.log('that.nextSection.nextSectionHeight = ' + that.nextSection.nextSectionHeight);
+                // console.log('that.nextSection.nextSectionContentHeight = ' + that.nextSection.nextSectionContentHeight);
+                // console.log('topSpaceHeight = ' + topSpaceHeight);
+                // console.log('diff = ' + diff);
+                pushDown += (diff);
                 $('html, body').animate({scrollTop:pushDown}, 'slow', function(){
                     that.isScrollingFromClick = false;
                 });
             });
-
             // init products pager
             this.$productsPager.attr('data-right', this.$productSections.size());
-
 		},
+
+        showSection: function(id){
+            switch(id){
+                case 'lookbook':
+                    $('#supersized').css('display', 'block');
+                    $('#young-buffalo-wear-tweeds').css('display', 'block');
+                    break;
+                case 'products-1':
+                    $('#products-1 .content').css('display', 'inherit');
+                    break;
+                case 'products-2':
+                    $('#products-2 .content').css('display', 'inherit');
+                    break;
+                case 'about':
+                    $('#slider').css('display', 'block');
+                    break;
+                case 'buy':
+                    $('#buy .buy-content').css('display', 'block');
+                    break;
+                case 'instagram':
+                    $('#instagram').css('display', 'block');
+                    break;
+            }
+        },
+
+        hideSection: function(id){
+            switch(id){
+                case 'lookbook':
+                    $('#supersized').css('display', 'none');
+                    $('#young-buffalo-wear-tweeds').css('display', 'none');
+                    break;
+                case 'products-1':
+                    $('#products-1 .content').css('display', 'none');
+                    break;
+                case 'products-2':
+                    $('#products-2 .content').css('display', 'none');
+                    break;
+                case 'about':
+                    $('#slider').css('display', 'none');
+                    break;
+                case 'buy':
+                    $('#buy .buy-content').css('display', 'none');
+                    break;
+                case 'instagram':
+                    $('#instagram').css('display', 'none');
+                    break;
+            }
+        },
 
         positionSection: function($obj){
             // animate backgrounds
-            var $window = $(window),
-                yPos = -($window.scrollTop() / $obj.data('speed'));
+            var that = this,
+                $window = $(window),
+                yPos = -(($window.scrollTop() - this.offset) / $obj.data('speed'));
+
             if($obj.data('offsetY')){
                 yPos += $obj.data('offsetY');
             }
             var coords = '50% ' + yPos + 'px';
             $obj.css('backgroundPosition', coords);
 
-            // animate sprites
+            // // animate sprites
             $('[data-type="sprite"]', $obj).each(function(){
                 var $sprite = $(this),
-                    yPos = -($window.scrollTop() / $sprite.data('speed')),
+                    yPos = -(($window.scrollTop() - that.offset) / $sprite.data('speed')),
                     top = (yPos + $sprite.data('offsetY')) + 'px';
                 $sprite.css('top', top);
             });

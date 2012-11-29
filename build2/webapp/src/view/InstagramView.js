@@ -1,12 +1,10 @@
 define([
     'jquery',
-    'env',
     'backbone',
     'collection/instagrams',
     'hbs!template/instagram',
-    'hbs!template/instagram-detail',
-    'app'
-], function($, Env, Backbone, instagrams, tmpl, tmplDetail, app){
+    'hbs!template/instagram-detail'
+], function($, Backbone, instagrams, tmpl, tmplDetail){
 
     var InstagramView = Backbone.View.extend({
 
@@ -19,7 +17,7 @@ define([
         },
 
         initialize : function(){
-            _.bindAll(this, 'onData', 'onPhotoClick', 'showPhotoDetail', 'hidePhotoDetail');
+            _.bindAll(this, 'onData', 'onPhotoClick', 'showPhotoDetail', 'hidePhotoDetail', 'hidePhotoDetail', 'onKeyup');
             coll = new instagrams();
             coll.bind('reset', this.onData);
             coll.fetch();
@@ -27,7 +25,8 @@ define([
 
         onData : function(){
             $('#instagram').html(tmpl({ 'photos' : coll.toJSON() }));
-            app.trigger('loaded:success');
+
+            this.trigger('loaded');
         },
 
         onPhotoClick: function(e){
@@ -37,16 +36,35 @@ define([
         },
 
         showPhotoDetail: function( model ){
+            var that = this;
             $('.ig-detail').show().html(tmplDetail({'photo' : model.toJSON()}));
             $('.ig-detail').find('.close').bind('click', this.hidePhotoDetail);
-            $('.ig-detail').animate({'height': '100%'}, 400, function(){
-
+            $('.ig-detail').css('display', 'block');
+            $('.ig-detail .color-bg').animate({'width': '100%'}, 500, function(){
+                $('html, body').css('overflow-y', 'hidden');
             });
+            $('.ig-detail .photo-detail-container').delay(600).animate({'opacity': 1}, 250);
+
+            setTimeout(function(){
+                $('body').bind('click', that.hidePhotoDetail);
+            }, 100);
+
+            $(document).bind('keyup', this.onKeyup);
+        },
+
+        onKeyup: function(e){
+            if(e.keyCode === 27){
+                this.hidePhotoDetail();
+            }
         },
 
         hidePhotoDetail: function(){
-            $('.ig-detail').animate({'height': '0%'}, 400, function(){
-                $('.ig-detail').hide();
+            $('html, body').css('overflow-y', 'visible');
+            $(document).unbind('keyup', this.onKeyup);
+            $('body').unbind('click', this.hidePhotoDetail);
+            $('.ig-detail .photo-detail-container').animate({'opacity': 0}, 250);
+            $('.ig-detail .color-bg').delay(200).animate({'width': '0%'}, 500, function(){
+                $('.ig-detail').css('display', 'none');
             });
         }
 

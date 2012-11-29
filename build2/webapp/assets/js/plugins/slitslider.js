@@ -291,6 +291,10 @@ define([
             };
 
             // add the 2 slices and animate them
+
+            $('#about-slide .sl-slide-inner').animate({top: '-1280px'}, 500);
+            $('#about-slide .sl-slide-inner-2').animate({top: $(window).height() + 'px'}, 600);
+            return;
             $movingSlide.css( 'z-index', this.slidesCount )
                         .find( 'div.sl-content-wrapper' )
                         .wrap( $( '<div class="sl-content-slice" />' ).css( transitionProp ) )
