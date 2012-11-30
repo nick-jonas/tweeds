@@ -1,6 +1,5 @@
 <div class="color-bg"></div>
 <div class="photo-detail-container">
-
     <div class="photo-detail-img">
         <img src="{{this.photo.images.standard_resolution.url}}"/>
     </div>
@@ -15,8 +14,8 @@
         </div>
         <hr>
         <div class="social-icons">
-            <a href="" class="fb hide-text">Facebook</a>
-            <a href="" class="twitter hide-text">Twitter</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{encode this.photo.link}}" target="_blank" class="fb hide-text">Facebook</a>
+            <a href="https://twitter.com/intent/tweet/?url={{encode this.photo.link}}&via=tweeds_&hashtags=youngbuffalo" class="twitter hide-text">Twitter</a>
         </div>
         <p class="caption">
             {{capitalize this.photo.caption.text}}

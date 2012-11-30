@@ -7,9 +7,9 @@ define([
 	var AppView = Backbone.View.extend({
 
         // these must be in scrolling order from top to bottom
-        sectionsWithPageDownArrow: [{id: 'products-1', nextSectionId: 'products-2', nextSectionOffset: 2600, nextSectionHeight: 1280, nextSectionContentHeight: 900, label: 'PRODUCTS / 2'},
-                                    {id: 'products-2', nextSectionId: 'about', nextSectionOffset: 3842, nextSectionHeight: 1000, nextSectionContentHeight: 400, label: 'ABOUT'},
-                                    {id: 'about', nextSectionId: 'buy', nextSectionOffset: 4840, nextSectionHeight: 1280, nextSectionContentHeight: 340, label: 'BUY'}
+        sectionsWithPageDownArrow: [{id: 'products-1', nextSectionId: 'products-2', nextSectionOffset: 9600, nextSectionHeight: 1280, nextSectionContentHeight: 900, label: 'PRODUCTS / 2'},
+                                    {id: 'products-2', nextSectionId: 'about', nextSectionOffset: 10842, nextSectionHeight: 1000, nextSectionContentHeight: 400, label: 'ABOUT'},
+                                    {id: 'about', nextSectionId: 'buy', nextSectionOffset: 11840, nextSectionHeight: 1280, nextSectionContentHeight: 340, label: 'BUY'}
                                     ],
 
         // is animating from clicking next arrow
@@ -26,7 +26,6 @@ define([
         offset: 7000,
 
 		initialize: function(){
-
             var that = this,
                 $window = $(window);
 
@@ -96,7 +95,7 @@ define([
                 // console.log('that.nextSection.nextSectionContentHeight = ' + that.nextSection.nextSectionContentHeight);
                 // console.log('topSpaceHeight = ' + topSpaceHeight);
                 // console.log('diff = ' + diff);
-                pushDown += (diff);
+                //pushDown += (diff);
                 $('html, body').animate({scrollTop:pushDown}, 'slow', function(){
                     that.isScrollingFromClick = false;
                 });
@@ -166,12 +165,12 @@ define([
             $obj.css('backgroundPosition', coords);
 
             // // animate sprites
-            $('[data-type="sprite"]', $obj).each(function(){
-                var $sprite = $(this),
-                    yPos = -(($window.scrollTop() - that.offset) / $sprite.data('speed')),
-                    top = (yPos + $sprite.data('offsetY')) + 'px';
-                $sprite.css('top', top);
-            });
+            // $('[data-type="sprite"]', $obj).each(function(){
+            //     var $sprite = $(this),
+            //         yPos = -(($window.scrollTop() - that.offset) / $sprite.data('speed')),
+            //         top = (yPos + $sprite.data('offsetY')) + 'px';
+            //     $sprite.css('top', top);
+            // });
         },
 
         updateNextPageArrow: function(){

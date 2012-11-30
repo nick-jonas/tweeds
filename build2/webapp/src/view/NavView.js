@@ -22,6 +22,14 @@ define([
             }
         });
 
+        $('.menu-button').click(function(){
+            if($mainNav.hasClass('closed')){ // open nav
+               that.openNav();
+            }else{                          // close nav
+                that.closeNav();
+            }
+        });
+
         $(".link-to-section").bind('click', function(e){
             var id = $(this).data('link'),
                 currentPos = $(window).scrollTop(),
@@ -42,7 +50,7 @@ define([
         });
 
         this.openNav = function(){
-             $mainNav.removeClass('closed');
+            $mainNav.removeClass('closed');
             $mainNav.addClass('open');
             $lookbookArrows.hide();
         };

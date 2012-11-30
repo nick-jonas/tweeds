@@ -2,7 +2,7 @@
 require.config({
 
   // Initialize the application with the main application file.
-  deps: ["main"],
+  deps: ["main-mobile"],
 
   pragmasOnSave: {
       //removes Handlebars.Parser code (used to compile template strings) set
@@ -17,7 +17,7 @@ require.config({
   paths: {
 
     // Comment out for development
-    main: "main-build",
+    //main: "main-build-mobile",
 
     // JavaScript folders.
     libs: "../assets/js/libs",

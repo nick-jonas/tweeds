@@ -10,7 +10,7 @@ define([
 
         el: $("#instagram"),
 
-        coll  : {},
+        instagramColl  : {},
 
         events: {
             "click .photo-container":  "onPhotoClick"
@@ -18,25 +18,27 @@ define([
 
         initialize : function(){
             _.bindAll(this, 'onData', 'onPhotoClick', 'showPhotoDetail', 'hidePhotoDetail', 'hidePhotoDetail', 'onKeyup');
-            coll = new instagrams();
-            coll.bind('reset', this.onData);
-            coll.fetch();
+            instagramColl = new instagrams();
+            console.dir(instagramColl);
+            instagramColl.bind('reset', this.onData);
+            instagramColl.fetch();
         },
 
         onData : function(){
-            $('#instagram').html(tmpl({ 'photos' : coll.toJSON() }));
+            $('#instagram').html(tmpl({ 'photos' : instagramColl.toJSON() }));
 
             this.trigger('loaded');
         },
 
         onPhotoClick: function(e){
             var photo_id = $(e.currentTarget).data('id');
-            var photo_model = coll.get({id:photo_id});
+            var photo_model = instagramColl.get({id:photo_id});
             this.showPhotoDetail(photo_model);
         },
 
         showPhotoDetail: function( model ){
             var that = this;
+            console.dir(model.toJSON());
             $('.ig-detail').show().html(tmplDetail({'photo' : model.toJSON()}));
             $('.ig-detail').find('.close').bind('click', this.hidePhotoDetail);
             $('.ig-detail').css('display', 'block');

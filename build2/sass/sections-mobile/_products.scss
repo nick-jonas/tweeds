@@ -7,13 +7,11 @@ $productPerRow: 3;
 .products{
 
     &.products-1{
-        background: url('../img/src/products/bg-mountains.jpg') 50% 0 repeat fixed;
-        @include background-size(cover);
+        background: url('../img/src/products/bg-mountains.jpg');
     }
 
     &.products-2{
-        background: url('../img/src/products/bg-surfer.jpg') 50% 0 repeat fixed;
-        @include background-size(cover);
+        background: url('../img/src/products/bg-surfer.jpg');
     }
 
     height:$section-height;
@@ -31,6 +29,7 @@ $productPerRow: 3;
         #collection-label{
             background:$yellow;
             cursor:default;
+            top:350px;
             .product-shot{
                 display:none;
             }
@@ -47,81 +46,10 @@ $productPerRow: 3;
                         color:#000;
                         width:242px;
                     }
-                    -webkit-transform: scale(1);
-                    -moz-transform: scale(1);
-                    -o-transform: scale(1);
-                    -ms-transform: scale(1);
-                    transform: scale(1);
                 }
                 .see-details{
                     @include sprite(scroll-down);
                     margin-left:-58px;
-                }
-            }
-        }
-
-        $circleInsetDiam: $circleDiameter / 2;
-        #hotel-santorini{
-            $hotel-color: rgba(0,133,62,0.70);
-            .product-name{
-                //@include rgba-background(rgba(0,133,62,0.70));
-                box-shadow: inset 0 0 0 0 $hotel-color;
-            }
-            &:hover{
-                .product-name{
-                    box-shadow: inset 0 0 0 $circleInsetDiam $hotel-color;
-                }
-            }
-        }
-
-        #pleasant-ville{
-            $pleasant-color: rgba(238,46,36,0.70);
-            .product-name{
-                //@include rgba-background($pleasant-color);
-                box-shadow: insert 0 0 0 0 $pleasant-color;
-            }
-            &:hover{
-                .product-name{
-                    box-shadow: inset 0 0 0 $circleInsetDiam $pleasant-color;
-                }
-            }
-        }
-
-        #hello-heather{
-            $hello-color: rgba(224,50,123,0.70);
-            .product-name{
-                //@include rgba-background($hello-color);
-                box-shadow: insert 0 0 0 0 $hello-color;
-            }
-            &:hover{
-                .product-name{
-                    box-shadow:inset 0 0 0 $circleInsetDiam $hello-color;
-                }
-            }
-        }
-
-        #iceberg-slim{
-            $iceberg-color: rgba(77,200,233,0.70);
-            .product-name{
-                //@include rgba-background($iceberg-color);
-                box-shadow: insert 0 0 0 0 $iceberg-color;
-            }
-            &:hover{
-                .product-name{
-                    box-shadow:inset 0 0 0 $circleInsetDiam $iceberg-color;
-                }
-            }
-        }
-
-        #smile-after-dark{
-            $smile-color: rgba(255,242,0,0.70);
-            .product-name{
-                //@include rgba-background($smile-color);
-                box-shadow: insert 0 0 0 0 $smile-color;
-            }
-            &:hover{
-                .product-name{
-                    box-shadow:inset 0 0 0 $circleInsetDiam $smile-color;
                 }
             }
         }
@@ -132,16 +60,15 @@ $productPerRow: 3;
             width: $circleDiameter;
             height: $circleDiameter;
             position:absolute;
-            cursor:pointer;
             &.circle-0{
                 left: (0% * (100 / $productPerRow));
                 top:25%;
-                margin-top:-$circleRadius;
+                margin-top: -265px;
             }
             &.circle-1{
                 left: 32%;//1% * (100 / $productPerRow);
                 top: 50%;
-                margin-top: -$circleRadius - 80;
+                margin-top: -216px;
             }
             &.circle-2{
                 left: 2% * (100 / $productPerRow);
@@ -161,7 +88,7 @@ $productPerRow: 3;
             }
 
             .product-name{
-                opacity:0;
+                //opacity:0;
                 width:100%;
                 height:100%;
                 position:absolute;
@@ -193,12 +120,6 @@ $productPerRow: 3;
                     -o-transition: all 0.4s ease-in-out;
                     -ms-transition: all 0.4s ease-in-out;
                     transition: all 0.4s ease-in-out;
-
-                    -webkit-transform: scale(0.5);
-                    -moz-transform: scale(0.5);
-                    -o-transform: scale(0.5);
-                    -ms-transform: scale(0.5);
-                    transform: scale(0.5);
 
                     display: table-cell;
                     #position: absolute;
@@ -256,25 +177,6 @@ $productPerRow: 3;
         right:100px;
     }
 
-    &.start-right{
-        .product-circle{
-            &.circle-2{
-                left: (2% * (100 / $productPerRow));
-                top:25%;
-                margin-top:-$circleRadius;
-            }
-            &.circle-1{
-                left: 32%;//1% * (100 / $productPerRow);
-                top: 50%;
-                margin-top: -$circleRadius - 80;
-            }
-            &.circle-0{
-                left: 0% * (100 / $productPerRow);
-                top:75%;
-                margin-top:-$circleRadius - 160;
-            }
-        }
-    }
 
     @media screen and (max-width: $bp-product-circles){
 
@@ -283,32 +185,16 @@ $productPerRow: 3;
                 left: 50% !important;
                 margin-left: -156px !important;
                 &.circle-0{
-                    margin-top:-250px;
+                    margin-top: -265px;
                 }
                 &.circle-1{
-                    margin-top:-150px;
+                    margin-top: -216px;
                 }
                 &.circle-2{
                     margin-top:-55px;
                 }
             }
 
-        }
-
-        &.start-right{
-            .product-circle{
-                left: 50% !important;
-                margin-left: -156px !important;
-                &.circle-2{
-                    margin-top:-220px;
-                }
-                &.circle-1{
-                    margin-top:-165px;
-                }
-                &.circle-0{
-                    margin-top:-100px;
-                }
-            }
         }
 
     }

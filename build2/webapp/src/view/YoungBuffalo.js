@@ -64,7 +64,6 @@ define(
 
             initialize : function(){
                 _.bindAll(this, 'onWindowResize', 'onWindowScroll', 'positionElements');
-                this.onWindowResize();
                 $(window).resize(this.onWindowResize);
                 document.addEventListener("scroll", this.onWindowScroll);
 
@@ -72,6 +71,9 @@ define(
                 for(var i = 0; i < textElems.length; i++){
                     textElems[i].$el.css('margin-top', textElems[i].start + 'px');
                 }
+
+                this.onWindowResize();
+                setTimeout(this.onWindowResize, 500);
             },
 
             onWindowResize : function() {
@@ -130,8 +132,8 @@ define(
                 $leftSlice.css('left', leftPos + 'px');
                 $rightSlice.css('left', rightPos + 'px');
 
-                var arrowPoint = $(window).width() * .769;
-                var newArrowZIndex = (rightPos < arrowPoint) ? 1 : 2;
+                var arrowPoint = $(window).width() * 0.769,
+                    newArrowZIndex = (rightPos < arrowPoint) ? 1 : 2;
                 $('#lookbook #prevslide').css('z-index', newArrowZIndex);
                 $('#lookbook #nextslide').css('z-index', newArrowZIndex);
 

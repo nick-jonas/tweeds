@@ -44,9 +44,7 @@
 
   name: "main",
 
-  out: "main-build.js",
-
-  optimize: "none"
+  out: "main-build.js"
 
 })
 

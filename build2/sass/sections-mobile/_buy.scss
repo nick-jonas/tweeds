@@ -1,0 +1,42 @@
+section.buy{
+    background: url('../img/src/buy/bg.jpg') 50% 0 repeat;
+    height:800px;
+    padding:0px;
+    margin:0px;
+    position:relative;
+    margin:0 auto;
+    @include background-size(cover);
+    z-index:$section-buy-z;
+
+    .buy-content{
+
+        text-align:center;
+        width:100%;
+        padding:80px 0 0 0;
+        h1{
+            @include body-text(3.0em, #FFFFFF);
+            font-weight:400;
+            letter-spacing: 1px;
+            padding:100px 0 32px 0;
+            width:80%;
+            text-align:center;
+            margin:0 auto;
+        }
+        .store-container{
+            position:absolute;
+            left:50%;
+            .store-btn{
+                //margin:50px auto;
+            }
+
+            .surf-stitch{
+                margin-left:-125px;
+            }
+            .swell{
+                margin-left:25px;
+            }
+        }
+
+    }
+
+}

@@ -30,16 +30,6 @@ define([
 
             _.bindAll(this, "onResize", "onNextComplete");
 
-            // http://tympanus.net/codrops/2012/06/05/fullscreen-slit-slider-with-jquery-and-css3/
-            // var slitslider = $( '#slider' ).slitslider( {
-            //     speed:600,
-            //     translateFactor:230,
-            //     maxAngle:25,
-            //     maxScale: 1,
-            //     autoplay: false,
-            //     keyboard: true
-            // } );
-
             $('.about-nav-arrows .left').on('click', function(){
                 that.previous();
             });
@@ -112,13 +102,6 @@ define([
             $top.css('left', newX + 'px');
         },
 
-        // positionColorSlices: function(){
-        //     var windowWidth = $(window).width(),
-        //         newLeftPos = windowWidth / -2;
-        //     $('.sl-slide-inner').css('left', newLeftPos + 'px');
-        //     $('.sl-slide-inner-2').css('left', newLeftPos + 'px');
-        // },
-
         previous: function(){
 
             this.currIndex--;
@@ -144,15 +127,17 @@ define([
         },
 
         next: function(){
-            var $section = this.sections[this.currIndex],
+            var that = this,
+                $section = this.sections[this.currIndex],
                 $innerTop = $section.find('.sl-slide-inner'),
                 $innerBottom = $section.find('.sl-slide-inner-2'),
                 $content = $section.find('.slice-text');
 
             // animate
-            $innerTop.delay(200).animate({top: '110%'}, 700);
-            $innerBottom.delay(200).animate({top: '-1000px'}, 700, this.onNextComplete);
-            $content.fadeOut(250, 0);
+            $content.fadeOut(250, function(){
+                $innerTop.animate({top: '110%'}, 700);
+                $innerBottom.animate({top: '-1000px'}, 700, that.onNextComplete);
+            });
 
             // handle arrows
             this.currIndex++;

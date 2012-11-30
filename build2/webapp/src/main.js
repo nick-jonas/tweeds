@@ -20,27 +20,33 @@ function($, Handlebars, AppView, NavView, LookbookView, AboutView, ProductsView,
         return productTitle.toUpperCase();
     });
 
+    Handlebars.registerHelper('encode', function(url){
+        return encodeURIComponent(url);
+    });
+
     var that = this,
         appView = new AppView(),
-        lookbookView = new LookbookView(),
         aboutView = new AboutView(),
         productsView = new ProductsView(),
         navView = new NavView(),
-        youngBuff = new YoungBuffalo().initialize(),
-        loaded = false,
-        loadRatio = 0,
-        intervalCount = 0,
+        instagramLoaded = false,
+        loadRatio = 1,
         whiteHeight = 190,
         intervalCount = 1000,
         timeout = 5000, // seconds
+        lastHeight = 190,
+        newHeight = 0,
         interval = setInterval(function(){
-            if(loadRatio < 0.5) {
-                loadRatio += 0.05;
-                var newHeight = (1 - loadRatio) * whiteHeight;
-                $('#preloader-white').stop().animate({'height': newHeight + 'px'}, 300);
+            if(loadRatio > 0.5) {
+                loadRatio -= 0.05;
+                //console.log(loadRatio);
+                newHeight = (loadRatio * whiteHeight);
+
+                $('#preloader-white').animate({height: newHeight + 'px'}, 300);
+                lastHeight = newHeight;
             }
             intervalCount++;
-            if(intervalCount >= timeout){
+            if(window.isLoaded === true){
                 // timeout, load
                 that.animateOutPreloader();
             }
@@ -48,14 +54,16 @@ function($, Handlebars, AppView, NavView, LookbookView, AboutView, ProductsView,
 
     setTimeout(function(){
         var instagramView = new InstagramView();
-        instagramView.bind('loaded', that.onLoaded);
+        //instagramView.bind('loaded', that.onInstagramLoaded);
     }, 100);
 
-    this.onLoaded = function(){
-       that.animateOutPreloader();
-    };
+    // this.onLoaded = function(){
+    //    that.animateOutPreloader();
+    // };
 
     this.animateOutPreloader = function(){
+        var lookbookView = new LookbookView(),
+            youngBuff = new YoungBuffalo().initialize();
         $('#preloader-white').stop();
         clearInterval(interval);
         $('#preloader-white').animate({'height': '0px'}, 600, function(){
