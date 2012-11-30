@@ -50,14 +50,13 @@ $triangleWidth: $triangleHeight / $slope;
 
     .triangle-container{
         position:fixed;
-        width:100%;
         left:50%;
         top:500px;
         margin-left:-$triangleWidth;
         z-index:$young-buffalo-triangle-z;
         opacity:1;
         .triangle{
-            position:fixed;
+            position:absolute;
             .left-tri{
                 width: 0;
                 height: 0;

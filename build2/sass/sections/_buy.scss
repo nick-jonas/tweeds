@@ -20,11 +20,10 @@ section.buy{
             padding:204px 0 32px 0;
         }
         .store-container{
-            position:relative;
-            margin:0 auto;
-            width:100%;
+            position:absolute;
+            left:50%;
             .store-btn{
-                margin:50px auto;
+                //margin:50px auto;
             }
 
             .surf-stitch{

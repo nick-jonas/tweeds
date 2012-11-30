@@ -26,7 +26,13 @@ define([
             var id = $(this).data('link'),
                 currentPos = $(window).scrollTop(),
                 newPos = parseInt($(this).data('position'), 10),
-                dist = Math.abs(newPos - currentPos);
+                dist;
+
+            // if($(window).height() < 1000){
+            //     newPos += 1000 - $(window).height();
+            // }
+
+            dist = Math.abs(newPos - currentPos);
 
             e.preventDefault();
 

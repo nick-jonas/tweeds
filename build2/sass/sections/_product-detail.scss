@@ -17,17 +17,6 @@ $bgTriangleWidth: 150px;
         top:-50%;
         background-color:$product-detail-bg;
         @include rotate(20deg);
-        // > .triangle{
-        //     width: 0;
-        //     height: 0;
-        //     border-top: 400px solid $product-detail-bg;
-        //     border-right: $bgTriangleWidth solid transparent;
-        //     display:block;
-        //     position:absolute;
-        //     top:0px;
-        //     right:0px;// ->>> -$bgTriangleWidth;
-        //     z-index:$product-detail-z + 1;
-        // }
     }
     .right-half{
         width:100%;
@@ -37,19 +26,6 @@ $bgTriangleWidth: 150px;
         top:-50%;
         background-color:$product-detail-bg;
         @include rotate(20deg);
-        // > .triangle{
-        //     width: 0;
-        //     height: 0;
-        //     border-bottom: 400px solid $product-detail-bg;
-        //     border-left: $bgTriangleWidth solid transparent;
-        //     display:block;
-        //     position:absolute;
-        //     left:0;// ->> -$bgTriangleWidth;
-        //     top:50%;
-        //     bottom:0px;
-        //     z-index:$product-detail-z + 1;
-        // }
-
     }
     .close-btn{
         @include sprite(product-detail-close);
@@ -95,7 +71,7 @@ $bgTriangleWidth: 150px;
                 position:relative;
                 float:left;
                 z-index:$product-detail-z + 2;
-                margin:45px 0 0 120px;
+                margin:45px 0 0 100px;
             }
         }
 
@@ -144,6 +120,36 @@ $bgTriangleWidth: 150px;
     &.inverse-color{
         .product-title, .product-description{
             color:white !important;
+        }
+    }
+}
+
+@media screen and (max-width:$bp-product-detail){
+    .product-detail{
+        >.container{
+            top:35%;
+            width:610px;
+            .left-col{
+                position: absolute;
+                margin: 400px 0 0 -40px;
+                left: 50%;
+                .product-title{
+                    margin: 0 auto;
+                }
+                .buy-now{
+                    margin: 45px -52px;
+                    left: 50%;
+                }
+            }
+            .product-shot{
+                width:350px;
+                left:50%;
+                margin-left:-60px;
+            }
+            .product-switcher{
+                top: 160px;
+                right: -20px;
+            }
         }
     }
 }
