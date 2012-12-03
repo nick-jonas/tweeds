@@ -17,6 +17,18 @@ $whiteCircleDiam: 100px;
         }
     }
 
+    &.disabled{
+        cursor:default;
+        opacity:0.75;
+        &:hover{
+            background:#FFF;
+            .label{
+                color:#000;
+            }
+        }
+
+    }
+
     .label{
         color:#000000;
         font-family:$futura;

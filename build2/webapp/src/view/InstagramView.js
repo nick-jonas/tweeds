@@ -19,7 +19,6 @@ define([
         initialize : function(){
             _.bindAll(this, 'onData', 'onPhotoClick', 'showPhotoDetail', 'hidePhotoDetail', 'hidePhotoDetail', 'onKeyup');
             instagramColl = new instagrams();
-            console.dir(instagramColl);
             instagramColl.bind('reset', this.onData);
             instagramColl.fetch();
         },
@@ -38,7 +37,6 @@ define([
 
         showPhotoDetail: function( model ){
             var that = this;
-            console.dir(model.toJSON());
             $('.ig-detail').show().html(tmplDetail({'photo' : model.toJSON()}));
             $('.ig-detail').find('.close').bind('click', this.hidePhotoDetail);
             $('.ig-detail').css('display', 'block');

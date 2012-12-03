@@ -21,6 +21,9 @@
         <script src="assets/js/libs/modernizr.custom.79639.js"></script>
         <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 
+        <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+        <script src="http://vjs.zencdn.net/c/video.js"></script>
+
 	</head>
 
 	<body>
@@ -87,6 +90,8 @@
 
         <!-- LOOKBOOK -->
         <section id="lookbook" class="section lookbook">
+            <div id="video-player"></div>
+            <div id="playbutton" data-src=""><img src="/assets/img/src/lookbook/playbutton.png"/></div>
             <div id="prevslide" class="lookbook-arrow left left-arrow-white"></div>
             <div id="nextslide" class="lookbook-arrow right right-arrow-white"></div>
         </section>
@@ -225,8 +230,8 @@
             <div class="buy-content">
                 <h1>TWEEDS IS AVAILABLE<br/>AT THESE FINE RETAILERS...</h1>
                 <div class="store-container">
-                    <a class="white-circle store-btn surf-stitch" href="http://www.surfstitch.com/brand/tweeds" target="_blank"><span class="label">SURF STICH</span></a>
-                    <a class="white-circle store-btn swell" href="http://www.swell.com/Search?q=tweeds" target="_blank"><span class="label">SWELL .COM</span></a>
+                    <a class="white-circle store-btn surf-stitch" href="http://www.surfstitch.com/eu/en/brand/tweeds" target="_blank"><span class="label">SURF STICH</span></a>
+                    <div class="white-circle store-btn swell disabled"><span class="label">SWELL .COM</span></div>
                 </div>
             </div>
 

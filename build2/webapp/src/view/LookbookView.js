@@ -8,19 +8,22 @@ define([
 
 	var LookbookView = Backbone.View.extend({
 
-		'coll': {},
+		$playButton: $('#playbutton'),
+		$vidPlayer: $('#video-player'),
+		player: null, // video-js object
+		overTimeoutInterval: null,
 
 		initialize: function(){
-			_.bindAll(this, 'reset', 'render', 'onLookData', 'onWindowResize');
-			coll = new lookbooks();
-			coll.bind('reset', this.onLookData);
-			coll.fetch();
+			_.bindAll(this, 'reset', 'render', 'onLookData', 'onWindowResize', 'onSlideChange', 'showVideo', 'hideVideo', 'onVideoPlay', 'onVideoPause', 'onPlayOver', 'onPlayOut', 'onPlayButtonMouseOutTimeout');
+			this.lookbookCollection = new lookbooks();
+			this.lookbookCollection.bind('reset', this.onLookData);
+			this.lookbookCollection.fetch();
 
 			$(window).on('resize', this.onWindowResize);
 		},
 
 		onLookData: function(){
-			var imageData = coll.toJSON();
+			var imageData = this.lookbookCollection.toJSON();
 
 			var $leftLookArrow = $('#prevslide'),
 				$rightLookArrow = $('#nextslide');
@@ -34,10 +37,14 @@ define([
 				api.nextSlide();
 			});
 
+			var vent = _.extend({}, Backbone.Events);
+			vent.on('supersized:onSlideChange', this.onSlideChange);
+
 			$.supersized({
+				'vent'					:  	vent,
 				// Functionality
 				slideshow               :   1,			// Slideshow on/off
-				autoplay				:	1,			// Slideshow starts playing automatically
+				autoplay				:	0,			// Slideshow starts playing automatically
 				start_slide             :   1,			// Start slide (0 is random)
 				stop_loop				:	0,			// Pauses slideshow on last slide
 				random					:	0,			// Randomize slide order (Ignores start slide)
@@ -68,6 +75,95 @@ define([
 			});
 
 			//this.sizeTriangles();
+		},
+
+		onSlideChange: function(index){
+			var model = this.lookbookCollection.at(index).toJSON();
+
+			if(model.video){
+				// show video
+				this.showVideo(model);
+			}else{
+				// hide video
+				this.hideVideo();
+			}
+		},
+
+		showVideo: function( mediaObj ) {
+			var videoObj = mediaObj.video,
+				html = '<video id="' + videoObj.id + '" class="video-js vjs-default-skin" width="' + videoObj.width + '" height="' + videoObj.height + '" preload="auto"><source type="video/mp4" src="' + videoObj.path + '"></video';
+
+			this.$playButton.addClass('active');
+			this.$playButton.data('data-src', videoObj.path);
+			this.$playButton.unbind('click', this.onVideoPause);
+			this.$playButton.bind('click', this.onVideoPlay);
+			this.$playButton.find('img').attr('src', '/assets/img/src/lookbook/playbutton.png');
+
+			if(!this.player){
+				this.$vidPlayer.html(html);
+				this.player = _V_(videoObj.id);
+			}
+			$('html').bind('mouseover', this.onPlayOver);
+			$('html').bind('mouseout', this.onPlayOut);
+		},
+
+		onPlayOver: function(){
+			if(this.overTimeoutInterval){
+				clearTimeout(this.overTimeoutInterval);
+			}
+			// show play button
+			this.$playButton.fadeIn(500);
+		},
+
+		onPlayOut: function(){
+			if(this.overTimeoutInterval){
+				clearTimeout(this.overTimeoutInterval);
+			}
+			this.overTimeoutInterval = setTimeout(this.onPlayButtonMouseOutTimeout, 2000);
+		},
+
+		onPlayButtonMouseOutTimeout: function(){
+			if(this.overTimeoutInterval){
+				clearTimeout(this.overTimeoutInterval);
+			}
+			// hide play button only if video is playing
+			if(this.player){
+				if(!this.player.paused()){
+					this.$playButton.fadeOut(500);
+				}
+			}
+		},
+
+		hideVideo: function() {
+			this.$playButton.removeClass('active');
+			this.$playButton.unbind('click', this.onVideoPause);
+			this.$playButton.unbind('mouseover', this.onPlayOver);
+			if(this.player){
+				this.player.pause();
+			}
+			$('.video-js').css('display', 'none');
+			$('html').unbind('mouseover', this.onPlayOver);
+			$('html').unbind('mouseout', this.onPlayOut);
+		},
+
+		onVideoPlay: function(){
+			if(this.player){
+				this.player.play();
+				this.$playButton.find('img').attr('src', '/assets/img/src/lookbook/pausebutton.png');
+				$('.video-js').css('display', 'block');
+				this.player.play();
+				this.$playButton.unbind('click', this.onVideoPlay);
+				this.$playButton.bind('click', this.onVideoPause);
+			}
+		},
+
+		onVideoPause: function(){
+			if(this.player){
+				this.player.pause();
+				this.$playButton.unbind('click', this.onVideoPause);
+				this.$playButton.bind('click', this.onVideoPlay);
+				this.$playButton.find('img').attr('src', '/assets/img/src/lookbook/playbutton.png');
+			}
 		},
 
 		onWindowResize: function(){

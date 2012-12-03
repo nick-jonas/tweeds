@@ -28,8 +28,6 @@ define([
                 return that.user_ids.indexOf(el.user.id) >= 0;
             });
 
-            console.dir(pics);
-
             return pics;
         }
     });

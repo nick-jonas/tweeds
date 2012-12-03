@@ -6,6 +6,34 @@ section.lookbook{
     position:relative;
     @include background-size(cover);
 
+    .video-js{
+        z-index: 1;
+        position: fixed;
+        width: 100% !important;
+        height: 100% !important;
+        display:none;
+    }
+
+    #playbutton{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        margin: 0px 0 0 -63px;
+        cursor:default;
+        opacity:0;
+        @include single-transition(all, 0.25s ease-out);
+        &.active{
+            @include single-transition(all, 0.25s ease-out);
+            margin: -40px 0 0 -63px;
+            opacity:.7;
+            cursor: pointer;
+            &:hover{
+                opacity:1;
+            }
+        }
+    }
+
     .lookbook-arrow{
         position:fixed;
         top:50%;

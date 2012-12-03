@@ -5,7 +5,8 @@ $preloaderHeight: 300px;
     width:100%;
     height:100%;
     position:fixed;
-    background-color:$preloader-bg;
+    background:black;
+    background:url('../img/src/preloader_bg.png') repeat;
     z-index:$preloader-z;
     display:block;
     .preloader-img{

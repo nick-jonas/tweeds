@@ -61,13 +61,13 @@ $triangleWidth: $triangleHeight / $slope;
             .left-tri{
                 width: 0;
                 height: 0;
-                border-top: $triangleHeightEM solid $young-buffalo-bg;
+                border-top: $triangleHeight solid $young-buffalo-bg;
                 border-left: $triangleWidth solid transparent;
             }
             .right-tri{
                 width: 0;
                 height: 0;
-                border-top: $triangleHeightEM solid $young-buffalo-bg;
+                border-top: $triangleHeight solid $young-buffalo-bg;
                 border-right: $triangleWidth solid transparent;
             }
         }

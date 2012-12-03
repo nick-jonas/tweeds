@@ -474,6 +474,10 @@ define(['jquery'],
 			// Get the slide number of new slide
 			vars.current_slide + 1 == base.options.slides.length ? vars.current_slide = 0 : vars.current_slide++;
 
+			if(api.options.vent){
+				api.options.vent.trigger("supersized:onSlideChange", vars.current_slide);
+			}
+
 		    var nextslide = $(base.el+' li:eq('+vars.current_slide+')'),
 		    	prevslide = base.$el.find('.prevslide');
 
@@ -581,6 +585,10 @@ define(['jquery'],
 
 			// Get current slide number
 			vars.current_slide == 0 ?  vars.current_slide = base.options.slides.length - 1 : vars.current_slide-- ;
+
+			if(api.options.vent){
+				api.options.vent.trigger("supersized:onSlideChange", vars.current_slide);
+			}
 
 		    var nextslide =  $(base.el+' li:eq('+vars.current_slide+')'),
 		    	prevslide =  base.$el.find('.prevslide');

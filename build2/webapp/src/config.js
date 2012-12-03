@@ -17,7 +17,7 @@ require.config({
   paths: {
 
     // Comment out for development
-    main: "main-build",
+    //main: "main-build",
 
     // JavaScript folders.
     libs: "../assets/js/libs",

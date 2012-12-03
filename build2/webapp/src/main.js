@@ -13,17 +13,6 @@ require(
 
 function($, Handlebars, AppView, NavView, LookbookView, AboutView, ProductsView, InstagramView, YoungBuffalo) {
 
-    $('#preloader-white').css('display', 'block');
-    $('.preloader-black').css('display', 'block');
-
-    Handlebars.registerHelper('capitalize', function(productTitle){
-        return productTitle.toUpperCase();
-    });
-
-    Handlebars.registerHelper('encode', function(url){
-        return encodeURIComponent(url);
-    });
-
     var that = this,
         appView = new AppView(),
         aboutView = new AboutView(),
@@ -52,14 +41,36 @@ function($, Handlebars, AppView, NavView, LookbookView, AboutView, ProductsView,
             }
         }, intervalCount);
 
+    // show preloaders
+    $('#preloader-white').css('display', 'block');
+    $('.preloader-black').css('display', 'block');
+
+    // handlebars helpers
+    Handlebars.registerHelper('capitalize', function(productTitle){
+        return productTitle.toUpperCase();
+    });
+    Handlebars.registerHelper('encode', function(url){
+        return encodeURIComponent(url);
+    });
+
+    // check for Safari Bug
+
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.indexOf('safari') != -1){
+        if(ua.indexOf('chrome') > -1){} // chrome
+        else{ // Safari
+            var version = ua.substring(ua.indexOf('version')).split(/[/\s]/)[1];
+            if(parseInt(version.split('.')[0], 10) <= 5){
+                $('#young-buffalo-wear-tweeds .triangle-container .triangle .left-tri').css('border-top', '8191px solid #398c00');
+                $('#young-buffalo-wear-tweeds .triangle-container .triangle .right-tri').css('border-top', '8191px solid #398c00');
+            }
+        }
+    }
+
     setTimeout(function(){
         var instagramView = new InstagramView();
         //instagramView.bind('loaded', that.onInstagramLoaded);
     }, 100);
-
-    // this.onLoaded = function(){
-    //    that.animateOutPreloader();
-    // };
 
     this.animateOutPreloader = function(){
         var lookbookView = new LookbookView(),

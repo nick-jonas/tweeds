@@ -133,10 +133,11 @@ define(
                 $rightSlice.css('left', rightPos + 'px');
 
                 var arrowPoint = $(window).width() * 0.769,
-                    newArrowZIndex = (rightPos < arrowPoint) ? 1 : 2;
+                    newArrowZIndex = (rightPos < arrowPoint) ? 1 : 2,
+                    playButtonZIndex = (rightPos < $(window).width() / 2) ? 1 : 2;
                 $('#lookbook #prevslide').css('z-index', newArrowZIndex);
                 $('#lookbook #nextslide').css('z-index', newArrowZIndex);
-
+                $('#playbutton').css('z-index', playButtonZIndex);
 
                 // position triangle
                 $triangle.css('top', topPos + 'px');

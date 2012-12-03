@@ -14,7 +14,9 @@
 			"title" : "pull-down-pants",
 			"video" : {
 				"id": "surf demo",
-				"path" : "assets/video/surfdemo.mp4"
+				"path" : "assets/video/surfdemo.mp4",
+				"width" : 320,
+				"height": 180
 				},
 			"image" : "/lookbook/Tweeds3.jpg"
 		},

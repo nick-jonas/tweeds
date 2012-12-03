@@ -108,6 +108,7 @@ define([
             switch(id){
                 case 'lookbook':
                     $('#supersized').css('display', 'block');
+                    $('#video-player').css('display', 'block');
                     $('#young-buffalo-wear-tweeds').css('display', 'block');
                     break;
                 case 'products-1':
@@ -132,6 +133,7 @@ define([
             switch(id){
                 case 'lookbook':
                     $('#supersized').css('display', 'none');
+                    $('#video-player').css('display', 'none');
                     $('#young-buffalo-wear-tweeds').css('display', 'none');
                     break;
                 case 'products-1':
