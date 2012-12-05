@@ -436,7 +436,7 @@ define(['jquery'],
 					// Vertically Center
 					if (base.options.vertical_center){
 						//$(this).css('top', (browserheight - $(this).height())/2);
-						$(this).css('top', '0px');
+						$(this).css('top', (browserheight - thisSlide.height()) + 'px');
 					}
 
 				});

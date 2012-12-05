@@ -78,7 +78,7 @@ define(
 
             onWindowResize : function() {
                 var w = $(window).width(),
-                    h = $(window).height(),
+                    h = $(window).height() + (window.outerHeight - window.innerHeight),
                     m = w / 2,
                     newImgWidth = newImgWidth || imgWidth,
                     newImgHeight = newImgHeight || imgHeight,
@@ -87,7 +87,7 @@ define(
                     ratio;
 
                 // size proportionally based on height of screen
-                if(h >= parseInt($imgSlices.css('height'), 10)){
+                if(h >= parseInt($imgSlices.css('height'), 10) || h >= w){
                     newImgHeight = h;
                     $imgSlices.css('height', newImgHeight + 'px');
                     ratio = h / imgHeight;

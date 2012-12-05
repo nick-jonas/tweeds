@@ -7,17 +7,17 @@
 		},
 		{
 			"title" : "sky-ocean",
-			"video" : null,
-			"image" : "/lookbook/Tweeds2.jpg"
-		},
-		{
-			"title" : "pull-down-pants",
 			"video" : {
 				"id": "surf demo",
 				"path" : "assets/video/surfdemo.mp4",
 				"width" : 320,
 				"height": 180
 				},
+			"image" : "/lookbook/Tweeds2.jpg"
+		},
+		{
+			"title" : "pull-down-pants",
+			"video" : null,
 			"image" : "/lookbook/Tweeds3.jpg"
 		},
 		{

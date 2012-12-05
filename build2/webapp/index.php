@@ -35,7 +35,7 @@
             <div id="preloader-white" class="preloader-white"></div>
         </div>
 
-
+        <div class="site-container">
         <div class="main-nav open">
             <div class="nav-content">
                 <div class="logo-text hide-text"><img src="/assets/img/src/logo-typed.png"/></div>
@@ -239,6 +239,8 @@
 
         <!-- INSTAGRAM -->
         <section id="instagram" class="section instagram"></section>
+
+        </div>
 
 
 

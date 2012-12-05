@@ -75,6 +75,10 @@ function($, Handlebars, AppView, NavView, LookbookView, AboutView, ProductsView,
     this.animateOutPreloader = function(){
         var lookbookView = new LookbookView(),
             youngBuff = new YoungBuffalo().initialize();
+
+        $('.site-container').css('display', 'inherit');
+        $('.store-container').css('display', 'inherit');
+
         $('#preloader-white').stop();
         clearInterval(interval);
         $('#preloader-white').animate({'height': '0px'}, 600, function(){
