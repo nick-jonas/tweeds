@@ -26,11 +26,8 @@ section.lookbook{
         &.active{
             @include single-transition(all, 0.25s ease-out);
             margin: -40px 0 0 -63px;
-            opacity:.7;
+            opacity:1;
             cursor: pointer;
-            &:hover{
-                opacity:1;
-            }
         }
     }
 

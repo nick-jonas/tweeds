@@ -10,11 +10,13 @@ define([
 
 		$playButton: $('#playbutton'),
 		$vidPlayer: $('#video-player'),
+		$btnImg: $('#playbutton img'),
 		player: null, // video-js object
 		overTimeoutInterval: null,
+		isPlaying: false,
 
 		initialize: function(){
-			_.bindAll(this, 'reset', 'render', 'onLookData', 'onWindowResize', 'onSlideChange', 'showVideo', 'hideVideo', 'onVideoPlay', 'onVideoPause', 'onPlayOver', 'onPlayOut', 'onPlayButtonMouseOutTimeout');
+			_.bindAll(this, 'reset', 'render', 'onLookData', 'onWindowResize', 'onSlideChange', 'showVideo', 'hideVideo', 'onVideoPlay', 'onVideoPause', 'onPlayOver', 'onPlayOut', 'onPlayButtonMouseOutTimeout', 'onButtonOver', 'onButtonOut');
 			this.lookbookCollection = new lookbooks();
 			this.lookbookCollection.bind('reset', this.onLookData);
 			this.lookbookCollection.fetch();
@@ -97,7 +99,7 @@ define([
 			this.$playButton.data('data-src', videoObj.path);
 			this.$playButton.unbind('click', this.onVideoPause);
 			this.$playButton.bind('click', this.onVideoPlay);
-			this.$playButton.find('img').attr('src', '/assets/img/src/lookbook/playbutton.png');
+			this.$btnImg.attr('src', '/assets/img/src/lookbook/playbutton.png');
 
 			if(!this.player){
 				this.$vidPlayer.html(html);
@@ -105,6 +107,24 @@ define([
 			}
 			$('html').bind('mouseover', this.onPlayOver);
 			$('html').bind('mouseout', this.onPlayOut);
+			this.$playButton.bind('mouseover', this.onButtonOver);
+			this.$playButton.bind('mouseout', this.onButtonOut);
+		},
+
+		onButtonOver: function(){
+			if(this.isPlaying){
+				this.$btnImg.attr('src', '/assets/img/src/lookbook/pausebutton_over.png');
+			}else{
+				this.$btnImg.attr('src', '/assets/img/src/lookbook/playbutton_over.png');
+			}
+		},
+
+		onButtonOut: function(){
+			if(this.isPlaying){
+				this.$btnImg.attr('src', '/assets/img/src/lookbook/pausebutton.png');
+			}else{
+				this.$btnImg.attr('src', '/assets/img/src/lookbook/playbutton.png');
+			}
 		},
 
 		onPlayOver: function(){
@@ -135,6 +155,7 @@ define([
 		},
 
 		hideVideo: function() {
+			this.isPlaying = false;
 			this.$playButton.removeClass('active');
 			this.$playButton.unbind('click', this.onVideoPause);
 			this.$playButton.unbind('mouseover', this.onPlayOver);
@@ -148,8 +169,9 @@ define([
 
 		onVideoPlay: function(){
 			if(this.player){
+				this.isPlaying = true;
 				this.player.play();
-				this.$playButton.find('img').attr('src', '/assets/img/src/lookbook/pausebutton.png');
+				this.$btnImg.attr('src', '/assets/img/src/lookbook/pausebutton.png');
 				$('.video-js').css('display', 'block');
 				this.player.play();
 				this.$playButton.unbind('click', this.onVideoPlay);
@@ -159,10 +181,11 @@ define([
 
 		onVideoPause: function(){
 			if(this.player){
+				this.isPlaying = false;
 				this.player.pause();
 				this.$playButton.unbind('click', this.onVideoPause);
 				this.$playButton.bind('click', this.onVideoPlay);
-				this.$playButton.find('img').attr('src', '/assets/img/src/lookbook/playbutton.png');
+				this.$btnImg.attr('src', '/assets/img/src/lookbook/playbutton.png');
 			}
 		},
 

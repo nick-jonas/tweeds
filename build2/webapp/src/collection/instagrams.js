@@ -24,9 +24,9 @@ define([
             var pics = res.data,
                 that = this;
 
-            pics = pics.filter(function(el){
-                return that.user_ids.indexOf(el.user.id) >= 0;
-            });
+            // pics = pics.filter(function(el){
+            //     return that.user_ids.indexOf(el.user.id) >= 0;
+            // });
 
             return pics;
         }
